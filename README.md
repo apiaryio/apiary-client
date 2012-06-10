@@ -1,4 +1,6 @@
-client
-======
+Apiary client
+===============
 
-Apiary client for Apiary API
+This will be CLI for Apiary API.
+
+Please wait a while until it's useful.
