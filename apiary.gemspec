@@ -3,7 +3,7 @@ $:.unshift File.expand_path("../lib", __FILE__)
 require "apiary/version"
 
 Gem::Specification.new do |gem|
-  gem.name    = "apiary"
+  gem.name    = "apiaryio"
   gem.version = Apiary::VERSION
 
   gem.author      = "Apiary Ltd."
