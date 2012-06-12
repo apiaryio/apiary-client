@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+begin
+  require "pathname"
+  bin_file = Pathname.new(__FILE__).realpath
+
+  $:.unshift File.expand_path("../../lib", bin_file)
+
+  require "apiary/cli"
+  Apiary::CLI.start(*ARGV)
+rescue Interrupt
+  puts("\n Cancelled.")
+end

@@ -1,0 +1,27 @@
+require "apiary/commands/base"
+
+# Display preview of local blueprint file
+#
+class Apiary::Command::Preview < Apiary::Command::Base
+
+  # preview
+  #
+  # Launch web browser and display preview of local blueprint file
+  #
+  def index
+
+    api_server = ENV['APIARY_API_HOST'] || "api.apiary.io"
+    require 'launchy'
+    require 'rest_client'
+
+    headers  = {:accept => "text/html",:content_type => "text/plain"}
+    response = RestClient.post "https://#{api_server}/blueprint/generate", IO.read('apiary.apib'), headers
+
+    aFile = File.new("/tmp/apiarypreview.html", "w")
+    aFile.write(response)
+    aFile.close
+
+    Launchy.open("file:///tmp/apiarypreview.html")
+  end
+
+end
