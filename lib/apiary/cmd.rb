@@ -46,10 +46,10 @@ module Apiary
     end
 
 
-	def self.run(cmd, arguments = [])
+	  def self.run(cmd, arguments = [])
       object, method = prepare_run(cmd, arguments.dup)
       object.send(method)
-	rescue CommandFailed => e
+	  rescue CommandFailed => e
       error e.message
     rescue OptionParser::ParseError
       commands[cmd] ? run("help", [cmd]) : run("help")
