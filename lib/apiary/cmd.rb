@@ -5,6 +5,7 @@
 module Apiary
   module Command
     class CommandFailed  < RuntimeError; end
+
     def self.commands
       @@commands ||= {}
     end
@@ -37,7 +38,7 @@ module Apiary
       end
 
       # add args, opts
-      [ command[:klass].new(), command[:method] ]
+      [command[:klass].new(), command[:method]]
     end
 
     def self.register_command(command)
@@ -45,7 +46,7 @@ module Apiary
     end
 
 
-	def self.run(cmd, arguments=[])
+	def self.run(cmd, arguments = [])
       object, method = prepare_run(cmd, arguments.dup)
       object.send(method)
 	rescue CommandFailed => e
