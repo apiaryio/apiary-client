@@ -5,7 +5,6 @@
 module Apiary
   module Command
     class CommandFailed  < RuntimeError; end
-
     def self.commands
       @@commands ||= {}
     end
