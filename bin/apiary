@@ -10,5 +10,4 @@ begin
   require "apiary/cli"
   Apiary::CLI.start(*ARGV)
 rescue Interrupt
-  puts("\n Cancelled.")
 end
