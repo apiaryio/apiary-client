@@ -23,4 +23,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "rest-client", "~> 1.6.1"
   gem.add_dependency "launchy",     ">= 0.3.2"
+
+  gem.post_install_message = "This gem is a client for http://apiary.io. Apiary is in closed beta version now, you need an invitation. If you don't have one, visit http://apiary.us2.list-manage.com/subscribe?u=b89934a238dcec9533f4a834a&id=08f2bdde55 to get on the waiting list!"
 end
