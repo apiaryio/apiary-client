@@ -56,8 +56,7 @@ module Apiary
     end
 
     def self.error(message)
-      $stderr.puts(message)
-      exit(1)
+      abort(message)
     end
   end
 end
