@@ -3,7 +3,7 @@
 
 project_root = File.dirname(__FILE__)
 
-$:.unshift(File.expand_path(File.join(project_root, "..")))
+$:.unshift(File.expand_path(File.join(project_root, "lib")))
 
 require "apiary/version"
 
