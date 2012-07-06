@@ -1,7 +1,9 @@
 #!/usr/bin/env gem build
 # encoding: utf-8
 
-$:.unshift File.expand_path("../lib", __FILE__)
+project_root = File.dirname(__FILE__)
+
+$:.unshift(File.expand_path(File.join(project_root, "..")))
 
 require "apiary/version"
 
