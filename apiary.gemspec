@@ -21,6 +21,7 @@ Gem::Specification.new do |gem|
 
   gem.files = Dir.glob("#{project_root}/{lib,spec,apiary.gemspec,Gemfile,README.md,LICENSE}/**/*")
 
+  gem.add_dependency "nake"
   gem.add_dependency "rest-client", "~> 1.6.1"
   gem.add_dependency "launchy",     ">= 0.3.2"
 
