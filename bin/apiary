@@ -11,4 +11,17 @@ unless $LOAD_PATH.include?(lib_directory)
   $LOAD_PATH.unshift(lib_directory)
 end
 
-require "apiary"
+require "nake"
+require "apiary/commands/preview"
+
+Nake.verbose = false
+
+Nake.args["-H", "--help"] = lambda do |*|
+  puts
+
+  Nake::Task.tasks.each do |name, task|
+    puts "#{File.basename(__FILE__)} #{name} # #{task.description}"
+  end
+
+  exit
+end
