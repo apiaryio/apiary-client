@@ -62,6 +62,10 @@ Nake::Task.new(:preview) do |task|
     end
 
     Rack::Server.start(Port: port, app: app)
+  rescue LoadError
+    puts "If you want to run the server, you need rack."
+    puts "gem install rack"
+    exit 1
   end
 
   def preview_path(apib_path)
