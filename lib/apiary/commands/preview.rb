@@ -12,7 +12,7 @@
 
 require "rest_client"
 
-Task.new(:preview) do |task|
+Nake::Task.new(:preview) do |task|
   task.description = "Display preview of local blueprint file"
 
   # Configuration.
