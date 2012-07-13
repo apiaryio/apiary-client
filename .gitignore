@@ -11,6 +11,7 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+/*.apib
 
 # YARD artifacts
 .yardoc
@@ -19,4 +20,4 @@ doc/
 
 
 .DS_STORE
-
+Gemfile.lock
