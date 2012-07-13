@@ -63,8 +63,9 @@ Nake::Task.new(:preview) do |task|
 
     Rack::Server.start(Port: port, app: app)
   rescue LoadError
-    puts "If you want to run the server, you need rack."
-    puts "gem install rack"
+    puts "If you want to run the server, you need rack:"
+    puts
+    puts "  gem install rack"
     exit 1
   end
 
