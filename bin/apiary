@@ -29,6 +29,10 @@ end
 # Fuck you RubyGems. The fucking shebang says nake,
 # are you fucking blind or what??? Fuck Windows too!
 unless File.basename($0) == "nake"
+  # Not using the shebang results in different ARGV.
+  ARGV.unshift("./bin/apiary")
+
+  # This code is not cool. I have to finish nake first.
   begin
     #Nake.run(ARGV)
 
