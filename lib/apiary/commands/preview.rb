@@ -40,7 +40,7 @@ Nake::Task.new(:preview) do |task|
   end
 
   def browser(options)
-    BROWSERS[options[:browser]] || options[:browser] || BROWSERS[self.config[:browser]] || self.config[:browser]
+    BROWSERS[options[:browser].to_sym] || options[:browser] || BROWSERS[self.config[:browser]] || self.config[:browser]
   end
 
   def api_host(options)
