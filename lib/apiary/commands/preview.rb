@@ -4,7 +4,7 @@
 #   apiary preview
 #   apiary preview my_apib_file.apib
 #   apiary preview [my_apib_file.apib] --api_host=api.apiary.io
-#   apiary preview [my_apib_file.apib] --browser=Safari
+#   apiary preview [my_apib_file.apib] --browser=chrome
 #   apiary preview [my_apib_file.apib] --server
 #   apiary preview [my_apib_file.apib] --server --port=8010
 
@@ -13,6 +13,12 @@
 require "rest_client"
 
 Nake::Task.new(:preview) do |task|
+  BROWSERS ||= {
+    safari: "Safari",
+    chrome: "Google Chrome",
+    firefox: "Firefox"
+  }
+
   task.description = "Display preview of local blueprint file"
 
   # Configuration.
@@ -34,7 +40,7 @@ Nake::Task.new(:preview) do |task|
   end
 
   def browser(options)
-    options[:browser] || self.config[:browser]
+    BROWSERS[options[:browser]] || options[:browser] || BROWSERS[self.config[:browser]] || self.config[:browser]
   end
 
   def api_host(options)
