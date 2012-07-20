@@ -25,3 +25,27 @@ Nake.args["-H", "--help"] = lambda do |*|
 
   exit
 end
+
+# Fuck you RubyGems. The fucking shebang says nake,
+# are you fucking blind or what??? Fuck Windows too!
+unless File.basename($0) == "nake"
+  begin
+    #Nake.run(ARGV)
+
+    begin
+      Nake.run_task
+    rescue Nake::TaskNotFound => exception
+      abort exception.message
+    rescue SystemExit => exception
+      exit exception.status
+    rescue Exception => exception
+      require "nake/helpers"
+      print_exception_with_backtrace_and_abort(exception)
+    end
+
+    # exit with exit status of the last command
+    exit $? ? $?.exitstatus : 0
+  rescue Nake::TaskNotFound => exception
+    abort "[#{"ERROR".red}] #{exception.message}"
+  end
+end
