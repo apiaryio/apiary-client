@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.name    = "apiaryio"
   gem.version = Apiary::VERSION
 
-  gem.author      = "Apiary Ltd."
+  gem.authors     = ["Apiary Ltd.", "James C Russell aka botanicus"]
   gem.email       = "team@apiary.io"
   gem.homepage    = "http://apiary.io/"
   gem.summary     = "Apiary.io API client"
