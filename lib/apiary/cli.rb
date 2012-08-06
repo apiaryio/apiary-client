@@ -1,4 +1,9 @@
-class Apiary::Cli
+require 'optparse'
+
+class Apiary::CLI
+
+  attr_reader   :args
+  attr_reader   :options
 
   def initialize(args=[])
     @args = args
@@ -9,14 +14,21 @@ class Apiary::Cli
     new(args).run
   end
 
-  def parse_options!(args)
-    options_parser = OptionsParser.new do |opts|
-      opts.banner = "\nAvailable options:\n\n"
-
-      opts.on("--preview")  {}
-      opts.on("--server")   { @options[:port] = 8080 }
-    end
-    @args = options_parser.parse!(@args)
-    puts("ARGS: #{@args.inspect}")
+  def run
+    @args << '-h' if @args.empty?
+    parse_options!(@args)
   end
+
+  def parse_options!(args)
+    options_parser = OptionParser.new do |opts|
+      opts.banner = "\nUsage: apiary command [options]\n\n"
+
+      opts.on("--preview", 'Show API documentation in a browser') {}
+      opts.on("--server", 'Start a web server on port 8080')      { @options[:port] = 8080 }
+      opts.on('-v', '--version', 'Display the version')           { puts Apiary::VERSION }
+      opts.on( '-h', '--help', 'Display this screen' )            { puts opts; exit }
+   end
+   @args = options_parser.parse!(@args)
+  end
+
 end

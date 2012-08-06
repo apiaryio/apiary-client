@@ -1,5 +1,5 @@
 require "apiary/version"
+require "apiary/cli"
 
 module Apiary
-  # Your code goes here...
 end
