@@ -1,11 +1,11 @@
-apiary
+apiaryio
 =============
 
 Apiary.io CLI
 
 ## Disclaimer
 
-This gem is not the official Apiary gem and is under development. You can find the
+This gem is not the official apiaryio gem and is under development. You can find the
 official gem from Apiary at https://rubygems.org/gems/apiaryio
 
 ## Requirements
