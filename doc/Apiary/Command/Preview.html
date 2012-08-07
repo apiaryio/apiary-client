@@ -6,7 +6,7 @@
 <title>
   Class: Apiary::Command::Preview
   
-    &mdash; Documentation by YARD 0.7.5
+    &mdash; Documentation by YARD 0.8.2.1
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '../..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../../_index.html">Index (P)</a> &raquo; 
+    <a href="../../_index.html">Index (P)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../Apiary.html" title="Apiary (module)">Apiary</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Command.html" title="Apiary::Command (module)">Command</a></span></span>
      &raquo; 
     <span class="title">Preview</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Apiary::Command::Preview
   
   
@@ -121,7 +128,10 @@ Display preview of local blueprint file
   </span>
   
   
-    <span class="note title readonly">readonly</span>
+  
+    
+      <span class="note title readonly">readonly</span>
+    
     
   
   
@@ -165,6 +175,7 @@ Returns the value of attribute options.
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -195,6 +206,7 @@ Returns the value of attribute options.
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -210,6 +222,7 @@ Returns the value of attribute options.
 
     
   </span>
+  
   
   
   
@@ -237,6 +250,7 @@ Returns the value of attribute options.
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -247,11 +261,12 @@ Returns the value of attribute options.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#generate_static-instance_method" title="#generate_static (instance method)">- (Object) <strong>generate_static</strong>(apib_path, options) </a>
+      <a href="#generate_static-instance_method" title="#generate_static (instance method)">- (Object) <strong>generate_static</strong>(apib_path) </a>
     
 
     
   </span>
+  
   
   
   
@@ -273,6 +288,7 @@ Returns the value of attribute options.
 
     
   </span>
+  
   
     <span class="note title constructor">constructor</span>
   
@@ -305,9 +321,13 @@ A new instance of Preview.
   
   
   
+  
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+TODO: add linux and windows systems.
+</p>
+</div></span>
   
 </li>
 
@@ -320,6 +340,7 @@ A new instance of Preview.
 
     
   </span>
+  
   
   
   
@@ -347,6 +368,7 @@ A new instance of Preview.
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -362,6 +384,7 @@ A new instance of Preview.
 
     
   </span>
+  
   
   
   
@@ -389,6 +412,7 @@ A new instance of Preview.
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -399,11 +423,12 @@ A new instance of Preview.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#run_server-instance_method" title="#run_server (instance method)">- (Object) <strong>run_server</strong>(options) </a>
+      <a href="#run_server-instance_method" title="#run_server (instance method)">- (Object) <strong>run_server</strong> </a>
     
 
     
   </span>
+  
   
   
   
@@ -431,6 +456,7 @@ A new instance of Preview.
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -446,6 +472,7 @@ A new instance of Preview.
 
     
   </span>
+  
   
   
   
@@ -473,6 +500,7 @@ A new instance of Preview.
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -487,13 +515,15 @@ A new instance of Preview.
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
-  <p class="signature first" id="initialize-instance_method">
+  <h3 class="signature first" id="initialize-instance_method">
   
     - (<tt><span class='object_link'><a href="" title="Apiary::Command::Preview (class)">Preview</a></span></tt>) <strong>initialize</strong>(args) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     <p>
 A new instance of Preview
@@ -527,7 +557,7 @@ A new instance of Preview
   <span class='ivar'>@options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:apib_path</span><span class='rbracket'>]</span>   <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>apiary.apib</span><span class='tstring_end'>&quot;</span></span>
   <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:api_host</span><span class='rbracket'>]</span>    <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>api.apiary.io</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:headers</span><span class='rbracket'>]</span>     <span class='op'>=</span> <span class='lbrace'>{</span><span class='label'>accept:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/html</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>content_type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/plain</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
+  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:headers</span><span class='rbracket'>]</span>     <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:accept</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/html</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:content_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/plain</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
   <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span>        <span class='op'>=</span> <span class='int'>8080</span>
   <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span> <span class='id identifier rubyid_args'>args</span>
 <span class='kw'>end</span></pre>
@@ -543,15 +573,16 @@ A new instance of Preview
     
       
       <span id=""></span>
-      <span id="options-instance_method"></span>
       <div class="method_details first">
-  <p class="signature first" id="options-instance_method">
+  <h3 class="signature first" id="options-instance_method">
   
     - (<tt>Object</tt>) <strong>options</strong>  <span class="extras">(readonly)</span>
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     <p>
 Returns the value of attribute options
@@ -589,16 +620,18 @@ Returns the value of attribute options
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="execute-class_method">
+  <h3 class="signature first" id="execute-class_method">
   
     + (<tt>Object</tt>) <strong>execute</strong>(args) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -623,16 +656,18 @@ Returns the value of attribute options
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="api_host-instance_method">
+  <h3 class="signature first" id="api_host-instance_method">
   
     - (<tt>Object</tt>) <strong>api_host</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -654,13 +689,15 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="apib_path-instance_method">
+  <h3 class="signature " id="apib_path-instance_method">
   
     - (<tt>Object</tt>) <strong>apib_path</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -682,13 +719,15 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="browser-instance_method">
+  <h3 class="signature " id="browser-instance_method">
   
     - (<tt>Object</tt>) <strong>browser</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -710,29 +749,31 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="generate_static-instance_method">
+  <h3 class="signature " id="generate_static-instance_method">
   
-    - (<tt>Object</tt>) <strong>generate_static</strong>(apib_path, options) 
+    - (<tt>Object</tt>) <strong>generate_static</strong>(apib_path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+91
+92
+93
 94
 95
-96
-97
-98
-99</pre>
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 91</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_generate_static'>generate_static</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_generate_static'>generate_static</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
   <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_preview_path'>preview_path</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
     <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='id identifier rubyid_api_host'>api_host</span><span class='comma'>,</span> <span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_open_generated_page'>open_generated_page</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -744,24 +785,38 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="open_generated_page-instance_method">
+  <h3 class="signature " id="open_generated_page-instance_method">
   
     - (<tt>Object</tt>) <strong>open_generated_page</strong>(path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+TODO: add linux and windows systems
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-90
-91
-92</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_open_generated_page'>open_generated_page</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exec'>exec</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>open </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_browser_options'>browser_options</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -772,13 +827,15 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="port-instance_method">
+  <h3 class="signature " id="port-instance_method">
   
     - (<tt>Object</tt>) <strong>port</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -800,25 +857,27 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="preview_path-instance_method">
+  <h3 class="signature " id="preview_path-instance_method">
   
     - (<tt>Object</tt>) <strong>preview_path</strong>(apib_path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-79
-80
-81
-82</pre>
+75
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_preview_path'>preview_path</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_basename'>basename</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
@@ -830,26 +889,28 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="query_apiary-instance_method">
+  <h3 class="signature " id="query_apiary-instance_method">
   
     - (<tt>Object</tt>) <strong>query_apiary</strong>(host, apib_path) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-84
-85
-86
-87
-88</pre>
+80
+81
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>/blueprint/generate</span><span class='tstring_end'>&quot;</span></span>
@@ -862,13 +923,15 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="rack_app-instance_method">
+  <h3 class="signature " id="rack_app-instance_method">
   
     - (<tt>Object</tt>) <strong>rack_app</strong>(&amp;block) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -894,13 +957,15 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="run_server-instance_method">
+  <h3 class="signature " id="run_server-instance_method">
   
-    - (<tt>Object</tt>) <strong>run_server</strong>(options) 
+    - (<tt>Object</tt>) <strong>run_server</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -912,25 +977,17 @@ Returns the value of attribute options
 70
 71
 72
-73
-74
-75
-76
-77</pre>
+73</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 67</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_run_server'>run_server</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_run_server'>run_server</span>
   <span class='id identifier rubyid_app'>app</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rack_app'>rack_app</span> <span class='kw'>do</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='id identifier rubyid_api_host'>api_host</span><span class='comma'>,</span> <span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='symbol'>:port</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='symbol'>:app</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_app'>app</span><span class='rparen'>)</span>
-<span class='kw'>rescue</span> <span class='const'>LoadError</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>If you want to run the server, you need to install Rack:\n</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>   gem install rack</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_exit'>exit</span> <span class='int'>1</span>
+  <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='symbol'>:Port</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='symbol'>:app</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_app'>app</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -938,13 +995,15 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="server-instance_method">
+  <h3 class="signature " id="server-instance_method">
   
     - (<tt>Object</tt>) <strong>server</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -958,7 +1017,7 @@ Returns the value of attribute options
       <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_server'>server</span>
-  <span class='id identifier rubyid_run_server'>run_server</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_run_server'>run_server</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -966,13 +1025,15 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="show-instance_method">
+  <h3 class="signature " id="show-instance_method">
   
     - (<tt>Object</tt>) <strong>show</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -986,7 +1047,7 @@ Returns the value of attribute options
       <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
-  <span class='id identifier rubyid_generate_static'>generate_static</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='comma'>,</span> <span class='ivar'>@options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_generate_static'>generate_static</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -994,13 +1055,15 @@ Returns the value of attribute options
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="validate_apib_file-instance_method">
+  <h3 class="signature " id="validate_apib_file-instance_method">
   
     - (<tt>Object</tt>) <strong>validate_apib_file</strong>(apib_file) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1028,11 +1091,11 @@ Returns the value of attribute options
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Tue Aug  7 16:19:54 2012 by 
+  Generated on Tue Aug  7 17:58:18 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.2.1 (ruby-1.9.2).
 </div>
 
   </body>

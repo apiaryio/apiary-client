@@ -29,11 +29,11 @@ module Apiary
       end
 
       def server
-        run_server(@options)
+        run_server
       end
 
       def show
-        generate_static(apib_path, @options)
+        generate_static(apib_path)
       end
 
       def validate_apib_file(apib_file)
@@ -64,7 +64,7 @@ module Apiary
         end
       end
 
-      def run_server(options)
+      def run_server
         app = self.rack_app do
           self.query_apiary(api_host, apib_path)
         end
@@ -88,7 +88,7 @@ module Apiary
         exec "open #{browser_options} #{path}"
       end
 
-      def generate_static(apib_path, options)
+      def generate_static(apib_path)
         File.open(preview_path(apib_path), "w") do |file|
           file.write(query_apiary(api_host, apib_path))
           open_generated_page(file.path)

@@ -41,11 +41,11 @@ module Apiary
           options[:port] = port
         end
 
-        opts.on('-v', '--version', 'Display the version') do
+        opts.on('-v', '--version') do
           @command = :version
         end
 
-        opts.on( '-h', '--help', 'Display help') do
+        opts.on( '-h', '--help') do
           @command = :help
         end
       end
