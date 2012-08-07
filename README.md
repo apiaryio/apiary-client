@@ -8,24 +8,34 @@ Apiary.io CLI
 This gem is not the official Apiary gem and is under development. You can find the
 official gem from Apiary at https://rubygems.org/gems/apiaryio
 
+## Requirements
+
+Ruby 1.9.x
+
 ## Description
 
-Apiary provides a way to see your API documentation on your local
-machine
+Apiaryio gem provides a way to display your API documentation on your local
+machine, either using static files or using a standalone web server
 
 ## Usage
 
     $ apiary help
 
-    Apiary comamnd line interface
-
     Usage: apiary command [options]
+    Try 'apiary help' for more information.
 
-    apiary preview
-    apiary preview [my_apib_file.apib] --api_host=api.apiary.io
-    apiary preview [my_apib_file.apib] --browser=chrome
-    apiary preview [my_apib_file.apib] --server
-    apiary preview [my_apib_file.apib] --server --port=8010
+    Currently available apiary commands are:
+
+      preview                                     Show API documentation in default browser
+      preview --browser [chrome|safari|firefox]   Show API documentation in specified browser
+      preview --path [PATH]                       Specify path to blueprint file
+      preview --api_host [HOST]                   Specify apiary host
+      preview --server                            Start standalone web server on port 8080
+      preview --server --port [PORT]              Start standalone web server on specified port
+
+      help                                        Show help
+
+      version                                     Show version
 
 ## Copyright
 

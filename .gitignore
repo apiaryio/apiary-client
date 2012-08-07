@@ -5,5 +5,5 @@
 /coverage
 /pkg
 /rdoc
-/doc
 /vendor
+!/doc

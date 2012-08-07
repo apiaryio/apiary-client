@@ -1,1 +1,2 @@
 require 'rspec'
+require 'apiary'
