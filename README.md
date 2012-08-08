@@ -35,7 +35,14 @@ machine, either using static files or using a standalone web server
 
 ## Copyright
 
-Copyright 2012 (c) Emili Parreño
+Copyright 2012 (c) Apiary Ltd.
+
+## Contributors
+
+- Jakub Nešetřil
+- James Charles Russell
+- Lukáš Linhart
+- Emili Parreño
 
 ## License
 

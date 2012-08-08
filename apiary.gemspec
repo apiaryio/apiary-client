@@ -2,8 +2,8 @@
 require File.expand_path('../lib/apiary/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Emili Parreno"]
-  gem.email         = ["emili@eparreno.com"]
+  gem.authors       = ["Apiary Ltd."]
+  gem.email         = ["team@apiary.io"]
   gem.description   = %q{Apiary.io CLI}
   gem.summary       = %q{Apiary.io CLI}
   gem.homepage      = "http://apiary.io"
