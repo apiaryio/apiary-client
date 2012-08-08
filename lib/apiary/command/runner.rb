@@ -5,7 +5,7 @@ module Apiary
     class Runner
 
       def self.run(cmd, options)
-        Apiary::Command.const_get(cmd.capitalize).send(:execute, options)
+        Apiary::Command.const_get(cmd.to_s.capitalize).send(:execute, options)
       end
 
     end
