@@ -1,9 +1,7 @@
+require 'rubygems'
 require "apiary/version"
 require "apiary/cli"
-require 'apiary/command/runner'
-require 'apiary/command/preview'
-require 'apiary/command/help'
-require 'apiary/command/version'
+Dir["#{File.dirname(__FILE__)}/apiary/command/*.rb"].each { |f| require(f) }
 
 module Apiary
 end

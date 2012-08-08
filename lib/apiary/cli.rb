@@ -1,6 +1,5 @@
 # encoding: utf-8
 require 'optparse'
-
 module Apiary
   class CLI
 

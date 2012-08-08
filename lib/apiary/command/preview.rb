@@ -1,13 +1,12 @@
 # encoding: utf-8
-require "rest_client"
-require "rack"
-
+require 'rest_client'
+require 'rack'
 module Apiary
   module Command
     # Display preview of local blueprint file
     class Preview
 
-      BROWSERS ||= {
+      BROWSERS = {
         :safari => "Safari",
         :chrome => "Google Chrome",
         :firefox => "Firefox"

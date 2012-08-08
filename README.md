@@ -8,10 +8,6 @@ Apiary.io CLI
 This gem is not the official apiaryio gem and is under development. You can find the
 official gem from Apiary at https://rubygems.org/gems/apiaryio
 
-## Requirements
-
-Ruby 1.9.x
-
 ## Description
 
 Apiaryio gem provides a way to display your API documentation on your local
