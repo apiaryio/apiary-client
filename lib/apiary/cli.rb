@@ -11,7 +11,7 @@ module Apiary
     end
 
     def run(args, options)
-      command = args.first
+      command = args.first || :help
       command = @command if @command
       Apiary::Command::Runner.run(command, options)
     end
