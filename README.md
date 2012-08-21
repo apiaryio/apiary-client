@@ -6,7 +6,7 @@ Apiary.io CLI
 ## Description
 
 Apiaryio gem provides a way to display your API documentation on your local
-machine, either using static files or using a standalone web server
+machine, either using static files or using a standalone web server...
 
 ## Usage
 
