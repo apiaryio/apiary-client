@@ -1,6 +1,8 @@
 # encoding: utf-8
 require 'rest_client'
 require 'rack'
+require 'ostruct'
+
 module Apiary
   module Command
     # Display preview of local blueprint file
@@ -14,13 +16,13 @@ module Apiary
 
       attr_reader :options
 
-      def initialize(args)
-        @options = {}
-        @options[:apib_path]   = "apiary.apib"
-        @options[:api_host]    = "api.apiary.io"
-        @options[:headers]     = {:accept => "text/html", :content_type => "text/plain"}
-        @options[:port]        = 8080
-        @options.merge! args
+      # TODO: use OpenStruct to store @options
+      def initialize(opts)
+        @options = OpenStruct.new(opts)
+        @options.path         ||= "apiary.apib"
+        @options.api_host     ||= "api.apiary.io"
+        @options.headers      ||= {:accept => "text/html", :content_type => "text/plain"}
+        @options.port         ||= 8080
       end
 
       def self.execute(args)
@@ -32,7 +34,7 @@ module Apiary
       end
 
       def show
-        generate_static(apib_path)
+        generate_static(path)
       end
 
       def validate_apib_file(apib_file)
@@ -41,20 +43,12 @@ module Apiary
         end
       end
 
-      def apib_path
-        @options[:apib_path] || "#{File.basename(Dir.pwd)}.apib"
+      def path
+        @options.path || "#{File.basename(Dir.pwd)}.apib"
       end
 
       def browser
-        BROWSERS[@options[:browser]]  || nil
-      end
-
-      def api_host
-        @options[:api_host]
-      end
-
-      def port
-        @options[:port]
+        BROWSERS[@options.browser]  || nil
       end
 
       def rack_app(&block)
@@ -65,21 +59,21 @@ module Apiary
 
       def run_server
         app = self.rack_app do
-          self.query_apiary(api_host, apib_path)
+          self.query_apiary(@options.api_host, @options.path)
         end
 
-        Rack::Server.start(:Port => port, :app => app)
+        Rack::Server.start(:Port => @options.port, :app => app)
       end
 
-      def preview_path(apib_path)
-        basename = File.basename(apib_path)
+      def preview_path(path)
+        basename = File.basename(@options.path)
         "/tmp/#{basename}-preview.html"
       end
 
-      def query_apiary(host, apib_path)
+      def query_apiary(host, path)
         url  = "https://#{host}/blueprint/generate"
-        data = File.read(apib_path)
-        RestClient.post(url, data, @options[:headers])
+        data = File.read(path)
+        RestClient.post(url, data, @options.headers)
       end
 
       # TODO: add linux and windows systems
@@ -87,16 +81,16 @@ module Apiary
         exec "open #{browser_options} #{path}"
       end
 
-      def generate_static(apib_path)
-        File.open(preview_path(apib_path), "w") do |file|
-          file.write(query_apiary(api_host, apib_path))
+      def generate_static(path)
+        File.open(preview_path(path), "w") do |file|
+          file.write(query_apiary(@options.api_host, path))
           open_generated_page(file.path)
         end
       end
 
       private
         def browser_options
-          "-a #{BROWSERS[@options[:browser].to_sym]}" if @options[:browser]
+          "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser
         end
     end
   end

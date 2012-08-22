@@ -21,7 +21,7 @@ module Apiary
       options = {}
       options_parser = OptionParser.new do |opts|
         opts.on("--path [PATH]") do |path|
-          options[:apib_path] = path
+          options[:path] = path
         end
 
         opts.on("--api_host API_HOST") do |api_host|
