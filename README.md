@@ -3,6 +3,14 @@ apiaryio
 
 Apiary.io CLI
 
+
+## Install
+
+``` bash
+gem install apiaryio
+```
+
+
 ## Description
 
 Apiaryio gem provides a way to display your API documentation on your local
