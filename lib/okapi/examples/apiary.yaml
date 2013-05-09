@@ -1,0 +1,5 @@
+tests:
+  host: http://aptest.apiary.io
+  specs:
+    - tests.spec
+    - tests2.spec
