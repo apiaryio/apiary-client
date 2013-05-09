@@ -2,8 +2,12 @@
 .rvmrc
 .tags
 .rbenv-version
+*.gem
 /coverage
 /pkg
 /rdoc
 /vendor
 !/doc
+/.idea
+/nbproject/
+
