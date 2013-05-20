@@ -72,7 +72,7 @@ module Apiary
 
       def get_responses
         @resources.each { |resource|
-          params = {:method => resource.method, :url => @test_url + resource.expanded_uri['url'], :headers => resource.headers || {}}
+          params = {:method => resource.method, :url => @test_url + resource.expanded_uri['url'], :headers => resource.headers || {}, :payload=> resource.body}
           begin            
             response = RestClient::Request.execute(params)
 
