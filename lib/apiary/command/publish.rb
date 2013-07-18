@@ -31,7 +31,11 @@ module Apiary
 
       def publish_on_apiary
         unless @options.api_name
-          abort "Please provide an api-name option"
+          abort "Please provide an api-name option (subdomain part from your http://docs.<api-name>.apiary.io/)"
+        end
+
+        unless @options.api_key
+          abort "API key must be provided through environment variable APIARY_API_KEY. Please go to https://login.apiary.io/tokens to obtain it."
         end
 
         self.query_apiary(@options.api_host, @options.path)
