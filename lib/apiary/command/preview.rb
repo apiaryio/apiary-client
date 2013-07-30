@@ -81,10 +81,16 @@ module Apiary
         exec "open #{browser_options} #{path}"
       end
 
+      def write_generated_path(path, outfile)
+        File.open(outfile, 'w') do |file|
+          file.write(File.open(path, 'r').read)
+        end
+      end
+
       def generate_static(path)
         File.open(preview_path(path), "w") do |file|
           file.write(query_apiary(@options.api_host, path))
-          open_generated_page(file.path)
+          @options.output ? write_generated_path(file.path, @options.output) : open_generated_page(file.path)
         end
       end
 
