@@ -32,6 +32,10 @@ module Apiary
           options[:api_host] = api_host
         end
 
+        opts.on("--api-name API_HOST") do |api_name|
+          options[:api_name] = api_name
+        end
+
         opts.on("--browser BROWSER") do |browser|
           options[:browser] = browser
         end
