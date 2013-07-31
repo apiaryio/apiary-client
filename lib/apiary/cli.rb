@@ -24,6 +24,10 @@ module Apiary
           options[:path] = path
         end
 
+        opts.on("--output [PATH]") do |path|
+          options[:output]  = path
+        end
+
         opts.on("--api_host API_HOST") do |api_host|
           options[:api_host] = api_host
         end
