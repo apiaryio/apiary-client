@@ -1,7 +1,9 @@
 apiaryio
 =============
 
-Apiary.io CLI
+Apiary.io CLI 
+
+[![Build Status](https://travis-ci.org/apiaryio/apiary-client.png?branch=travis)](https://travis-ci.org/apiaryio/apiary-client)
 
 
 ## Install
