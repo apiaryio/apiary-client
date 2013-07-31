@@ -11,7 +11,8 @@ rvm:
 notifications:
   email:
     recipients:
-      - lukas@apiary.io  
+      - lukas@apiary.io
+      - adam@apiary.io
     on_success: change
     on_failure: always
   hipchat:
