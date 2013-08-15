@@ -9,10 +9,10 @@ module Honey
       def initialize(args)
         case args.first
           when 'help'
-            Apiary::Okapi::Help.show
+            Honey::Okapi::Help.show
             exit 0
           when 'okapi'
-            Apiary::Okapi::Help.okapi
+            Honey::Okapi::Help.okapi
             exit 0
           else
             parse_options!(args)
