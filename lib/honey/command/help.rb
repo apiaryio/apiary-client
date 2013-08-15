@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Apiary
+module Honey
   module Command
     # Display help
     class Help
