@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "apiaryio"
   gem.require_paths = ["lib"]
-  gem.version       = Apiary::VERSION
+  gem.version       = Honey::VERSION
 
   gem.add_dependency "rest-client", "~> 1.6.7"
   gem.add_dependency "rack", "~> 1.4.1"
