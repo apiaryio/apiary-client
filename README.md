@@ -9,7 +9,7 @@ Command Line Interface to [Apiary](http://apiary.io])
 ## Install
 
 ``` bash
-gem install apiaryio
+gem install honey
 ```
 
 
