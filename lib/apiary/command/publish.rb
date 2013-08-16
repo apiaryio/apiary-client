@@ -3,7 +3,7 @@ require 'rest_client'
 require 'rack'
 require 'ostruct'
 
-module Honey
+module Apiary
   module Command
     # Display preview of local blueprint file
     class Publish

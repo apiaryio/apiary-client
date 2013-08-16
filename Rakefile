@@ -15,7 +15,7 @@ task :doc => :yard
 task :gem => :gemspec
 
 def gemspec
-  @gemspec ||= eval(File.read('honey.gemspec'), binding, '.gemspec')
+  @gemspec ||= eval(File.read('apiary.gemspec'), binding, '.gemspec')
 end
 
 YARD::Rake::YardocTask.new

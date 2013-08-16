@@ -1,2 +1,2 @@
 require 'rspec'
-require 'honey'
+require 'apiary'

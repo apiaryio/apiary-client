@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'rest_client'
 
-module Honey
+module Apiary
   module Okapi
     class Test
       def initialize(blueprint_path, test_spec_path, test_url, output, apiary_url)
@@ -12,7 +12,7 @@ module Honey
         @apiary_url     = apiary_url
         @req_path       = GET_REQUESTS_PATH
         @res_path       = GET_RESULTS_PATH
-        @connector = Honey::Okapi::ApiaryConnector.new(@apiary_url, @req_path, @res_path)
+        @connector = Apiary::Okapi::ApiaryConnector.new(@apiary_url, @req_path, @res_path)
         @proces_all_bp_resources = false
         @output = []
         @resources = []
@@ -26,7 +26,7 @@ module Honey
           @resources = []
           @error = e
         end        
-        Honey::Okapi::Output.get(@output_format, @resources, @error)
+        Apiary::Okapi::Output.get(@output_format, @resources, @error)
       end
 
       def test
@@ -60,7 +60,7 @@ module Honey
          
         data[:data].each do |res|
           raise Exception, 'Resource error "' + res['error'] + '" for resource "' + res["method"] + ' ' + res["uri"]  + '"' if res['error']
-          @resources << Honey::Okapi::Resource.new(res["uri"], res["method"], res["params"], res["expandedUri"], res["headers"], res["body"])          
+          @resources << Apiary::Okapi::Resource.new(res["uri"], res["method"], res["params"], res["expandedUri"], res["headers"], res["body"])          
         end
 
         @resources      
@@ -81,7 +81,7 @@ module Honey
                             out
                           end
 
-            resource.response =  Honey::Okapi::Response.new(response.code, raw_headers, response.body)
+            resource.response =  Apiary::Okapi::Response.new(response.code, raw_headers, response.body)
           rescue Exception => e
             raise Exception, 'Can not get response for: ' + params.to_json + ' (' + e.to_s + ')'
           end
@@ -99,7 +99,7 @@ module Honey
         data[:data].each { |validation|
           @resources.each { |resource|
             if validation['resource']['uri'] == resource.uri and validation['resource']['method'] == resource.method
-              resource.validation_result = Honey::Okapi::ValidationResult.new()
+              resource.validation_result = Apiary::Okapi::ValidationResult.new()
               resource.validation_result.error = validation['errors']
               resource.validation_result.schema_res = validation["validations"]['reqSchemaValidations']
               resource.validation_result.body_pass = !validation["validations"]['reqData']['body']['isDifferent']
@@ -107,7 +107,7 @@ module Honey
               resource.validation_result.header_pass = !validation["validations"]['reqData']['headers']['isDifferent']
               resource.validation_result.header_diff = validation["validations"]['reqData']['headers']['diff']
 
-              resource.response.validation_result = Honey::Okapi::ValidationResult.new()
+              resource.response.validation_result = Apiary::Okapi::ValidationResult.new()
               resource.response.validation_result.error = validation['errors']
               resource.response.validation_result.schema_res = validation["validations"]['resSchemaValidations']
               resource.response.validation_result.body_pass = !validation["validations"]['resData']['body']['isDifferent']
@@ -121,7 +121,7 @@ module Honey
       end      
 
       def get_test_spec_parser(test_spec)
-        Honey::Okapi::Parser.new(test_spec)                
+        Apiary::Okapi::Parser.new(test_spec)                
       end
 
       def parse_blueprint(blueprint_path)

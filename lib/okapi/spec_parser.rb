@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'json'
 
-module Honey
+module Apiary
   module Okapi
     class Parser
       attr_reader :data, :resources, :proces_all_bp_resources, :global_vars

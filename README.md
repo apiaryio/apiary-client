@@ -1,15 +1,15 @@
-Honey: All you need to attract API bees
-==========================================
+apiaryio
+=============
 
-Command Line Interface to [Apiary](http://apiary.io]) 
+Apiary.io CLI 
 
-[![Build Status](https://travis-ci.org/apiaryio/honey.png?branch=travis)](https://travis-ci.org/apiaryio/honey)
+[![Build Status](https://travis-ci.org/apiaryio/apiary-client.png?branch=travis)](https://travis-ci.org/apiaryio/apiary-client)
 
 
 ## Install
 
 ``` bash
-gem install honey
+gem install apiaryio
 ```
 
 
@@ -40,7 +40,7 @@ machine, either using static files or using a standalone web server...
 
 ## Copyright
 
-Copyright 2012-2013 (c) Apiary Ltd.
+Copyright 2012 (c) Apiary Ltd.
 
 ## Contributors
 

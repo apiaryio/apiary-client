@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'optparse'
-module Honey
+module Apiary
   class CLI
 
     attr_reader :command
@@ -13,7 +13,7 @@ module Honey
     def run(args, options)
       command = args.first || :help
       command = @command if @command
-      Honey::Command::Runner.run(command, options)
+      Apiary::Command::Runner.run(command, options)
     end
 
     def parse_options!(args)
@@ -62,7 +62,7 @@ module Honey
 
     rescue OptionParser::InvalidOption => e
       puts e
-      puts Honey::Command::Help.banner
+      puts Apiary::Command::Help.banner
       exit 1
     end
 
