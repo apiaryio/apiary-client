@@ -2,7 +2,7 @@
 require 'rest_client'
 require 'json'
 
-module Apiary
+module Honey
   module Okapi
     class ApiaryConnector
       attr_reader :apiary_url, :blueprint

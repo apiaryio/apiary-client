@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Apiary
+module Honey
   module Okapi
     CONFIG_PATH = "apiary.yaml"
     APIARY_URL = "https://api.apiary.io"

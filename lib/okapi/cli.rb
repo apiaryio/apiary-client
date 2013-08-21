@@ -2,17 +2,17 @@
 require 'optparse'
 require 'yaml'
 
-module Apiary
+module Honey
   module Okapi
     class CLI
 
       def initialize(args)
         case args.first
           when 'help'
-            Apiary::Okapi::Help.show
+            Honey::Okapi::Help.show
             exit 0
           when 'okapi'
-            Apiary::Okapi::Help.okapi
+            Honey::Okapi::Help.okapi
             exit 0
           else
             parse_options!(args)
@@ -38,7 +38,7 @@ module Apiary
       def run
         pass = true
         @options[:test_spec].each { |spec|
-          pass = Apiary::Okapi::Test.new(@options[:blueprint], spec, @options[:test_url], @options[:output], @options[:apiary_url]).run()
+          pass = Honey::Okapi::Test.new(@options[:blueprint], spec, @options[:test_url], @options[:output], @options[:apiary_url]).run()
           }
         if pass
           0
@@ -112,7 +112,7 @@ module Apiary
       rescue OptionParser::InvalidOption => e
         puts "\n"
         puts e
-        Apiary::Okapi::Help.banner
+        Honey::Okapi::Help.banner
         puts "\n"
         exit 1
       end

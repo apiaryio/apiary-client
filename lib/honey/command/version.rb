@@ -1,11 +1,11 @@
 # encoding: utf-8
-module Apiary
+module Honey
   module Command
     # Display version
     class Version
 
       def self.execute(options)
-        puts Apiary::VERSION
+        puts Honey::VERSION
       end
 
     end

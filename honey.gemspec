@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/apiary/version', __FILE__)
+require File.expand_path('../lib/honey/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Apiary Ltd."]
@@ -12,9 +12,9 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "apiaryio"
+  gem.name          = "honey"
   gem.require_paths = ["lib"]
-  gem.version       = Apiary::VERSION
+  gem.version       = Honey::VERSION
 
   gem.add_dependency "rest-client", "~> 1.6.7"
   gem.add_dependency "rack", "~> 1.4.1"
