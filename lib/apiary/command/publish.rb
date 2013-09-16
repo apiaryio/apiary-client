@@ -59,7 +59,7 @@ module Apiary
         }
         response = RestClient.post url, data, @options.headers
 
-        unless response.code == 201
+        unless (200..299).include? response.code
           abort "Request failed with code #{response.code}"
         end
       end
