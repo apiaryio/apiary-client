@@ -33,7 +33,6 @@ machine, either using static files or using a standalone web server...
       preview --api_host [HOST]                   Specify apiary host
       preview --server                            Start standalone web server on port 8080
       preview --server --port [PORT]              Start standalone web server on specified port
-      okapi     help                              Show okapi testing tool help
       help                                        Show help
 
       version                                     Show version
