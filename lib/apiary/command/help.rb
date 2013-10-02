@@ -23,7 +23,6 @@ module Apiary
         puts "\tpreview --server                            Start standalone web server on port 8080"
         puts "\tpreview --server --port [PORT]              Start standalone web server on specified port"
         puts "\tpublish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io"
-        puts "\tokapi help                                  Show okapi testing tool help"
         puts "\n"
         puts "\thelp                                        Show this help"
         puts "\n"
