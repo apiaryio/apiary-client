@@ -18,6 +18,7 @@ module Apiary
         puts "\nCurrently available apiary commands are:\n\n"
         puts "\tpreview                                     Show API documentation in default browser"
         puts "\tpreview --browser [chrome|safari|firefox]   Show API documentation in specified browser"
+        puts "\tpreview --output [FILE]                     Write generated HTML into specified file"
         puts "\tpreview --path [PATH]                       Specify path to blueprint file"
         puts "\tpreview --api_host [HOST]                   Specify apiary host"
         puts "\tpreview --server                            Start standalone web server on port 8080"
