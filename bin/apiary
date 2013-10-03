@@ -1,12 +1,6 @@
 #!/usr/bin/env ruby
 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..','lib')))
 require 'apiary'
-require 'okapi'
 
-trap(:INT) { abort "" }
-if ARGV[0] == 'okapi' || ARGV[0] == 'test'
-  ARGV.delete_at(0)
-  Apiary::Okapi::CLI.new(ARGV)
-else
-  Apiary::CLI.new(ARGV)
-end
+Apiary::CLI.new(ARGV)
+
