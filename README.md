@@ -39,7 +39,7 @@ machine, either using static files or using a standalone web server...
 
 ## Copyright
 
-Copyright 2012 (c) Apiary Ltd.
+Copyright 2012-13 (c) Apiary Ltd.
 
 ## Contributors
 
