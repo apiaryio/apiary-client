@@ -5,4 +5,5 @@ gemspec
 
 platforms :rbx do
   gem 'rubysl', '~> 2.0'
+  gem 'json'
 end
