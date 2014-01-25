@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "rack", "~> 1.4.1"
   gem.add_dependency "rake"
 
-  gem.add_development_dependency "rspec",   "~> 2.11.0"
-  gem.add_development_dependency "yard",    "~> 0.8.2.1"
+  gem.add_development_dependency "rspec"
+  gem.add_development_dependency "yard"    
 
 end

@@ -2,6 +2,7 @@ Gemfile.lock
 .bundle
 .rvmrc
 .tags
+.yardoc
 .rbenv-version
 *.gem
 /coverage

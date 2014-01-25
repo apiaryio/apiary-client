@@ -6,13 +6,13 @@
 <title>
   Class: Apiary::Command::Preview
   
-    &mdash; Documentation by YARD 0.8.2.1
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -101,9 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>
-Display preview of local blueprint file
-</p>
+    
+<p>Display preview of local blueprint file</p>
 
 
   </div>
@@ -112,6 +111,22 @@ Display preview of local blueprint file
   
 
 </div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="BROWSERS-constant" class="">BROWSERS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='symbol'>:safari</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Safari</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:chrome</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Google Chrome</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:firefox</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Firefox</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
 
 
 
@@ -140,9 +155,8 @@ Display preview of local blueprint file
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute options.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute options.</p>
 </div></span>
   
 </li>
@@ -195,50 +209,6 @@ Returns the value of attribute options.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#api_host-instance_method" title="#api_host (instance method)">- (Object) <strong>api_host</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#apib_path-instance_method" title="#apib_path (instance method)">- (Object) <strong>apib_path</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#browser-instance_method" title="#browser (instance method)">- (Object) <strong>browser</strong> </a>
     
 
@@ -261,7 +231,7 @@ Returns the value of attribute options.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#generate_static-instance_method" title="#generate_static (instance method)">- (Object) <strong>generate_static</strong>(apib_path) </a>
+      <a href="#generate_static-instance_method" title="#generate_static (instance method)">- (Object) <strong>generate_static</strong>(path) </a>
     
 
     
@@ -283,7 +253,7 @@ Returns the value of attribute options.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Preview) <strong>initialize</strong>(args) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Preview) <strong>initialize</strong>(opts) </a>
     
 
     
@@ -299,9 +269,8 @@ Returns the value of attribute options.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-A new instance of Preview.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>TODO: use OpenStruct to store @options.</p>
 </div></span>
   
 </li>
@@ -324,9 +293,8 @@ A new instance of Preview.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-TODO: add linux and windows systems.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>TODO: add linux and windows systems.</p>
 </div></span>
   
 </li>
@@ -335,7 +303,7 @@ TODO: add linux and windows systems.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#port-instance_method" title="#port (instance method)">- (Object) <strong>port</strong> </a>
+      <a href="#path-instance_method" title="#path (instance method)">- (Object) <strong>path</strong> </a>
     
 
     
@@ -357,7 +325,7 @@ TODO: add linux and windows systems.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#preview_path-instance_method" title="#preview_path (instance method)">- (Object) <strong>preview_path</strong>(apib_path) </a>
+      <a href="#preview_path-instance_method" title="#preview_path (instance method)">- (Object) <strong>preview_path</strong>(path) </a>
     
 
     
@@ -379,7 +347,7 @@ TODO: add linux and windows systems.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#query_apiary-instance_method" title="#query_apiary (instance method)">- (Object) <strong>query_apiary</strong>(host, apib_path) </a>
+      <a href="#query_apiary-instance_method" title="#query_apiary (instance method)">- (Object) <strong>query_apiary</strong>(host, path) </a>
     
 
     
@@ -508,6 +476,28 @@ TODO: add linux and windows systems.
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write_generated_path-instance_method" title="#write_generated_path (instance method)">- (Object) <strong>write_generated_path</strong>(path, outfile) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -517,7 +507,7 @@ TODO: add linux and windows systems.
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Apiary::Command::Preview (class)">Preview</a></span></tt>) <strong>initialize</strong>(args) 
+    - (<tt><span class='object_link'><a href="" title="Apiary::Command::Preview (class)">Preview</a></span></tt>) <strong>initialize</strong>(opts) 
   
 
   
@@ -525,9 +515,8 @@ TODO: add linux and windows systems.
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-A new instance of Preview
-</p>
+    
+<p>TODO: use OpenStruct to store @options</p>
 
 
   </div>
@@ -541,25 +530,23 @@ A new instance of Preview
       <pre class="lines">
 
 
-18
-19
 20
 21
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 20</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:apib_path</span><span class='rbracket'>]</span>   <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>apiary.apib</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:api_host</span><span class='rbracket'>]</span>    <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>api.apiary.io</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:headers</span><span class='rbracket'>]</span>     <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:accept</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/html</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:content_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/plain</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
-  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span>        <span class='op'>=</span> <span class='int'>8080</span>
-  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span> <span class='id identifier rubyid_args'>args</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>         <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>apiary.apib</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_host'>api_host</span>     <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>api.apiary.io</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span>      <span class='op'>||=</span> <span class='lbrace'>{</span><span class='symbol'>:accept</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/html</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:content_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/plain</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span>         <span class='op'>||=</span> <span class='int'>8080</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -584,9 +571,8 @@ A new instance of Preview
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the value of attribute options
-</p>
+    
+<p>Returns the value of attribute options</p>
 
 
   </div>
@@ -600,12 +586,12 @@ Returns the value of attribute options
       <pre class="lines">
 
 
-16
 17
-18</pre>
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_options'>options</span>
   <span class='ivar'>@options</span>
@@ -637,12 +623,12 @@ Returns the value of attribute options
       <pre class="lines">
 
 
-27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:server</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_server'>server</span> <span class='op'>:</span> <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span>
@@ -659,67 +645,7 @@ Returns the value of attribute options
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="api_host-instance_method">
-  
-    - (<tt>Object</tt>) <strong>api_host</strong> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-53
-54
-55</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 53</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_api_host'>api_host</span>
-  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:api_host</span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="apib_path-instance_method">
-  
-    - (<tt>Object</tt>) <strong>apib_path</strong> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-45
-46
-47</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 45</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_apib_path'>apib_path</span>
-  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:apib_path</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>.apib</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="browser-instance_method">
+  <h3 class="signature first" id="browser-instance_method">
   
     - (<tt>Object</tt>) <strong>browser</strong> 
   
@@ -733,15 +659,15 @@ Returns the value of attribute options
       <pre class="lines">
 
 
-49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_browser'>browser</span>
-  <span class='const'>BROWSERS</span><span class='lbracket'>[</span><span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:browser</span><span class='rbracket'>]</span><span class='rbracket'>]</span>  <span class='op'>||</span> <span class='kw'>nil</span>
+  <span class='const'>BROWSERS</span><span class='lbracket'>[</span><span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_browser'>browser</span><span class='rbracket'>]</span>  <span class='op'>||</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -751,7 +677,7 @@ Returns the value of attribute options
       <div class="method_details ">
   <h3 class="signature " id="generate_static-instance_method">
   
-    - (<tt>Object</tt>) <strong>generate_static</strong>(apib_path) 
+    - (<tt>Object</tt>) <strong>generate_static</strong>(path) 
   
 
   
@@ -763,20 +689,20 @@ Returns the value of attribute options
       <pre class="lines">
 
 
+90
 91
 92
 93
 94
-95
-96</pre>
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 90</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_generate_static'>generate_static</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
-  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_preview_path'>preview_path</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
-    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='id identifier rubyid_api_host'>api_host</span><span class='comma'>,</span> <span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_open_generated_page'>open_generated_page</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_generate_static'>generate_static</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_preview_path'>preview_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_host'>api_host</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_output'>output</span> <span class='op'>?</span> <span class='id identifier rubyid_write_generated_path'>write_generated_path</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_open_generated_page'>open_generated_page</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -795,9 +721,8 @@ Returns the value of attribute options
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-TODO: add linux and windows systems
-</p>
+    
+<p>TODO: add linux and windows systems</p>
 
 
   </div>
@@ -811,15 +736,15 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-87
-88
-89</pre>
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_open_generated_page'>open_generated_page</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_exec'>exec</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>open </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_browser_options'>browser_options</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_exec'>exec</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>open </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_browser_options'>browser_options</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -827,9 +752,9 @@ TODO: add linux and windows systems
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="port-instance_method">
+  <h3 class="signature " id="path-instance_method">
   
-    - (<tt>Object</tt>) <strong>port</strong> 
+    - (<tt>Object</tt>) <strong>path</strong> 
   
 
   
@@ -841,15 +766,15 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-57
-58
-59</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 46</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_port'>port</span>
-  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>.apib</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -859,7 +784,7 @@ TODO: add linux and windows systems
       <div class="method_details ">
   <h3 class="signature " id="preview_path-instance_method">
   
-    - (<tt>Object</tt>) <strong>preview_path</strong>(apib_path) 
+    - (<tt>Object</tt>) <strong>preview_path</strong>(path) 
   
 
   
@@ -871,17 +796,17 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-75
-76
-77
-78</pre>
+68
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 68</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_preview_path'>preview_path</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_basename'>basename</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_basename'>basename</span><span class='rbrace'>}</span><span class='tstring_content'>-preview.html</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_preview_path'>preview_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_basename'>basename</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_basename'>basename</span><span class='embexpr_end'>}</span><span class='tstring_content'>-preview.html</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -891,7 +816,7 @@ TODO: add linux and windows systems
       <div class="method_details ">
   <h3 class="signature " id="query_apiary-instance_method">
   
-    - (<tt>Object</tt>) <strong>query_apiary</strong>(host, apib_path) 
+    - (<tt>Object</tt>) <strong>query_apiary</strong>(host, path) 
   
 
   
@@ -903,19 +828,19 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-80
-81
-82
-83
-84</pre>
+73
+74
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 73</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_url'>url</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>/blueprint/generate</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
-  <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:headers</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_host'>host</span><span class='embexpr_end'>}</span><span class='tstring_content'>/blueprint/generate</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -937,14 +862,14 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-61
-62
-63
-64
-65</pre>
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rack_app'>rack_app</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span>
@@ -971,23 +896,23 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-67
-68
-69
-70
-71
-72
-73</pre>
+60
+61
+62
+63
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_server'>run_server</span>
   <span class='id identifier rubyid_app'>app</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rack_app'>rack_app</span> <span class='kw'>do</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='id identifier rubyid_api_host'>api_host</span><span class='comma'>,</span> <span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_host'>api_host</span><span class='comma'>,</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='symbol'>:Port</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='symbol'>:app</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_app'>app</span><span class='rparen'>)</span>
+  <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='symbol'>:Port</span> <span class='op'>=&gt;</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span><span class='comma'>,</span> <span class='symbol'>:app</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_app'>app</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1009,12 +934,12 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-31
 32
-33</pre>
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_server'>server</span>
   <span class='id identifier rubyid_run_server'>run_server</span>
@@ -1039,15 +964,15 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
-  <span class='id identifier rubyid_generate_static'>generate_static</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_path'>apib_path</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_generate_static'>generate_static</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1069,18 +994,52 @@ TODO: add linux and windows systems
       <pre class="lines">
 
 
-39
 40
 41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_apib_file'>validate_apib_file</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_file'>apib_file</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_file'>apib_file</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_abort'>abort</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Apiary definition file hasn't been found: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_apib_file'>apib_file</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_abort'>abort</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Apiary definition file hasn&#39;t been found: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_apib_file'>apib_file</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="write_generated_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>write_generated_path</strong>(path, outfile) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/preview.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_write_generated_path'>write_generated_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_outfile'>outfile</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_outfile'>outfile</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>r</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1093,9 +1052,9 @@ TODO: add linux and windows systems
 </div>
 
     <div id="footer">
-  Generated on Tue Aug  7 17:58:18 2012 by
+  Generated on Sat Jan 25 06:56:56 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.2).
+  0.8.7.3 (ruby-2.1.0).
 </div>
 
   </body>
