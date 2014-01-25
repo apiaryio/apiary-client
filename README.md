@@ -33,13 +33,16 @@ machine, either using static files or using a standalone web server...
       preview --api_host [HOST]                   Specify apiary host
       preview --server                            Start standalone web server on port 8080
       preview --server --port [PORT]              Start standalone web server on specified port
+      publish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io"
+      fetch --api-name [API_NAME]                 Fetch apiary.apib from API_NAME.apiary.io"
+      
       help                                        Show help
 
       version                                     Show version
 
 ## Copyright
 
-Copyright 2012-13 (c) Apiary Ltd.
+Copyright 2012-14 (c) Apiary Ltd.
 
 ## Contributors
 
@@ -48,6 +51,7 @@ Copyright 2012-13 (c) Apiary Ltd.
 - Lukáš Linhart
 - Emili Parreño
 - Peter Grilli [Tu1ly]
+- Ladislav Prskavec
 
 ## License
 
