@@ -23,6 +23,7 @@ module Apiary
         @options.api_host     ||= "api.apiary.io"
         @options.headers      ||= {:accept => "text/html", :content_type => "text/plain"}
         @options.port         ||= 8080
+        @options.proxy        ||= ENV['http_proxy']
       end
 
       def self.execute(args)
@@ -73,6 +74,7 @@ module Apiary
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/generate"
         data = File.read(path)
+        RestClient.proxy = @options.proxy
         RestClient.post(url, data, @options.headers)
       end
 

@@ -19,6 +19,7 @@ module Apiary
         @options.port         ||= 8080
         @options.api_name     ||= false
         @options.api_key      ||= ENV['APIARY_API_KEY']
+        @options.proxy        ||= ENV['http_proxy']
         @options.headers      ||= {
           :accept => "text/html",
           :content_type => "text/plain",
@@ -56,6 +57,7 @@ module Apiary
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/get/#{@options.api_name}"
+        RestClient.proxy = @options.proxy
         response = RestClient.get url, @options.headers        
         unless (200..299).include? response.code
           abort "Request failed with code #{response.code}"

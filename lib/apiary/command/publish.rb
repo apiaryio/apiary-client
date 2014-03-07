@@ -18,6 +18,7 @@ module Apiary
         @options.port         ||= 8080
         @options.api_name     ||= false
         @options.api_key      ||= ENV['APIARY_API_KEY']
+        @options.proxy        ||= ENV['http_proxy']
         @options.headers      ||= {
           :accept => "text/html",
           :content_type => "text/plain",
@@ -57,6 +58,7 @@ module Apiary
         data = {
           :code => File.read(path)
         }
+        RestClient.proxy = @options.proxy
         response = RestClient.post url, data, @options.headers
 
         unless (200..299).include? response.code
