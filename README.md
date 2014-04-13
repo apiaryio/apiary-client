@@ -1,7 +1,7 @@
 apiaryio
 =============
 
-Apiary.io CLI 
+Apiary.io CLI
 
 [![Build Status](https://travis-ci.org/apiaryio/apiary-client.png?branch=master)](https://travis-ci.org/apiaryio/apiary-client)
 
@@ -33,9 +33,9 @@ machine, either using static files or using a standalone web server...
       preview --api_host [HOST]                   Specify apiary host
       preview --server                            Start standalone web server on port 8080
       preview --server --port [PORT]              Start standalone web server on specified port
-      publish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io"
-      fetch --api-name [API_NAME]                 Fetch apiary.apib from API_NAME.apiary.io"
-      
+      publish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io
+      fetch --api-name [API_NAME]                 Fetch apiary.apib from API_NAME.apiary.io
+
       help                                        Show help
 
       version                                     Show version
