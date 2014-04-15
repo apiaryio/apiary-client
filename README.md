@@ -29,6 +29,7 @@ machine, either using static files or using a standalone web server...
 
       preview                                     Show API documentation in default browser
       preview --browser [chrome|safari|firefox]   Show API documentation in specified browser
+      preview --output [FILE]                     Write generated HTML into specified file
       preview --path [PATH]                       Specify path to blueprint file
       preview --api_host [HOST]                   Specify apiary host
       preview --server                            Start standalone web server on port 8080
