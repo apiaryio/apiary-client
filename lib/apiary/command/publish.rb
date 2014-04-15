@@ -2,6 +2,7 @@
 require 'rest_client'
 require 'rack'
 require 'ostruct'
+require 'json'
 
 module Apiary
   module Command
@@ -59,10 +60,18 @@ module Apiary
           :code => File.read(path)
         }
         RestClient.proxy = @options.proxy
-        response = RestClient.post url, data, @options.headers
 
-        unless (200..299).include? response.code
-          abort "Request failed with code #{response.code}"
+        begin
+          RestClient.post url, data, @options.headers
+        rescue RestClient::BadRequest => e
+          err = JSON.parse e.response
+          if err.has_key? 'parserError'
+            abort "#{err['message']}: #{err['parserError']}"
+          else
+            abort "Apiary service responded with an error: #{err['message']}"
+          end
+        rescue RestClient::Exception => e
+          abort "Apiary service responded with an error: #{e.message}"
         end
       end
 

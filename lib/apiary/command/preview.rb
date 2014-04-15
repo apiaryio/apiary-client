@@ -2,6 +2,7 @@
 require 'rest_client'
 require 'rack'
 require 'ostruct'
+require 'json'
 
 module Apiary
   module Command
@@ -75,7 +76,19 @@ module Apiary
         url  = "https://#{host}/blueprint/generate"
         data = File.read(path)
         RestClient.proxy = @options.proxy
-        RestClient.post(url, data, @options.headers)
+
+        begin
+          RestClient.post(url, data, @options.headers)
+        rescue RestClient::BadRequest => e
+          err = JSON.parse e.response
+          if err.has_key? 'parserError'
+            abort "#{err['message']}: #{err['parserError']}"
+          else
+            abort "Apiary service responded with an error: #{err['message']}"
+          end
+        rescue RestClient::Exception => e
+          abort "Apiary service responded with an error: #{e.message}"
+        end
       end
 
       # TODO: add linux and windows systems
