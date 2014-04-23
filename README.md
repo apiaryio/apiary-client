@@ -8,10 +8,19 @@ Apiary.io CLI
 
 ## Install
 
+**install gem** (required)
 ``` bash
 gem install apiaryio
 ```
 
+**setup APIARY.io credentials** (required for publish and fetch command only)
+
+1. Retrieve APIKEY on `https://login.apiary.io/tokens`
+2. Save it to your environment variables :
+
+```bash
+export APIARY_API_KEY=<your_token_retrieved_on_step_1>
+```
 
 ## Description
 
