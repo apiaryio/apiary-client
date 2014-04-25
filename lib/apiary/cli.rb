@@ -42,6 +42,11 @@ module Apiary
           raise OptionParser::InvalidOption unless ["fetch", "publish"].include? command
           options[:api_name] = api_name
         end
+        
+        opts.on("--message messageToSave") do |message_to_save|
+          raise OptionParser::InvalidOption if command != "publish"
+          options[:message_to_save] = message_to_save
+        end
 
         opts.on("--browser BROWSER") do |browser|
           raise OptionParser::InvalidOption if command != "preview"
