@@ -24,6 +24,7 @@ module Apiary
         puts "\tpreview --server                            Start standalone web server on port 8080"
         puts "\tpreview --server --port [PORT]              Start standalone web server on specified port"
         puts "\tpublish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io"
+        puts "\tpublish --api-name [API_NAME] --message [messageToSave] Publish with optional save message"
         puts "\tfetch --api-name [API_NAME]                 Fetch apiary.apib from API_NAME.apiary.io"
         puts "\n"
         puts "\thelp                                        Show this help"
