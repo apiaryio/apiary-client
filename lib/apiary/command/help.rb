@@ -24,10 +24,11 @@ module Apiary
         puts "\tpreview --server                            Start standalone web server on port 8080"
         puts "\tpreview --server --port [PORT]              Start standalone web server on specified port"
         puts "\tpublish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io"
-        puts "\tfetch --api-name [API_NAME]                 Fetch apiary.apib from API_NAME.apiary.io"
+        puts "\tpublish --api-name [API_NAME] \\"
+        puts "\t        --message [COMMIT_MESSAGE]          Publish with custom commit message"
+        puts "\tfetch   --api-name [API_NAME]               Fetch apiary.apib from API_NAME.apiary.io"
         puts "\n"
         puts "\thelp                                        Show this help"
-        puts "\n"
         puts "\tversion                                     Show version"
         puts "\n"
       end

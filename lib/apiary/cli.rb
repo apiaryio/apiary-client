@@ -43,6 +43,11 @@ module Apiary
           options[:api_name] = api_name
         end
 
+        opts.on("--message COMMIT_MESSAGE") do |commit_message|
+          raise OptionParser::InvalidOption if command != "publish"
+          options[:commit_message] = commit_message
+        end
+
         opts.on("--browser BROWSER") do |browser|
           raise OptionParser::InvalidOption if command != "preview"
           options[:browser] = browser
