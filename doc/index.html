@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!file.README.html";
 </script>
 
 
@@ -66,17 +66,34 @@
 
 <p>Apiary.io CLI</p>
 
-<p><a href="https://travis-ci.org/apiaryio/apiary-client"><img
-src="https://travis-ci.org/apiaryio/apiary-client.png?branch=master"></a></p>
+<p><a
+href="https://travis-ci.org/apiaryio/apiary-client.png?branch=master">{Build
+Status</a>]</p>
 
 <h2 id="label-Install">Install</h2>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_apiaryio'>apiaryio</span></code></pre>
+<p><strong>install gem</strong> (required)
+&lt;code&gt;bash
+gem install
+apiaryio
+&lt;/code&gt;</p>
+
+<p><strong>setup APIARY.io credentials</strong> (required for publish and
+fetch command only)</p>
+<ol><li>
+<p>Retrieve APIKEY on <code>https://login.apiary.io/tokens</code></p>
+</li><li>
+<p>Save it to your environment variables :</p>
+</li></ol>
+
+<pre class="code ruby"><code class="ruby">export APIARY_API_KEY=&lt;your_token_retrieved_on_step_1&gt;</code></pre>
 
 <h2 id="label-Description">Description</h2>
 
-<p>Apiaryio gem provides a way to display your API documentation on your local
-machine, either using static files or using a standalone web server…</p>
+<p>Apiaryio gem provides a way to display your API documentation on your
+local
+machine, either using static files or using a standalone web
+server...</p>
 
 <h2 id="label-Usage">Usage</h2>
 
@@ -95,10 +112,11 @@ Currently available apiary commands are:
   preview --server                            Start standalone web server on port 8080
   preview --server --port [PORT]              Start standalone web server on specified port
   publish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io
-  fetch --api-name [API_NAME]                 Fetch apiary.apib from API_NAME.apiary.io
+  publish --api-name [API_NAME] \
+          --message [COMMIT_MESSAGE]          Publish with custom commit message
+  fetch   --api-name [API_NAME]               Fetch apiary.apib from API_NAME.apiary.io
 
-  help                                        Show help
-
+  help                                        Show this help
   version                                     Show version</code></pre>
 
 <h2 id="label-Copyright">Copyright</h2>
@@ -109,15 +127,31 @@ Currently available apiary commands are:
 <ul><li>
 <p>Jakub Nešetřil</p>
 </li><li>
-<p>James Charles Russell</p>
+<p>James Charles Russell [botanicus]</p>
 </li><li>
-<p>Lukáš Linhart</p>
+<p>Lukáš Linhart [Almad]</p>
 </li><li>
 <p>Emili Parreño</p>
 </li><li>
 <p>Peter Grilli [Tu1ly]</p>
 </li><li>
 <p>Ladislav Prskavec</p>
+</li><li>
+<p>Honza Javorek</p>
+</li><li>
+<p>Matthew Rudy Jacobs</p>
+</li><li>
+<p>Adam Kliment</p>
+</li><li>
+<p>Jack Repenning</p>
+</li><li>
+<p>Peter Strapp</p>
+</li><li>
+<p>Pierre Merlin</p>
+</li><li>
+<p>František Hába</p>
+</li><li>
+<p>Benjamin Arthur Lupton</p>
 </li></ul>
 
 <h2 id="label-License">License</h2>
@@ -126,9 +160,9 @@ Currently available apiary commands are:
 </div></div>
 
     <div id="footer">
-  Generated on Thu Apr 17 13:30:51 2014 by
+  Generated on Mon May 12 13:32:43 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-2.1.0).
+  0.8.7.4 (ruby-2.0.0).
 </div>
 
   </body>
