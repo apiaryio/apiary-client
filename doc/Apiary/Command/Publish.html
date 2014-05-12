@@ -6,7 +6,7 @@
 <title>
   Class: Apiary::Command::Publish
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!Apiary/Command/Publish.html";
 </script>
 
 
@@ -349,24 +349,26 @@
 25
 26
 27
-28</pre>
+28
+29</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='ivar'>@options</span> <span class='op'>=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
-  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>         <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>apiary.apib</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_host'>api_host</span>     <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>api.apiary.io</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span>         <span class='op'>||=</span> <span class='int'>8080</span>
-  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_name'>api_name</span>     <span class='op'>||=</span> <span class='kw'>false</span>
-  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_key'>api_key</span>      <span class='op'>||=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>APIARY_API_KEY</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_proxy'>proxy</span>        <span class='op'>||=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http_proxy</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span>      <span class='op'>||=</span> <span class='lbrace'>{</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>           <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>apiary.apib</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_host'>api_host</span>       <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>api.apiary.io</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span>           <span class='op'>||=</span> <span class='int'>8080</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_name'>api_name</span>       <span class='op'>||=</span> <span class='kw'>false</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_key'>api_key</span>        <span class='op'>||=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>APIARY_API_KEY</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_proxy'>proxy</span>          <span class='op'>||=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http_proxy</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span>        <span class='op'>||=</span> <span class='lbrace'>{</span>
     <span class='symbol'>:accept</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/html</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='symbol'>:content_type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text/plain</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='symbol'>:authentication</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Token </span><span class='embexpr_beg'>#{</span><span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_key'>api_key</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='rbrace'>}</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_commit_message'>commit_message</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Saving blueprint from apiary-client</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -443,12 +445,12 @@
       <pre class="lines">
 
 
-30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_publish_on_apiary'>publish_on_apiary</span>
@@ -479,12 +481,12 @@
       <pre class="lines">
 
 
-53
 54
-55</pre>
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span>
   <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>.apib</span><span class='tstring_end'>&quot;</span></span>
@@ -509,7 +511,6 @@
       <pre class="lines">
 
 
-34
 35
 36
 37
@@ -520,10 +521,11 @@
 42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_publish_on_apiary'>publish_on_apiary</span>
   <span class='kw'>unless</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_name'>api_name</span>
@@ -557,7 +559,6 @@
       <pre class="lines">
 
 
-57
 58
 59
 60
@@ -576,15 +577,18 @@
 73
 74
 75
-76</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_query_apiary'>query_apiary</span><span class='lparen'>(</span><span class='id identifier rubyid_host'>host</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_host'>host</span><span class='embexpr_end'>}</span><span class='tstring_content'>/blueprint/publish/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_api_name'>api_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='symbol'>:code</span> <span class='op'>=&gt;</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='symbol'>:code</span> <span class='op'>=&gt;</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='symbol'>:messageToSave</span> <span class='op'>=&gt;</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_commit_message'>commit_message</span>
   <span class='rbrace'>}</span>
   <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_proxy'>proxy</span> <span class='op'>=</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id identifier rubyid_proxy'>proxy</span>
 
@@ -621,14 +625,14 @@
       <pre class="lines">
 
 
-47
 48
 49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/apiary/command/publish.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate_apib_file'>validate_apib_file</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_file'>apib_file</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_apib_file'>apib_file</span><span class='rparen'>)</span>
@@ -645,9 +649,9 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Apr 17 13:30:52 2014 by
+  Generated on Mon May 12 13:32:43 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-2.1.0).
+  0.8.7.4 (ruby-2.0.0).
 </div>
 
   </body>

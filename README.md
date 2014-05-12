@@ -44,10 +44,11 @@ machine, either using static files or using a standalone web server...
       preview --server                            Start standalone web server on port 8080
       preview --server --port [PORT]              Start standalone web server on specified port
       publish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io
-      fetch --api-name [API_NAME]                 Fetch apiary.apib from API_NAME.apiary.io
+      publish --api-name [API_NAME] \
+              --message [COMMIT_MESSAGE]          Publish with custom commit message
+      fetch   --api-name [API_NAME]               Fetch apiary.apib from API_NAME.apiary.io
 
-      help                                        Show help
-
+      help                                        Show this help
       version                                     Show version
 
 ## Copyright
@@ -57,11 +58,19 @@ Copyright 2012-14 (c) Apiary Ltd.
 ## Contributors
 
 - Jakub Nešetřil
-- James Charles Russell
-- Lukáš Linhart
+- James Charles Russell [botanicus]
+- Lukáš Linhart [Almad]
 - Emili Parreño
 - Peter Grilli [Tu1ly]
 - Ladislav Prskavec
+- Honza Javorek
+- Matthew Rudy Jacobs
+- Adam Kliment
+- Jack Repenning
+- Peter Strapp
+- Pierre Merlin
+- František Hába
+- Benjamin Arthur Lupton
 
 ## License
 

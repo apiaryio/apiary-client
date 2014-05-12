@@ -6,7 +6,7 @@
 <title>
   Class: Apiary::CLI
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Apiary/CLI.html";
 </script>
 
 
@@ -401,7 +401,12 @@
 77
 78
 79
-80</pre>
+80
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/apiary/cli.rb', line 18</span>
@@ -432,6 +437,11 @@
     <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--api-name API_HOST</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_api_name'>api_name</span><span class='op'>|</span>
       <span class='id identifier rubyid_raise'>raise</span> <span class='const'>OptionParser</span><span class='op'>::</span><span class='const'>InvalidOption</span> <span class='kw'>unless</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fetch</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>publish</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_command'>command</span>
       <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:api_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_api_name'>api_name</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--message COMMIT_MESSAGE</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_commit_message'>commit_message</span><span class='op'>|</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>OptionParser</span><span class='op'>::</span><span class='const'>InvalidOption</span> <span class='kw'>if</span> <span class='id identifier rubyid_command'>command</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>publish</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:commit_message</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_commit_message'>commit_message</span>
     <span class='kw'>end</span>
 
     <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--browser BROWSER</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_browser'>browser</span><span class='op'>|</span>
@@ -509,9 +519,9 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Apr 17 13:30:51 2014 by
+  Generated on Mon May 12 13:32:43 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.3 (ruby-2.1.0).
+  0.8.7.4 (ruby-2.0.0).
 </div>
 
   </body>
