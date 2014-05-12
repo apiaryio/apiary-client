@@ -25,6 +25,7 @@ module Apiary
           :content_type => "text/plain",
           :authentication => "Token #{@options.api_key}"
         }
+        @options.message_to_save||= "Saved with apiary-client"
       end
 
       def self.execute(args)
@@ -57,7 +58,8 @@ module Apiary
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/publish/#{@options.api_name}"
         data = {
-          :code => File.read(path)
+          :code => File.read(path),
+          :messageToSave => @options.messageToSave
         }
         RestClient.proxy = @options.proxy
 
