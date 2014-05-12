@@ -14,18 +14,18 @@ module Apiary
       # TODO: use OpenStruct to store @options
       def initialize(opts)
         @options = OpenStruct.new(opts)
-        @options.path         ||= "apiary.apib"
-        @options.api_host     ||= "api.apiary.io"
-        @options.port         ||= 8080
-        @options.api_name     ||= false
-        @options.api_key      ||= ENV['APIARY_API_KEY']
-        @options.proxy        ||= ENV['http_proxy']
-        @options.headers      ||= {
+        @options.path           ||= "apiary.apib"
+        @options.api_host       ||= "api.apiary.io"
+        @options.port           ||= 8080
+        @options.api_name       ||= false
+        @options.api_key        ||= ENV['APIARY_API_KEY']
+        @options.proxy          ||= ENV['http_proxy']
+        @options.headers        ||= {
           :accept => "text/html",
           :content_type => "text/plain",
           :authentication => "Token #{@options.api_key}"
         }
-        @options.message_to_save||= "Saved with apiary-client"
+        @options.commit_message ||= "Saving blueprint from apiary-client"
       end
 
       def self.execute(args)
@@ -59,7 +59,7 @@ module Apiary
         url  = "https://#{host}/blueprint/publish/#{@options.api_name}"
         data = {
           :code => File.read(path),
-          :messageToSave => @options.messageToSave
+          :messageToSave => @options.commit_message
         }
         RestClient.proxy = @options.proxy
 

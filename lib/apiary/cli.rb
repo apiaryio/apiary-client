@@ -42,10 +42,10 @@ module Apiary
           raise OptionParser::InvalidOption unless ["fetch", "publish"].include? command
           options[:api_name] = api_name
         end
-        
-        opts.on("--message messageToSave") do |message_to_save|
+
+        opts.on("--message COMMIT_MESSAGE") do |commit_message|
           raise OptionParser::InvalidOption if command != "publish"
-          options[:message_to_save] = message_to_save
+          options[:commit_message] = commit_message
         end
 
         opts.on("--browser BROWSER") do |browser|
