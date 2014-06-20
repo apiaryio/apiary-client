@@ -82,7 +82,7 @@ module Apiary
         rescue RestClient::BadRequest => e
           err = JSON.parse e.response
           if err.has_key? 'parserError'
-            abort "#{err['message']}: #{err['parserError']}"
+            abort "#{err['message']}: #{err['parserError']} (Line: #{err['line']}, Column: #{err['column']})"
           else
             abort "Apiary service responded with an error: #{err['message']}"
           end
