@@ -1,88 +1,37 @@
 # encoding: utf-8
-require 'optparse'
+require "thor"
+
 module Apiary
-  class CLI
+  class CLI < Thor
 
-    attr_reader :command
-
-    def initialize(args)
-      options = parse_options!(args)
-      @command = options.delete(:command)
-      run(options)
+    desc "fetch", "Fetch apiary.apib from API_NAME.apiary.io"
+    method_option :api_name, :type => :string, :required => true, :default => ''
+    def fetch
     end
 
-    def run(options)
-      Apiary::Command::Runner.run(@command, options)
+    desc "preview", "Show API documentation in default browser"
+    method_option :browser, :type => :string, :banner => "chrome|safari|firefox", :desc => "Show API documentation in specified browser"
+    method_option :output, :type => :string, :banner => "FILE", :desc => "Write generated HTML into specified file"
+    method_option :path, :type => :string, :desc => "Specify path to blueprint file"
+    method_option :api_host, :type => :string, :banner => "HOST", :desc => "Specify apiary host"
+    method_option :server, :type => :boolean, :desc => "Start standalone web server on port 8080"
+    method_option :port, :type => :numeric, :banner => "PORT", :desc => "Set port for --server option"
+    def preview
+
     end
 
-    def parse_options!(args)
-      options = {}
-      command = nil
-      if args.first && !args.first.start_with?("-")
-        command = args.first
-      end
-
-      options_parser = OptionParser.new do |opts|
-        opts.on("--path [PATH]") do |path|
-          raise OptionParser::InvalidOption unless ["fetch", "preview", "publish"].include? command
-          options[:path] = path
-        end
-
-        opts.on("--output [PATH]") do |path|
-          raise OptionParser::InvalidOption unless ["fetch", "preview"].include? command
-          options[:output] = path
-        end
-
-        opts.on("--api_host API_HOST") do |api_host|
-          raise OptionParser::InvalidOption unless ["fetch", "preview", "publish"].include? command
-          options[:api_host] = api_host
-        end
-
-        opts.on("--api-name API_HOST") do |api_name|
-          raise OptionParser::InvalidOption unless ["fetch", "publish"].include? command
-          options[:api_name] = api_name
-        end
-
-        opts.on("--message COMMIT_MESSAGE") do |commit_message|
-          raise OptionParser::InvalidOption if command != "publish"
-          options[:commit_message] = commit_message
-        end
-
-        opts.on("--browser BROWSER") do |browser|
-          raise OptionParser::InvalidOption if command != "preview"
-          options[:browser] = browser
-        end
-
-        opts.on("--server") do
-          raise OptionParser::InvalidOption if command != "preview"
-          options[:server] = true
-        end
-
-        opts.on("--port [PORT]") do |port|
-          raise OptionParser::InvalidOption unless ["fetch", "preview", "publish"].include? command
-          options[:port] = port
-        end
-
-        opts.on('-v', '--version') do
-          raise OptionParser::InvalidOption if command
-          command = :version
-        end
-
-        opts.on( '-h', '--help') do
-          raise OptionParser::InvalidOption if command
-          command = :help
-        end
-      end
-
-      options_parser.parse!
-      options[:command] = command || :help
-      options
-
-    rescue OptionParser::InvalidOption => e
-      puts e
-      puts Apiary::Command::Help.banner
-      exit 1
+    desc "publish", "Publish apiary.apib on docs.API_NAME.apiary.io"
+    method_option :message, :type => :string, :banner => "COMMIT_MESSAGE", :desc => "Publish with custom commit message"
+    method_option :api_name, :type => :string, :required => true, :default => ''
+    def publish
     end
 
+    desc "version", "Show version"
+    method_option :aliases => "-v"
+    def version
+        puts Apiary::VERSION
+    end
   end
 end
+
+Apiary::CLI.start(ARGV)
