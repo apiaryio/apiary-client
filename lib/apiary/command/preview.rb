@@ -25,10 +25,15 @@ module Apiary
         @options.headers      ||= {:accept => "text/html", :content_type => "text/plain"}
         @options.port         ||= 8080
         @options.proxy        ||= ENV['http_proxy']
+        @options.server       ||= false
       end
 
-      def self.execute(args)
-        args[:server] ? new(args).server : new(args).show
+      def execute
+        if @options.server
+          server
+        else
+          show
+        end
       end
 
       def server

@@ -28,8 +28,8 @@ module Apiary
         @options.commit_message ||= "Saving blueprint from apiary-client"
       end
 
-      def self.execute(args)
-        new(args).publish_on_apiary
+      def execute()
+        publish_on_apiary
       end
 
       def publish_on_apiary
