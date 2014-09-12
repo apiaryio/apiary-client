@@ -24,5 +24,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "rspec", "~> 3.1.0"
   gem.add_development_dependency "webmock"
   gem.add_development_dependency "yard"
+  gem.add_development_dependency "aruba"
 
 end
