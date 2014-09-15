@@ -6,5 +6,5 @@ Feature: Version of Apiary client
     # The matching regex was taken from https://github.com/isaacs/node-semver/issues/32#issue-15023919
 
     When I run `apiary version`
-    Then the output should match /^v([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
+    Then the output should match /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+)?$/
     And the exit status should be 0

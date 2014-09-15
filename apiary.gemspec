@@ -25,5 +25,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "webmock"
   gem.add_development_dependency "yard"
   gem.add_development_dependency "aruba"
+  gem.add_development_dependency "cucumber"
 
 end
