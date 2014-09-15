@@ -28,6 +28,8 @@ module Apiary
 
     desc "publish", "Publish apiary.apib on docs.API_NAME.apiary.io"
     method_option :message, :type => :string, :banner => "COMMIT_MESSAGE", :desc => "Publish with custom commit message"
+    method_option :path, :type => :string, :desc => "Specify path to blueprint file", :default => 'apiary.apib'
+    method_option :api_host, :type => :string, :banner => "HOST", :desc => "Specify apiary host"
     method_option :api_name, :type => :string, :required => true, :default => ''
     def publish
         cmd = Apiary::Command::Publish.new options
