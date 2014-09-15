@@ -2,6 +2,12 @@
 require "rubygems"
 require "rspec/core/rake_task"
 require 'yard'
+require 'cucumber'
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "features --format pretty"
+end
 
 desc "Run all specs"
 RSpec::Core::RakeTask.new(:spec) do |t|
@@ -10,6 +16,8 @@ end
 
 desc 'Default: Run all specs.'
 task :default => :spec
+
+task :test => :spec
 
 task :doc => :yard
 task :gem => :gemspec
