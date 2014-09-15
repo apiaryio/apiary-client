@@ -19,6 +19,7 @@ module Apiary
 
       # TODO: use OpenStruct to store @options
       def initialize(opts)
+        puts opts
         @options = OpenStruct.new(opts)
         @options.path         ||= "apiary.apib"
         @options.api_host     ||= "api.apiary.io"
@@ -29,11 +30,12 @@ module Apiary
       end
 
       def execute
-        if @options.server
-          server
-        else
-          show
-        end
+        show
+        # if @options.server
+        #   server
+        # else
+        #   show
+        # end
       end
 
       def server
@@ -41,7 +43,7 @@ module Apiary
       end
 
       def show
-        generate_static(path)
+        generate_static(@options.path)
       end
 
       def validate_apib_file(apib_file)
