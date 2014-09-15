@@ -57,6 +57,7 @@ module Apiary
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/publish/#{@options.api_name}"
+        validate_apib_file path
         data = {
           :code => File.read(path),
           :messageToSave => @options.commit_message

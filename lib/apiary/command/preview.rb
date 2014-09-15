@@ -81,7 +81,12 @@ module Apiary
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/generate"
-        data = File.read(path)
+        begin
+          data = File.read(path)
+        rescue
+          abort "File #{path} not found."
+        end
+
         RestClient.proxy = @options.proxy
 
         begin
