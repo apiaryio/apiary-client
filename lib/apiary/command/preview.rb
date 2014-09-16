@@ -30,12 +30,11 @@ module Apiary
       end
 
       def execute
-        show
-        # if @options.server
-        #   server
-        # else
-        #   show
-        # end
+        if @options.server
+          server
+        else
+          show
+        end
       end
 
       def server
