@@ -8,10 +8,12 @@ describe Apiary::Command::Fetch do
     expect { command.fetch_from_apiary }.to raise_error('Please provide an api-name option (subdomain part from your http://docs.<api-name>.apiary.io/)')
   end
 
-  it 'pass command only with api_name' do
+  it 'pass command only with api_name', api_key: true do
+
     opts = {
         :api_name => 'test_api'
     }
+
     command = Apiary::Command::Fetch.new(opts)
     expect { command.fetch_from_apiary }.to raise_error('API key must be provided through environment variable APIARY_API_KEY. Please go to https://login.apiary.io/tokens to obtain it.')
   end
