@@ -19,16 +19,22 @@ module Apiary
 
       # TODO: use OpenStruct to store @options
       def initialize(opts)
+        puts opts
         @options = OpenStruct.new(opts)
         @options.path         ||= "apiary.apib"
         @options.api_host     ||= "api.apiary.io"
         @options.headers      ||= {:accept => "text/html", :content_type => "text/plain"}
         @options.port         ||= 8080
         @options.proxy        ||= ENV['http_proxy']
+        @options.server       ||= false
       end
 
-      def self.execute(args)
-        args[:server] ? new(args).server : new(args).show
+      def execute
+        if @options.server
+          server
+        else
+          show
+        end
       end
 
       def server
@@ -36,7 +42,7 @@ module Apiary
       end
 
       def show
-        generate_static(path)
+        generate_static(@options.path)
       end
 
       def validate_apib_file(apib_file)
@@ -74,7 +80,12 @@ module Apiary
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/generate"
-        data = File.read(path)
+        begin
+          data = File.read(path)
+        rescue
+          abort "File #{path} not found."
+        end
+
         RestClient.proxy = @options.proxy
 
         begin

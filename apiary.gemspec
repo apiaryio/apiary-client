@@ -19,9 +19,12 @@ Gem::Specification.new do |gem|
   gem.add_dependency "rest-client", "~> 1.6.7"
   gem.add_dependency "rack", ">= 1.4.0", "< 1.6.0"
   gem.add_dependency "rake"
+  gem.add_dependency "thor"
 
   gem.add_development_dependency "rspec", "~> 3.1.0"
   gem.add_development_dependency "webmock"
   gem.add_development_dependency "yard"
+  gem.add_development_dependency "aruba"
+  gem.add_development_dependency "cucumber"
 
 end

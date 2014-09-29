@@ -27,8 +27,8 @@ module Apiary
         }
       end
 
-      def self.execute(args)
-        response = new(args).fetch_from_apiary
+      def execute()
+        response = fetch_from_apiary
         if response.instance_of? String
           puts response
         end
