@@ -16,4 +16,18 @@ describe Apiary::Common do
 
   end
 
+  describe 'Validate blueprint' do
+
+    it 'test validate blueprint' do
+      common = Apiary::Common.new
+      expect(common.validate_blueprint('# API_NAME')).to be_truthy
+    end
+
+    it 'test invalidate blueprint' do
+      common = Apiary::Common.new
+      expect(common.validate_blueprint("\t# API_NAME\t\r\n## Group Name")).to be_falsey
+    end
+
+  end
+
 end
