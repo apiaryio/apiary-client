@@ -3,6 +3,7 @@ require 'rest_client'
 require 'rack'
 require 'ostruct'
 require 'json'
+require "apiary/common"
 
 module Apiary
   module Command
@@ -46,9 +47,7 @@ module Apiary
       end
 
       def validate_apib_file(apib_file)
-        unless File.exist?(apib_file)
-          abort "Apiary definition file hasn't been found: #{apib_file.inspect}"
-        end
+        Apiary::Common.validate_apib_file(apib_file)
       end
 
       def path
