@@ -79,26 +79,29 @@ module Apiary
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/generate"
-        validate_apib_file(path)
-        begin
-          data = File.read(path)
-        rescue
-          abort "File #{path} not found."
-        end
-
-        RestClient.proxy = @options.proxy
-
-        begin
-          RestClient.post(url, data, @options.headers)
-        rescue RestClient::BadRequest => e
-          err = JSON.parse e.response
-          if err.has_key? 'parserError'
-            abort "#{err['message']}: #{err['parserError']} (Line: #{err['line']}, Column: #{err['column']})"
-          else
-            abort "Apiary service responded with an error: #{err['message']}"
+        if validate_apib_file(path)
+          begin
+            data = File.read(path)
+          rescue
+            abort "File #{path} not found."
           end
-        rescue RestClient::Exception => e
-          abort "Apiary service responded with an error: #{e.message}"
+
+          RestClient.proxy = @options.proxy
+
+          begin
+            RestClient.post(url, data, @options.headers)
+          rescue RestClient::BadRequest => e
+            err = JSON.parse e.response
+            if err.has_key? 'parserError'
+              abort "#{err['message']}: #{err['parserError']} (Line: #{err['line']}, Column: #{err['column']})"
+            else
+              abort "Apiary service responded with an error: #{err['message']}"
+            end
+          rescue RestClient::Exception => e
+            abort "Apiary service responded with an error: #{e.message}"
+          end
+        else
+          abort "Sorry, Apiary can't display invalid blueprint."
         end
       end
 

@@ -17,6 +17,7 @@ module Apiary
           return true
         else
           @error_message = result.error[:message]
+          puts "Blueprint validation error: #{@error_message}"
           return false
         end
       end
@@ -25,7 +26,8 @@ module Apiary
         unless File.exist?(apib_file)
           raise "Apiary definition file hasn't been found: #{apib_file.inspect}"
         end
-        return true
+        code = File.read(apib_file)
+        return validate_blueprint(code)
       end
 
     end
