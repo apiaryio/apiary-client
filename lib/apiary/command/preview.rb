@@ -19,9 +19,7 @@ module Apiary
 
       attr_reader :options
 
-      # TODO: use OpenStruct to store @options
       def initialize(opts)
-        puts opts
         @options = OpenStruct.new(opts)
         @options.path         ||= "apiary.apib"
         @options.api_host     ||= "api.apiary.io"
@@ -48,7 +46,8 @@ module Apiary
       end
 
       def validate_apib_file(apib_file)
-        Apiary::Common.validate_apib_file(apib_file)
+        common = Apiary::Common.new
+        common.validate_apib_file(apib_file)
       end
 
       def path
@@ -80,6 +79,7 @@ module Apiary
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/generate"
+        validate_apib_file(path)
         begin
           data = File.read(path)
         rescue

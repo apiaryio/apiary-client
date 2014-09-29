@@ -12,7 +12,6 @@ module Apiary
 
       attr_reader :options
 
-      # TODO: use OpenStruct to store @options
       def initialize(opts)
         @options = OpenStruct.new(opts)
         @options.path           ||= "apiary.apib"
@@ -47,7 +46,8 @@ module Apiary
       end
 
       def validate_apib_file(apib_file)
-        Apiary::Common.validate_apib_file(apib_file)
+        common = Apiary::Common.new
+        common.validate_apib_file(apib_file)
       end
 
       def path
