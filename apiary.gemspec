@@ -21,6 +21,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency "rake"
   gem.add_dependency "thor"
 
+  gem.add_runtime_dependency "json", "~> 1.8.1"
+
   gem.add_development_dependency "rspec", "~> 3.1.0"
   gem.add_development_dependency "webmock"
   gem.add_development_dependency "yard"
