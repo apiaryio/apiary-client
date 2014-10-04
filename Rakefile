@@ -4,6 +4,11 @@ require "rspec/core/rake_task"
 require 'yard'
 require 'cucumber'
 require 'cucumber/rake/task'
+begin
+      require 'bundler/gem_tasks'
+rescue LoadError
+      puts "Cannot load bundler/gem_tasks"
+end
 
 Cucumber::Rake::Task.new(:features) do |t|
   t.cucumber_opts = "features --format pretty"
