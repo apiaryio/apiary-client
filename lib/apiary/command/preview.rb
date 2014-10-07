@@ -108,9 +108,7 @@ module Apiary
       end
 
       def write_generated_path(path, outfile)
-        File.open(outfile, 'w') do |file|
-          file.write(File.open(path, 'r').read)
-        end
+        File.write(outfile, File.read(path))
       end
 
       def generate_static(path)
