@@ -4,6 +4,8 @@ require 'rack'
 require 'ostruct'
 require 'json'
 
+require "apiary/common"
+
 module Apiary
   module Command
     # Display preview of local blueprint file
@@ -17,9 +19,7 @@ module Apiary
 
       attr_reader :options
 
-      # TODO: use OpenStruct to store @options
       def initialize(opts)
-        puts opts
         @options = OpenStruct.new(opts)
         @options.path         ||= "apiary.apib"
         @options.api_host     ||= "api.apiary.io"
@@ -46,9 +46,8 @@ module Apiary
       end
 
       def validate_apib_file(apib_file)
-        unless File.exist?(apib_file)
-          abort "Apiary definition file hasn't been found: #{apib_file.inspect}"
-        end
+        common = Apiary::Common.new
+        common.validate_apib_file(apib_file)
       end
 
       def path
@@ -80,25 +79,29 @@ module Apiary
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/generate"
-        begin
-          data = File.read(path)
-        rescue
-          abort "File #{path} not found."
-        end
-
-        RestClient.proxy = @options.proxy
-
-        begin
-          RestClient.post(url, data, @options.headers)
-        rescue RestClient::BadRequest => e
-          err = JSON.parse e.response
-          if err.has_key? 'parserError'
-            abort "#{err['message']}: #{err['parserError']} (Line: #{err['line']}, Column: #{err['column']})"
-          else
-            abort "Apiary service responded with an error: #{err['message']}"
+        if validate_apib_file(path)
+          begin
+            data = File.read(path)
+          rescue
+            abort "File #{path} not found."
           end
-        rescue RestClient::Exception => e
-          abort "Apiary service responded with an error: #{e.message}"
+
+          RestClient.proxy = @options.proxy
+
+          begin
+            RestClient.post(url, data, @options.headers)
+          rescue RestClient::BadRequest => e
+            err = JSON.parse e.response
+            if err.has_key? 'parserError'
+              abort "#{err['message']}: #{err['parserError']} (Line: #{err['line']}, Column: #{err['column']})"
+            else
+              abort "Apiary service responded with an error: #{err['message']}"
+            end
+          rescue RestClient::Exception => e
+            abort "Apiary service responded with an error: #{e.message}"
+          end
+        else
+          abort "Sorry, Apiary can't display invalid blueprint."
         end
       end
 

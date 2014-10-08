@@ -3,6 +3,7 @@ require 'rest_client'
 require 'rack'
 require 'ostruct'
 require 'json'
+require "apiary/common"
 
 module Apiary
   module Command
@@ -11,7 +12,6 @@ module Apiary
 
       attr_reader :options
 
-      # TODO: use OpenStruct to store @options
       def initialize(opts)
         @options = OpenStruct.new(opts)
         @options.path           ||= "apiary.apib"
@@ -46,9 +46,8 @@ module Apiary
       end
 
       def validate_apib_file(apib_file)
-        unless File.exist?(apib_file)
-          abort "Apiary definition file hasn't been found: #{apib_file.inspect}"
-        end
+        common = Apiary::Common.new
+        common.validate_apib_file(apib_file)
       end
 
       def path
@@ -57,24 +56,25 @@ module Apiary
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/publish/#{@options.api_name}"
-        validate_apib_file path
-        data = {
-          :code => File.read(path),
-          :messageToSave => @options.commit_message
-        }
-        RestClient.proxy = @options.proxy
+        if validate_apib_file path
+          data = {
+            :code => File.read(path),
+            :messageToSave => @options.commit_message
+          }
+          RestClient.proxy = @options.proxy
 
-        begin
-          RestClient.post url, data, @options.headers
-        rescue RestClient::BadRequest => e
-          err = JSON.parse e.response
-          if err.has_key? 'parserError'
-            abort "#{err['message']}: #{err['parserError']}"
-          else
-            abort "Apiary service responded with an error: #{err['message']}"
+          begin
+            RestClient.post url, data, @options.headers
+          rescue RestClient::BadRequest => e
+            err = JSON.parse e.response
+            if err.has_key? 'parserError'
+              abort "#{err['message']}: #{err['parserError']}"
+            else
+              abort "Apiary service responded with an error: #{err['message']}"
+            end
+          rescue RestClient::Exception => e
+            abort "Apiary service responded with an error: #{e.message}"
           end
-        rescue RestClient::Exception => e
-          abort "Apiary service responded with an error: #{e.message}"
         end
       end
 

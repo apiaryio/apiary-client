@@ -1,3 +1,6 @@
+dependencies:
+  pre:
+    - gem update bundler
 test:
   override:
     - bundle exec rake test
