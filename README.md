@@ -47,7 +47,7 @@ machine, either using static files or using a standalone web server...
       publish --api-name [API_NAME] \
               --message [COMMIT_MESSAGE]          Publish with custom commit message
       fetch   --api-name [API_NAME]               Fetch apiary.apib from API_NAME.apiary.io
-
+              --output [FILE]                     Write apiary.apib into specified file
       help                                        Show this help
       version                                     Show version
 
