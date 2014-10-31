@@ -24,8 +24,12 @@ export APIARY_API_KEY=<your_token_retrieved_on_step_1>
 
 ## Description
 
-Apiaryio gem provides a way to display your API documentation on your local
-machine, either using static files or using a standalone web server...
+The Apiary CLI gem is a command line tool for developing and previewing
+API Blueprint documents locally. It can also be used for pushing
+updated documents to and fetching existing documents from Apiary.io.
+
+Please see the [full documentation](http://client.apiary.io) for an in-depth
+look in how to use this tool.
 
 ## Usage
 
