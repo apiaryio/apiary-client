@@ -20,7 +20,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency "rack", ">= 1.4.0", "< 1.6.0"
   gem.add_dependency "rake", "~> 10.3.2"
   gem.add_dependency "thor", "~> 0.19.1"
-  gem.add_dependency "redsnow", "~> 0.3.2"
 
   gem.add_runtime_dependency "json", "~> 1.8.1"
 
