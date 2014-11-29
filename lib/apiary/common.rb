@@ -1,5 +1,4 @@
 # encoding: utf-8
-require 'redsnow'
 
 module Apiary
     # Common function used in commands
@@ -10,24 +9,11 @@ module Apiary
       def initialize()
       end
 
-      def validate_blueprint(code)
-        result = RedSnow.parse(code)
-        if result.error[:code] == 0
-          @error_message = nil
-          return true
-        else
-          @error_message = result.error[:message]
-          puts "Blueprint validation error: #{@error_message}"
-          return false
-        end
-      end
-
       def validate_apib_file(apib_file)
         unless File.exist?(apib_file)
           raise "Apiary definition file hasn't been found: #{apib_file.inspect}"
         end
-        code = File.read(apib_file)
-        return validate_blueprint(code)
+        File.read(apib_file)
       end
 
     end
