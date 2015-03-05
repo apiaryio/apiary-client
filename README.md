@@ -57,7 +57,7 @@ look in how to use this tool.
 
 ## Copyright
 
-Copyright 2012-14 (c) Apiary Ltd.
+Copyright 2012-15 (c) Apiary Ltd.
 
 ## Contributors
 
