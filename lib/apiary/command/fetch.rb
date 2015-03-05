@@ -16,7 +16,6 @@ module Apiary
         @options = OpenStruct.new(opts)
         @options.path         ||= "apiary.apib"
         @options.api_host     ||= "api.apiary.io"
-        @options.port         ||= 8080
         @options.api_name     ||= false
         @options.api_key      ||= ENV['APIARY_API_KEY']
         @options.proxy        ||= ENV['http_proxy']
