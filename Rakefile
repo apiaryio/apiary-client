@@ -10,6 +10,7 @@ rescue LoadError
       puts "Cannot load bundler/gem_tasks"
 end
 
+desc "Run all features"
 Cucumber::Rake::Task.new(:features) do |t|
   t.cucumber_opts = "features --format pretty"
 end
@@ -17,6 +18,7 @@ end
 desc "Run all specs"
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.verbose = true
+  t.rspec_opts = "-fd"
 end
 
 desc 'Default: Run all specs.'
