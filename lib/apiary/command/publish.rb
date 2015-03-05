@@ -50,6 +50,11 @@ module Apiary
         common.validate_apib_file(apib_file)
       end
 
+      def get_apib_file(apib_file)
+        common = Apiary::Common.new
+        common.get_apib_file(apib_file)
+      end
+
       def path
         @options.path || "#{File.basename(Dir.pwd)}.apib"
       end
@@ -58,7 +63,7 @@ module Apiary
         url  = "https://#{host}/blueprint/publish/#{@options.api_name}"
         if validate_apib_file path
           data = {
-            :code => File.read(path),
+            :code => get_apib_file(path),
             :messageToSave => @options.commit_message
           }
           RestClient.proxy = @options.proxy
