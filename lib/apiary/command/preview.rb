@@ -75,7 +75,7 @@ module Apiary
 
       def preview_path(path)
         basename = File.basename(@options.path)
-        temp = Dir.tempdir()
+        temp = Dir.tmpdir()
         "#{temp}/#{basename}-preview.html"
       end
 
