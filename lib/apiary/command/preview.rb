@@ -3,6 +3,7 @@ require 'rest_client'
 require 'rack'
 require 'ostruct'
 require 'json'
+require 'tmpdir'
 
 require "apiary/common"
 
@@ -74,7 +75,8 @@ module Apiary
 
       def preview_path(path)
         basename = File.basename(@options.path)
-        "/tmp/#{basename}-preview.html"
+        temp = Dir.tmpdir()
+        "#{temp}/#{basename}-preview.html"
       end
 
       def query_apiary(host, path)
