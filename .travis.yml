@@ -17,13 +17,6 @@ matrix:
     - rvm: rbx-2
 cache: bundler
 notifications:
-  email:
-    recipients:
-      - lukas@apiary.io
-      - adam@apiary.io
-      - ladislav@apiary.io
-    on_success: change
-    on_failure: always
   hipchat:
     rooms:
       secure: "HqBUrmf4P2bgvwb4b9PL1tBae2wcZaXadOgwRwAFhdhDZFHaKXIXlJRUW8tN\ntdO83OZgatxJrpWWQj8VYTfDuhlE3b3NxVWeXc3PkfrHmuvejQf4veh7kwR0\njLVE6jb+ZbFIwRE2W0VFLFKYQHI6PLem4W0OKXW5Shqzy8Ewlow="
