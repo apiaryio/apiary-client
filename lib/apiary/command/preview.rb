@@ -4,13 +4,19 @@ require 'rack'
 require 'ostruct'
 require 'json'
 require 'tmpdir'
+require 'erb'
 
 require "apiary/common"
+require "apiary/helpers/javascript_helper"
 
 module Apiary
   module Command
     # Display preview of local blueprint file
     class Preview
+
+      include Apiary::Helpers::JavascriptHelper
+
+      PREVIEW_TEMPLATE_PATH = "#{File.expand_path File.dirname(__FILE__)}/../file_templates/preview.erb"
 
       BROWSERS = {
         :safari => "Safari",
@@ -28,6 +34,8 @@ module Apiary
         @options.port         ||= 8080
         @options.proxy        ||= ENV['http_proxy']
         @options.server       ||= false
+
+        validate_apib_file()
       end
 
       def execute
@@ -43,12 +51,12 @@ module Apiary
       end
 
       def show
-        generate_static(@options.path)
+        generate_static
       end
 
-      def validate_apib_file(apib_file)
+      def validate_apib_file
         common = Apiary::Common.new
-        common.validate_apib_file(apib_file)
+        common.validate_apib_file(@options.path)
       end
 
       def path
@@ -67,44 +75,10 @@ module Apiary
 
       def run_server
         app = self.rack_app do
-          self.query_apiary(@options.api_host, @options.path)
+          self.generate
         end
 
         Rack::Server.start(:Port => @options.port, :app => app)
-      end
-
-      def preview_path(path)
-        basename = File.basename(@options.path)
-        temp = Dir.tmpdir()
-        "#{temp}/#{basename}-preview.html"
-      end
-
-      def query_apiary(host, path)
-        url  = "https://#{host}/blueprint/generate"
-        if validate_apib_file(path)
-          begin
-            data = File.read(path)
-          rescue
-            abort "File #{path} not found."
-          end
-
-          RestClient.proxy = @options.proxy
-
-          begin
-            RestClient.post(url, data, @options.headers)
-          rescue RestClient::BadRequest => e
-            err = JSON.parse e.response
-            if err.has_key? 'parserError'
-              abort "#{err['message']}: #{err['parserError']} (Line: #{err['line']}, Column: #{err['column']})"
-            else
-              abort "Apiary service responded with an error: #{err['message']}"
-            end
-          rescue RestClient::Exception => e
-            abort "Apiary service responded with an error: #{e.message}"
-          end
-        else
-          abort "Sorry, Apiary can't display invalid blueprint."
-        end
       end
 
       # TODO: add linux and windows systems
@@ -116,17 +90,49 @@ module Apiary
         File.write(outfile, File.read(path))
       end
 
-      def generate_static(path)
-        File.open(preview_path(path), "w") do |file|
-          file.write(query_apiary(@options.api_host, path))
+      def generate
+        template = load_preview_template()
+
+        data = {
+          title: File.basename(@options.path, ".*"),
+          blueprint: load_blueprint()
+        }
+
+        template.result(binding)
+      end
+
+      def generate_static
+        preview_string = generate
+
+        File.open(preview_path, "w") do |file|
+          file.write preview_string
+          file.flush
           @options.output ? write_generated_path(file.path, @options.output) : open_generated_page(file.path)
         end
       end
 
+      def load_blueprint
+        file = File.open @options.path, "r"
+        file.read
+      end
+
+      def preview_path
+        basename = File.basename(@options.path, ".*")
+        temp = Dir.tmpdir()
+        "#{temp}/#{basename}-preview.html"
+      end
+
+      def load_preview_template
+        file = File.open(PREVIEW_TEMPLATE_PATH, "r")
+        template_string = file.read()
+        ERB.new(template_string)
+      end
+
       private
-        def browser_options
-          "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser
-        end
+
+      def browser_options
+        "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser
+      end
     end
   end
 end
