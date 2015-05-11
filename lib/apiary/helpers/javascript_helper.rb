@@ -1,5 +1,6 @@
+# encoding: utf-8
 module Apiary
-	module Helpers
+  module Helpers
     module JavascriptHelper
       JS_ESCAPE_MAP = {
         '\\'    => '\\\\',
