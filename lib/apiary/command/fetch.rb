@@ -8,7 +8,6 @@ module Apiary
   module Command
     # Retrieve blueprint from apiary
     class Fetch
-
       attr_reader :options
 
       # TODO: use OpenStruct to store @options
@@ -43,10 +42,10 @@ module Apiary
         end
 
         response = self.query_apiary(@options.api_host, @options.path)
-        unless @options.output
-          response["code"]
-        else
+        if @options.output
           write_generated_path(response["code"], @options.output)
+        else
+          response["code"]
         end
       end
 
