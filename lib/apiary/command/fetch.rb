@@ -42,7 +42,7 @@ module Apiary
         end
 
         response = self.query_apiary(@options.api_host, @options.path)
-        if @options.output
+        if @options.output && @options.output != '-'
           write_generated_path(response["code"], @options.output)
         else
           response["code"]
