@@ -34,26 +34,15 @@ look in how to use this tool.
 ## Usage
 
     $ apiary help
+	Commands:
+	  apiary fetch --api-name=API_NAME    # Fetch apiary.apib from API_NAME.apiary.io
+	  apiary help [COMMAND]               # Describe available commands or one specific...
+	  apiary preview                      # Show API documentation in default browser
+	  apiary publish --api-name=API_NAME  # Publish apiary.apib on docs.API_NAME.apiary.io
+	  apiary version                      # Show version
 
-    Usage: apiary command [options]
-    Try 'apiary help' for more information.
 
-    Currently available apiary commands are:
-
-      preview                                     Show API documentation in default browser
-      preview --browser [chrome|safari|firefox]   Show API documentation in specified browser
-      preview --output [FILE]                     Write generated HTML into specified file
-      preview --path [PATH]                       Specify path to blueprint file
-      preview --api_host [HOST]                   Specify apiary host
-      preview --server                            Start standalone web server on port 8080
-      preview --server --port [PORT]              Start standalone web server on specified port
-      publish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io
-      publish --api-name [API_NAME] \
-              --message [COMMIT_MESSAGE]          Publish with custom commit message
-      fetch   --api-name [API_NAME]               Fetch apiary.apib from API_NAME.apiary.io
-              --output [FILE]                     Write apiary.apib into specified file
-      help                                        Show this help
-      version                                     Show version
+Further documentation is available with `apiary help COMMAND` and at the [full documentation](http://client.apiary.io) site.
 
 ## Copyright
 
