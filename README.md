@@ -41,16 +41,19 @@ look in how to use this tool.
     Currently available apiary commands are:
 
       preview                                     Show API documentation in default browser
-      preview --browser [chrome|safari|firefox]   Show API documentation in specified browser
-      preview --output [FILE]                     Write generated HTML into specified file
-      preview --path [PATH]                       Specify path to blueprint file
-      preview --api_host [HOST]                   Specify apiary host
-      preview --server                            Start standalone web server on port 8080
-      preview --server --port [PORT]              Start standalone web server on specified port
+      		  --browser [chrome|safari|firefox]   Show API documentation in specified browser
+      		  --output [FILE]                     Write generated HTML into specified file
+      		  --path [PATH]                       Specify path to blueprint file
+      		  --api_host [HOST]                   Specify apiary host
+      		  --server                            Start standalone web server on port 8080
+      		  --server --port [PORT]              Start standalone web server on specified port
       publish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io
-      publish --api-name [API_NAME] \
+			  --path PATH						  Specify path to blueprint file (default: apiary.apib)
+			  --api-host HOST					  Specify apiary host
+              --api-name [API_NAME] \
               --message [COMMIT_MESSAGE]          Publish with custom commit message
       fetch   --api-name [API_NAME]               Fetch apiary.apib from API_NAME.apiary.io
+			  --api-host [HOST]					  Specify apiary host
               --output [FILE]                     Write apiary.apib into specified file
       help                                        Show this help
       version                                     Show version
