@@ -33,16 +33,83 @@ look in how to use this tool.
 
 ## Usage
 
-    $ apiary help
-	Commands:
-	  apiary fetch --api-name=API_NAME    # Fetch apiary.apib from API_NAME.apiary.io
-	  apiary help [COMMAND]               # Describe available commands or one specific...
-	  apiary preview                      # Show API documentation in default browser
-	  apiary publish --api-name=API_NAME  # Publish apiary.apib on docs.API_NAME.apiary.io
-	  apiary version                      # Show version
+```
+$ apiary help
+Commands:
+  apiary fetch --api-name=API_NAME    # Fetch apiary.apib from API_NAME.apiary.io
+  apiary help [COMMAND]               # Describe available commands or one specific...
+  apiary preview                      # Show API documentation in default browser
+  apiary publish --api-name=API_NAME  # Publish apiary.apib on docs.API_NAME.apiary.io
+  apiary version                      # Show version
 
+```
 
-Further documentation is available with `apiary help COMMAND` and at the [full documentation](http://client.apiary.io) site.
+### Details
+
+#### fetch
+
+```
+$ apiary help fetch
+Usage:
+  apiary fetch --api-name=API_NAME
+
+Options:
+  --api-name=API_NAME  
+  [--api-host=HOST]    # Specify apiary host
+  [--output=FILE]      # Write apiary.apib into specified file
+
+Fetch apiary.apib from API_NAME.apiary.io
+```
+
+#### preview
+
+```
+$ apiary help preview
+Usage:
+  apiary preview
+
+Options:
+  [--browser=chrome|safari|firefox]  # Show API documentation in specified browser
+                                     # Possible values: chrome, safari, firefox
+  [--output=FILE]                    # Write generated HTML into specified file
+  [--path=PATH]                      # Specify path to blueprint file
+                                     # Default: apiary.apib
+  [--api-host=HOST]                  # Specify apiary host
+  [--server], [--no-server]          # Start standalone web server on port 8080
+  [--port=PORT]                      # Set port for --server option
+
+Show API documentation in default browser
+```
+
+#### publish
+
+```
+$ apiary help publish
+Usage:
+  apiary publish --api-name=API_NAME
+
+Options:
+  [--message=COMMIT_MESSAGE]  # Publish with custom commit message
+  [--path=PATH]               # Specify path to blueprint file
+                              # Default: apiary.apib
+  [--api-host=HOST]           # Specify apiary host
+  --api-name=API_NAME         
+
+Publish apiary.apib on docs.API_NAME.apiary.io
+```
+
+#### version
+
+```
+$ apiary help version
+Usage:
+  apiary version
+
+Options:
+  [--{:aliases=>"-v"}={:ALIASES=>"-V"}]  
+
+Show version
+```
 
 ## Copyright
 
