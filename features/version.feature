@@ -1,5 +1,6 @@
 Feature: Version of Apiary client
 
+  @doesnt_need_apiary_api_key
   Scenario: Print the semantic version of Apiary client
 
     # Note the output should be a semantic version (semver.org)
