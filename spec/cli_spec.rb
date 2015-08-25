@@ -2,32 +2,40 @@ require 'spec_helper'
 
 describe Apiary::CLI do
 
+  # Don't let Thor fold or truncate lines
+  ENV['THOR_COLUMNS'] = '1000'
+
+  # The documentation that ought to match the code
+  READMETEXT = open("README.md") {|f| f.read}
+
   it 'has help' do
-    helpcount = Kernel.open('|bin/apiary help') {|f| f.read}.lines.count
-    expect(helpcount).to be >= 5
+    help = open('|ruby bin/apiary help') {|f| f.read}
+    expect(help).to include("Commands:")
+    expect(help.lines.count).to be >= 5
   end
 
-  (["",] +
-   `bin/apiary help`
-     .lines
-     .map {|l| /^ +apiary /.match(l)?l:nil}
-     .map {|l| /^ *apiary help/.match(l)?nil:l}
-     .compact
-     .map {|l| /^ *apiary ([^ ]*)/.match(l)[1] + " " }
+  it 'has README.md' do
+    expect(READMETEXT).to include("apiary help")
+    expect(READMETEXT.lines.count).to be >= 5
+  end
+
+  # Confirm that all subcommands are documented, verbatim
+  ([""] + (open('|ruby bin/apiary help', 'r') {|f| f.readlines}
+            .map {|l| /^ +apiary /.match(l)?l:nil}
+            .map {|l| /^ *apiary help/.match(l)?nil:l}
+            .compact
+            .map {|l| /^ *apiary ([^ ]*)/.match(l)[1] + " " }
+          )
   ).each do |cmd|
 
     it "includes help #{cmd}in README.md" do
-      begin
-        helpfile="help#{cmd.strip}.out"
-        helptext = open("|bin/apiary help #{cmd} | tee #{helpfile}") {|f| f.read}
-        matchtext = `diff -w -C1000 README.md #{helpfile} | sed -n '/^  \\(.*\\)/s//\\1/p'`
+      helptext = open("|ruby bin/apiary help #{cmd}") {|f| f.read}
 
-        expect(matchtext).to eq(helptext)
+      expect(helptext).to include("apiary #{cmd.strip}")
+      expect(READMETEXT).to include("apiary #{cmd.strip}")
+      expect(READMETEXT).to include(helptext)
 
-      ensure
-        !File.exist?(helpfile) || File.unlink(helpfile)
-      end
     end
   end
-
 end
+
