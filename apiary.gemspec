@@ -17,16 +17,15 @@ Gem::Specification.new do |gem|
   gem.version       = Apiary::VERSION
 
   gem.add_dependency "rest-client", "~> 1.8"
-  gem.add_dependency "rack", ">= 1.4.0", "< 1.6.0"
-  gem.add_dependency "rake", "~> 10.3.2"
+  gem.add_dependency "rack", "~> 1.6"
+  gem.add_dependency "rake", "~> 10.4"
   gem.add_dependency "thor", "~> 0.19.1"
 
-  gem.add_runtime_dependency "json", "~> 1.8.1"
+  gem.add_runtime_dependency "json", "~> 1.8"
 
-  gem.add_development_dependency "rspec", "~> 3.2.0"
-  gem.add_development_dependency "webmock", ">= 1.20.4"
-  gem.add_development_dependency "yard", ">= 0.8.7.6"
+  gem.add_development_dependency "rspec", "~> 3.2"
+  gem.add_development_dependency "webmock", "~> 1.20"
+  gem.add_development_dependency "yard", "~> 0.8"
   gem.add_development_dependency "aruba", ">= 0.6.2", "< 0.7.0"
-  gem.add_development_dependency "cucumber", ">=1.3.19"
-
+  gem.add_development_dependency "cucumber", "~> 1.3", '>= 1.3.19'
 end
