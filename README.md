@@ -153,11 +153,11 @@ $ bundle exec rake features
 ### Release
 
 Use `bundle install` to install your changes locally, for manual and ad-hock testing.
-Use `gem push` to
-release a new version (refer to [RubyGems docs](http://guides.rubygems.org/publishing/) for further information).
+
+Only gem owners `gem owner apiaryio` can publish new gem into [RubyGems](https://rubygems.org/gems/apiaryio).
 
 ```sh
-$ gem push apiaryio-X.X.X.gem
+$ rake release
 ```
 
 
