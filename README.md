@@ -1,81 +1,170 @@
-apiaryio
-=============
+Apiary CLI Client
+=================
 
-Apiary.io CLI
+[Apiary](https://apiary.io) CLI client, `apiary`.
 
 [![Build Status](https://travis-ci.org/apiaryio/apiary-client.png?branch=master)](https://travis-ci.org/apiaryio/apiary-client) [![Build status](https://ci.appveyor.com/api/projects/status/0hmkivbnhf9p3f8d/branch/master?svg=true)](https://ci.appveyor.com/project/Apiary/apiary-client/branch/master)
 
+## Description
 
-## Install
+The Apiary CLI Client gem is a command line tool for developing and previewing
+[API Blueprint](http://apiblueprint.org) documents locally. It can also be
+used for pushing updated documents to and fetching existing documents from
+[Apiary](http://apiary.io).
 
-**install gem** (required)
-``` bash
+
+Please see the `apiary help` command and the [full documentation](http://client.apiary.io) for an in-depth look in how to use this tool.
+
+For instructions on making your  own changes, see [Hacking Apiary CLI Client](#hacking-apiary-cli-client), below.
+
+## Installation
+
+### Install as a Ruby gem
+
+``` sh
 gem install apiaryio
 ```
 
-**setup APIARY.io credentials** (required for publish and fetch command only)
+### Setup Apiary credentials
 
-1. Retrieve APIKEY on `https://login.apiary.io/tokens`
-2. Save it to your environment variables :
+*Required only for publish and fetch commands.*
 
-```bash
-export APIARY_API_KEY=<your_token_retrieved_on_step_1>
+
+1. Make sure you are a registered user of [Apiary](http://apiary.io).
+2. Retrieve API key (token) on [this page](https://login.apiary.io/tokens).
+3. Export it as an environment variable:
+
+```sh
+export APIARY_API_KEY=<your_token>
+```
+## Command-line Usage
+
+```
+$ apiary help
+Commands:
+  apiary fetch --api-name=API_NAME    # Fetch apiary.apib from API_NAME.apiary.io
+  apiary help [COMMAND]               # Describe available commands or one specific command
+  apiary preview                      # Show API documentation in default browser
+  apiary publish --api-name=API_NAME  # Publish apiary.apib on docs.API_NAME.apiary.io
+  apiary version                      # Show version
+
 ```
 
-## Description
+### Details
 
-The Apiary CLI gem is a command line tool for developing and previewing
-API Blueprint documents locally. It can also be used for pushing
-updated documents to and fetching existing documents from Apiary.io.
+#### fetch
 
-Please see the [full documentation](http://client.apiary.io) for an in-depth
-look in how to use this tool.
+```
+$ apiary help fetch
+Usage:
+  apiary fetch --api-name=API_NAME
 
-## Usage
+Options:
+  --api-name=API_NAME  
+  [--api-host=HOST]    # Specify apiary host
+  [--output=FILE]      # Write apiary.apib into specified file
 
-    $ apiary help
+Fetch apiary.apib from API_NAME.apiary.io
+```
 
-    Usage: apiary command [options]
-    Try 'apiary help' for more information.
+#### preview
 
-    Currently available apiary commands are:
+```
+$ apiary help preview
+Usage:
+  apiary preview
 
-      preview                                     Show API documentation in default browser
-      preview --browser [chrome|safari|firefox]   Show API documentation in specified browser
-      preview --output [FILE]                     Write generated HTML into specified file
-      preview --path [PATH]                       Specify path to blueprint file
-      preview --api_host [HOST]                   Specify apiary host
-      preview --server                            Start standalone web server on port 8080
-      preview --server --port [PORT]              Start standalone web server on specified port
-      publish --api-name [API_NAME]               Publish apiary.apib on docs.API_NAME.apiary.io
-      publish --api-name [API_NAME] \
-              --message [COMMIT_MESSAGE]          Publish with custom commit message
-      fetch   --api-name [API_NAME]               Fetch apiary.apib from API_NAME.apiary.io
-              --output [FILE]                     Write apiary.apib into specified file
-      help                                        Show this help
-      version                                     Show version
+Options:
+  [--browser=chrome|safari|firefox]  # Show API documentation in specified browser
+                                     # Possible values: chrome, safari, firefox
+  [--output=FILE]                    # Write generated HTML into specified file
+  [--path=PATH]                      # Specify path to blueprint file
+                                     # Default: apiary.apib
+  [--api-host=HOST]                  # Specify apiary host
+  [--server], [--no-server]          # Start standalone web server on port 8080
+  [--port=PORT]                      # Set port for --server option
 
-## Copyright
+Show API documentation in default browser
+```
 
-Copyright 2012-15 (c) Apiary Ltd.
+#### publish
 
-## Contributors
+```
+$ apiary help publish
+Usage:
+  apiary publish --api-name=API_NAME
 
-- Jakub Nešetřil
-- James Charles Russell [botanicus]
-- Lukáš Linhart [Almad]
-- Emili Parreño
-- Peter Grilli [Tu1ly]
-- Ladislav Prskavec
-- Honza Javorek
-- Matthew Rudy Jacobs
-- Adam Kliment
-- Jack Repenning
-- Peter Strapp
-- Pierre Merlin
-- František Hába
-- Benjamin Arthur Lupton
+Options:
+  [--message=COMMIT_MESSAGE]  # Publish with custom commit message
+  [--path=PATH]               # Specify path to blueprint file
+                              # Default: apiary.apib
+  [--api-host=HOST]           # Specify apiary host
+  --api-name=API_NAME         
+
+Publish apiary.apib on docs.API_NAME.apiary.io
+```
+
+#### version
+
+```
+$ apiary help version
+Usage:
+  apiary version
+
+Options:
+  [--{:aliases=>"-v"}={:ALIASES=>"-V"}]  
+
+Show version
+```
+
+## Hacking Apiary CLI Client
+
+### Build
+
+1.  If needed, install bundler:
+
+    ```sh
+    $ gem install bundler
+    ```
+
+2.  Clone the repo:
+
+    ```sh
+    $ git clone git@github.com:apiaryio/apiary-client.git
+    $ cd apiary-client
+    ```
+
+3.  Install dependencies:
+
+    ```sh
+    $ bundle install
+    ```
+
+### Test
+
+Inside the `apiary-client` repository directory run:
+
+```sh
+$ bundle exec rake test
+$ bundle exec rake features
+```
+
+
+### Release
+
+Use `bundle install` to install your changes locally, for manual and ad-hock testing.
+Use `gem push` to
+release a new version (refer to [RubyGems docs](http://guides.rubygems.org/publishing/) for further information).
+
+```sh
+$ gem push apiaryio-X.X.X.gem
+```
+
 
 ## License
 
-Released under MIT license. See LICENSE file for further details.
+Copyright 2012-15 (c) Apiary Ltd.
+
+Released under MIT license.
+See [LICENSE](https://raw.githubusercontent.com/apiaryio/apiary-client/master/LICENSE) file for further details.
+
