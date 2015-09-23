@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
   gem.version       = Apiary::VERSION
 
   gem.add_dependency "rest-client", "~> 1.8"
-  gem.add_dependency "rack", "~> 1.6"
+  gem.add_dependency "rack", "~> 1.6.4"
   gem.add_dependency "rake", "~> 10.4"
   gem.add_dependency "thor", "~> 0.19.1"
 
