@@ -34,6 +34,7 @@ module Apiary
         @options.port         ||= 8080
         @options.proxy        ||= ENV['http_proxy']
         @options.server       ||= false
+	@options.host	      ||= '127.0.0.1'
 
         validate_apib_file
       end
@@ -78,7 +79,7 @@ module Apiary
           generate
         end
 
-        Rack::Server.start(:Port => @options.port, :app => app)
+        Rack::Server.start(:Port => @options.port, :Host => @options.host, :app => app)
       end
 
       # TODO: add linux and windows systems
