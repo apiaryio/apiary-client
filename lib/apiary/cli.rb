@@ -24,6 +24,7 @@ module Apiary
     method_option :api_host, :type => :string, :banner => 'HOST', :desc => 'Specify apiary host'
     method_option :server, :type => :boolean, :desc => 'Start standalone web server on port 8080'
     method_option :port, :type => :numeric, :banner => 'PORT', :desc => 'Set port for --server option'
+    method_option :host, :type => :string, :desc => 'Set host for --server option'
 
     def preview
       cmd = Apiary::Command::Preview.new options
