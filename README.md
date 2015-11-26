@@ -83,6 +83,7 @@ Options:
   [--api-host=HOST]                  # Specify apiary host
   [--server], [--no-server]          # Start standalone web server on port 8080
   [--port=PORT]                      # Set port for --server option
+  [--host=HOST]                      # Set host for --server option
 
 Show API documentation in default browser
 ```
