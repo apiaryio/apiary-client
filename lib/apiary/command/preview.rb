@@ -5,6 +5,7 @@ require 'ostruct'
 require 'json'
 require 'tmpdir'
 require 'erb'
+require 'os'
 
 require "apiary/common"
 require "apiary/helpers/javascript_helper"
@@ -82,9 +83,8 @@ module Apiary
         Rack::Server.start(:Port => @options.port, :Host => @options.host, :app => app)
       end
 
-      # TODO: add linux and windows systems
       def open_generated_page(path)
-        exec "open #{browser_options} #{path}"
+        exec "#{OS.open_file_command} #{browser_options} #{path}"
       end
 
       def write_generated_path(path, outfile)
