@@ -3,7 +3,20 @@ require 'fileutils'
 
 Before do
   @dirs << "../../features/fixtures"
-  ENV['PATH'] = "./bin#{File::PATH_SEPARATOR}#{ENV['PATH']}"  
+  ENV['PATH'] = "./bin#{File::PATH_SEPARATOR}#{ENV['PATH']}"
+end
+
+# https://gist.github.com/larrycai/2022360
+module ArubaOverrides
+  def detect_ruby(cmd)
+    processor, platform, *rest = RUBY_PLATFORM.split("-")
+    #puts platform
+    if platform =~ /w32$/ && cmd =~ /^mkbok / #mkbok is the real command in features
+      "ruby -I../../lib -S ../../bin/#{cmd}"
+    else
+      "#{cmd}"
+    end
+  end
 end
 
 Around('@needs_apiary_api_key') do |scenario, block|
@@ -20,3 +33,5 @@ Around('@doesnt_need_apiary_api_key') do |scenario, block|
   block.call
   ENV["APIARY_API_KEY"] = original_value
 end
+
+World(ArubaOverrides)
