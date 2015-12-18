@@ -10,7 +10,8 @@ install:
 build_script:
   - bundle install
 test_script:
-  - rake test
+  - bundle exec rake test
+  - bundle exec rake features
 artifacts:
   - path: pkg\*.gem
 environment:
