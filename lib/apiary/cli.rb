@@ -1,5 +1,6 @@
 # encoding: utf-8
 require 'thor'
+require 'os'
 require 'apiary/command/fetch'
 require 'apiary/command/preview'
 require 'apiary/command/publish'
@@ -18,7 +19,8 @@ module Apiary
     end
 
     desc 'preview', 'Show API documentation in default browser'
-    method_option :browser, :type => :string, :enum => %w(chrome safari firefox), :banner => 'chrome|safari|firefox', :desc => 'Show API documentation in specified browser'
+    method_option :browser, :type => :string, :enum => %w(chrome safari firefox), :banner => 'chrome|safari|firefox', :desc => 'Show API documentation in specified browser' if OS.x?
+
     method_option :output, :type => :string, :banner => 'FILE', :desc => 'Write generated HTML into specified file'
     method_option :path, :type => :string, :desc => 'Specify path to blueprint file', :default => 'apiary.apib'
     method_option :api_host, :type => :string, :banner => 'HOST', :desc => 'Specify apiary host'

@@ -67,7 +67,7 @@ module Apiary
 
       def browser
         BROWSERS[@options.browser]  || nil
-      end
+      end if OS.x?
 
       def rack_app(&block)
         Rack::Builder.new do
@@ -132,7 +132,7 @@ module Apiary
       private
 
       def browser_options
-        "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser
+        "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser && OS.x?
       end
     end
   end
