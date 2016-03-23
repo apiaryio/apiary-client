@@ -25,6 +25,21 @@ For instructions on making your  own changes, see [Hacking Apiary CLI Client](#h
 gem install apiaryio
 ```
 
+### Using Docker - alternative if you don't install ruby or installation not work for you
+
+Download image:
+
+```
+docker pull apiaryio/client
+```
+Run instead `apiary` just `docker run apiaryio/client`
+
+Build from source code:
+
+```
+docker build -t "apiaryio/client" .
+```
+
 ### Setup Apiary credentials
 
 *Required only for publish and fetch commands.*
