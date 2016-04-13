@@ -24,7 +24,7 @@ module Apiary
           :content_type => "text/plain",
           :authentication => "Token #{@options.api_key}"
         }
-        @options.commit_message ||= "Saving blueprint from apiary-client"
+        @options.message ||= "Saving blueprint from apiary-client"
       end
 
       def execute()
@@ -63,7 +63,7 @@ module Apiary
         if validate_apib_file path
           data = {
             :code => get_apib_file(path),
-            :messageToSave => @options.commit_message
+            :messageToSave => @options.message
           }
           RestClient.proxy = @options.proxy
 
