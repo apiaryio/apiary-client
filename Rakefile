@@ -18,7 +18,6 @@ end
 desc "Run all specs"
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.verbose = true
-  t.rspec_opts = "-fd"
 end
 
 desc 'Default: Run all specs.'
