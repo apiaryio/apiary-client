@@ -78,7 +78,12 @@ module Apiary
               abort "Apiary service responded with an error: #{err['message']}"
             end
           rescue RestClient::Exception => e
-            abort "Apiary service responded with an error: #{e.message}"
+            err = JSON.parse e.response
+            if err.has_key? 'message'
+              abort "Apiary service responded with an error: #{err['message']}"
+            else
+              abort "Apiary service responded with an error: #{e.message}"
+            end
           end
         end
       end
