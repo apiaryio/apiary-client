@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rest_client'
+require 'rest-client'
 require 'rack'
 require 'ostruct'
 require 'json'

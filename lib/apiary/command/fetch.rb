@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rest_client'
+require 'rest-client'
 require 'rack'
 require 'ostruct'
 require 'json'
@@ -62,8 +62,7 @@ module Apiary
           response = RestClient.get url, @options.headers
         rescue RestClient::Exception => e
           abort "Apiary service responded with an error: #{e.message}"
-        end
-
+        end      
         JSON.parse response.body
       end
 
