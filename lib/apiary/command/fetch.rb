@@ -21,7 +21,8 @@ module Apiary
         @options.headers      ||= {
           :accept => "text/html",
           :content_type => "text/plain",
-          :authentication => "Token #{@options.api_key}"
+          :authentication => "Token #{@options.api_key}",
+          :user_agent => "Apiary Client Gem (https://help.apiary.io/tools/apiary-cli/)"
         }
       end
 

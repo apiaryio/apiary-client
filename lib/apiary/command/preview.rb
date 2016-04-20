@@ -30,11 +30,15 @@ module Apiary
         @options = OpenStruct.new(opts)
         @options.path         ||= 'apiary.apib'
         @options.api_host     ||= 'api.apiary.io'
-        @options.headers      ||= {:accept => 'text/html', :content_type => 'text/plain'}
         @options.port         ||= 8080
         @options.proxy        ||= ENV['http_proxy']
         @options.server       ||= false
-	@options.host	      ||= '127.0.0.1'
+	      @options.host         ||= '127.0.0.1'
+        @options.headers      ||= {
+          :accept => 'text/html',
+          :content_type => 'text/plain',
+          :user_agent => "Apiary Client Gem (https://help.apiary.io/tools/apiary-cli/)"
+        }
 
         validate_apib_file
       end
