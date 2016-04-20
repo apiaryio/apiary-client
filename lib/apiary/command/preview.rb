@@ -33,7 +33,7 @@ module Apiary
         @options.port         ||= 8080
         @options.proxy        ||= ENV['http_proxy']
         @options.server       ||= false
-	      @options.host         ||= '127.0.0.1'
+        @options.host         ||= '127.0.0.1'
         @options.headers      ||= {
           :accept => 'text/html',
           :content_type => 'text/plain',
