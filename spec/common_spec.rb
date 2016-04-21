@@ -26,4 +26,12 @@ describe Apiary::Common do
     end
   end
 
+  describe 'Test user_agent' do
+
+    it 'get agent' do
+      common = Apiary::Common.new
+      expect(common.get_user_agent()).to eq("ApiaryClientGem/#{Apiary::VERSION} (https://help.apiary.io/tools/apiary-cli/)")
+    end
+  end
+
 end

@@ -25,5 +25,10 @@ module Apiary
         end
         true
       end
+
+      def get_user_agent()
+        "ApiaryClientGem/#{Apiary::VERSION} (https://help.apiary.io/tools/apiary-cli/)"
+      end
+
     end
 end

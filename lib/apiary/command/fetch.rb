@@ -12,6 +12,7 @@ module Apiary
 
       # TODO: use OpenStruct to store @options
       def initialize(opts)
+        @common = Apiary::Common.new
         @options = OpenStruct.new(opts)
         @options.path         ||= "apiary.apib"
         @options.api_host     ||= "api.apiary.io"
@@ -22,7 +23,7 @@ module Apiary
           :accept => "text/html",
           :content_type => "text/plain",
           :authentication => "Token #{@options.api_key}",
-          :user_agent => "Apiary Client Gem (https://help.apiary.io/tools/apiary-cli/)"
+          :user_agent => @common.get_user_agent()
         }
       end
 
@@ -62,7 +63,7 @@ module Apiary
           response = RestClient.get url, @options.headers
         rescue RestClient::Exception => e
           abort "Apiary service responded with an error: #{e.message}"
-        end      
+        end
         JSON.parse response.body
       end
 

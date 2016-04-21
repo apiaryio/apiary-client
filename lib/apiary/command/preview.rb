@@ -27,6 +27,7 @@ module Apiary
       attr_reader :options
 
       def initialize(opts)
+        @common = Apiary::Common.new
         @options = OpenStruct.new(opts)
         @options.path         ||= 'apiary.apib'
         @options.api_host     ||= 'api.apiary.io'
@@ -37,10 +38,14 @@ module Apiary
         @options.headers      ||= {
           :accept => 'text/html',
           :content_type => 'text/plain',
-          :user_agent => "Apiary Client Gem (https://help.apiary.io/tools/apiary-cli/)"
+          :user_agent => @common.get_user_agent()
         }
 
-        validate_apib_file
+        begin
+          validate_apib_file
+        rescue Exception => e
+          abort "#{e.message}"
+        end
       end
 
       def execute
@@ -60,8 +65,7 @@ module Apiary
       end
 
       def validate_apib_file
-        common = Apiary::Common.new
-        common.validate_apib_file(@options.path)
+        @common.validate_apib_file(@options.path)
       end
 
       def path
