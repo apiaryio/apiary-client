@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rest_client'
+require 'rest-client'
 require 'rack'
 require 'ostruct'
 require 'json'
@@ -22,7 +22,8 @@ module Apiary
         @options.headers        ||= {
           :accept => "text/html",
           :content_type => "text/plain",
-          :authentication => "Token #{@options.api_key}"
+          :authentication => "Token #{@options.api_key}",
+          :user_agent => "Apiary Client Gem (https://help.apiary.io/tools/apiary-cli/)"
         }
         @options.message ||= "Saving blueprint from apiary-client"
       end
@@ -77,7 +78,12 @@ module Apiary
               abort "Apiary service responded with an error: #{err['message']}"
             end
           rescue RestClient::Exception => e
-            abort "Apiary service responded with an error: #{e.message}"
+            err = JSON.parse e.response
+            if err.has_key? 'message'
+              abort "Apiary service responded with an error: #{err['message']}"
+            else
+              abort "Apiary service responded with an error: #{e.message}"
+            end
           end
         end
       end
