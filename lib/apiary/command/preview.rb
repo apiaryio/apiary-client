@@ -40,7 +40,11 @@ module Apiary
           :user_agent => Apiary::USER_AGENT
         }
 
-        validate_apib_file
+        begin
+          validate_apib_file
+        rescue Exception => e
+          abort "#{e.message}"
+        end
       end
 
       def execute
