@@ -26,4 +26,11 @@ describe Apiary::Common do
     end
   end
 
+  describe 'Test user_agent' do
+
+    it 'get agent' do
+      expect(Apiary::USER_AGENT).to start_with("apiaryio-gem/#{Apiary::VERSION}")
+    end
+  end
+
 end
