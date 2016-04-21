@@ -13,6 +13,7 @@ module Apiary
       attr_reader :options
 
       def initialize(opts)
+        @common = Apiary::Common.new
         @options = OpenStruct.new(opts)
         @options.path           ||= "apiary.apib"
         @options.api_host       ||= "api.apiary.io"
@@ -23,7 +24,7 @@ module Apiary
           :accept => "text/html",
           :content_type => "text/plain",
           :authentication => "Token #{@options.api_key}",
-          :user_agent => "Apiary Client Gem (https://help.apiary.io/tools/apiary-cli/)"
+          :user_agent => @common.get_user_agent()
         }
         @options.message ||= "Saving blueprint from apiary-client"
       end
@@ -46,13 +47,11 @@ module Apiary
       end
 
       def validate_apib_file(apib_file)
-        common = Apiary::Common.new
-        common.validate_apib_file(apib_file)
+        @common.validate_apib_file(apib_file)
       end
 
       def get_apib_file(apib_file)
-        common = Apiary::Common.new
-        common.get_apib_file(apib_file)
+        @common.get_apib_file(apib_file)
       end
 
       def path
