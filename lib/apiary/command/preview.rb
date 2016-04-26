@@ -5,6 +5,7 @@ require 'ostruct'
 require 'json'
 require 'tmpdir'
 require 'erb'
+require 'os'
 
 require "apiary/common"
 require "apiary/helpers/javascript_helper"
@@ -70,7 +71,7 @@ module Apiary
 
       def browser
         BROWSERS[@options.browser]  || nil
-      end
+      end if OS.x?
 
       def rack_app(&block)
         Rack::Builder.new do
@@ -86,9 +87,8 @@ module Apiary
         Rack::Server.start(:Port => @options.port, :Host => @options.host, :app => app)
       end
 
-      # TODO: add linux and windows systems
       def open_generated_page(path)
-        exec "open #{browser_options} #{path}"
+        exec "#{OS.open_file_command} #{browser_options} #{path}"
       end
 
       def write_generated_path(path, outfile)
@@ -136,7 +136,7 @@ module Apiary
       private
 
       def browser_options
-        "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser
+        "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser && OS.x?
       end
     end
   end
