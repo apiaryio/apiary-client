@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'apiary/command/preview'
 
 describe Apiary::Command::Preview do
 
