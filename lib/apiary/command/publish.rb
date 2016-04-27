@@ -4,9 +4,9 @@ require 'rack'
 require 'ostruct'
 require 'json'
 require "apiary/common"
+require "apiary/agent"
 
-module Apiary
-  module Command
+module Apiary::Command
     # Display preview of local blueprint file
     class Publish
 
@@ -24,7 +24,7 @@ module Apiary
           :accept => "text/html",
           :content_type => "text/plain",
           :authentication => "Token #{@options.api_key}",
-          :user_agent => Apiary::USER_AGENT
+          :user_agent => Apiary.user_agent
         }
         @options.message ||= "Saving blueprint from apiary-client"
       end
@@ -93,5 +93,4 @@ module Apiary
         end
 
     end
-  end
 end

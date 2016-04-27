@@ -9,8 +9,7 @@ require 'erb'
 require "apiary/common"
 require "apiary/helpers/javascript_helper"
 
-module Apiary
-  module Command
+module Apiary::Command
     # Display preview of local blueprint file
     class Preview
 
@@ -37,7 +36,7 @@ module Apiary
         @options.headers      ||= {
           :accept => 'text/html',
           :content_type => 'text/plain',
-          :user_agent => Apiary::USER_AGENT
+          :user_agent => Apiary.user_agent
         }
 
         begin
@@ -143,5 +142,4 @@ module Apiary
         "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser
       end
     end
-  end
 end
