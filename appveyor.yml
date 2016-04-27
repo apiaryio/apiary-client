@@ -1,6 +1,7 @@
 ---
 version: "{build}"
-clone_depth: 10
+clone_depth: 1
+build: off
 install:
   - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
   - ruby --version
@@ -16,7 +17,5 @@ artifacts:
 environment:
   matrix:
     - ruby_version: "193"
-    - ruby_version: "200"
-    - ruby_version: "200-x64"
-    - ruby_version: "21"
-    - ruby_version: "21-x64"
+    - ruby_version: "23"
+    - ruby_version: "23-x64"
