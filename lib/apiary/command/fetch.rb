@@ -4,8 +4,9 @@ require 'rack'
 require 'ostruct'
 require 'json'
 
-module Apiary
-  module Command
+require "apiary/agent"
+
+module Apiary::Command
     # Retrieve blueprint from apiary
     class Fetch
       attr_reader :options
@@ -22,7 +23,7 @@ module Apiary
           :accept => "text/html",
           :content_type => "text/plain",
           :authentication => "Token #{@options.api_key}",
-          :user_agent => "Apiary Client Gem (https://help.apiary.io/tools/apiary-cli/)"
+          :user_agent => Apiary.user_agent
         }
       end
 
@@ -62,7 +63,7 @@ module Apiary
           response = RestClient.get url, @options.headers
         rescue RestClient::Exception => e
           abort "Apiary service responded with an error: #{e.message}"
-        end      
+        end
         JSON.parse response.body
       end
 
@@ -76,7 +77,5 @@ module Apiary
         def api_name
           "-a"
         end
-
     end
-  end
 end

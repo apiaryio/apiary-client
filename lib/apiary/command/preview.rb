@@ -9,8 +9,7 @@ require 'erb'
 require "apiary/common"
 require "apiary/helpers/javascript_helper"
 
-module Apiary
-  module Command
+module Apiary::Command
     # Display preview of local blueprint file
     class Preview
 
@@ -37,10 +36,14 @@ module Apiary
         @options.headers      ||= {
           :accept => 'text/html',
           :content_type => 'text/plain',
-          :user_agent => "Apiary Client Gem (https://help.apiary.io/tools/apiary-cli/)"
+          :user_agent => Apiary.user_agent
         }
 
-        validate_apib_file
+        begin
+          validate_apib_file
+        rescue Exception => e
+          abort "#{e.message}"
+        end
       end
 
       def execute
@@ -60,8 +63,8 @@ module Apiary
       end
 
       def validate_apib_file
-        common = Apiary::Common.new
-        common.validate_apib_file(@options.path)
+        @common = Apiary::Common.new
+        @common.validate_apib_file(@options.path)
       end
 
       def path
@@ -139,5 +142,4 @@ module Apiary
         "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser
       end
     end
-  end
 end
