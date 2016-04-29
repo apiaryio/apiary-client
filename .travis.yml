@@ -16,10 +16,3 @@ matrix:
   allow_failures:
     - rvm: rbx-2
 cache: bundler
-notifications:
-  hipchat:
-    rooms:
-      secure: "HqBUrmf4P2bgvwb4b9PL1tBae2wcZaXadOgwRwAFhdhDZFHaKXIXlJRUW8tN\ntdO83OZgatxJrpWWQj8VYTfDuhlE3b3NxVWeXc3PkfrHmuvejQf4veh7kwR0\njLVE6jb+ZbFIwRE2W0VFLFKYQHI6PLem4W0OKXW5Shqzy8Ewlow="
-    template:
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
-    format: html
