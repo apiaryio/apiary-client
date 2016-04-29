@@ -2,8 +2,8 @@ require 'aruba/cucumber'
 require 'fileutils'
 
 Before do
-  @dirs << "../../features/fixtures"
-  ENV['PATH'] = "./bin#{File::PATH_SEPARATOR}#{ENV['PATH']}"  
+  @dirs << '../../spec/fixtures'
+  ENV['PATH'] = "./bin#{File::PATH_SEPARATOR}#{ENV['PATH']}"
 end
 
 Around('@needs_apiary_api_key') do |scenario, block|

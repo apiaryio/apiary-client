@@ -5,7 +5,7 @@ describe Apiary::Command::Preview do
 
   let(:command) do
     opts = {
-      path: "#{File.expand_path File.dirname(__FILE__)}/../../../features/fixtures/apiary.apib"
+      path: "#{File.expand_path File.dirname(__FILE__)}/../../fixtures/apiary.apib"
     }
     Apiary::Command::Preview.new(opts)
   end
