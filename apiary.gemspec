@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "json", "~> 1.8"
 
   gem.add_development_dependency "rspec", "~> 3.2.0"
-  gem.add_development_dependency "webmock", "~> 1.20"
+  gem.add_development_dependency "webmock", "~> 2.0"
   gem.add_development_dependency "yard", "~> 0.8"
   gem.add_development_dependency "aruba", ">= 0.6.2", "< 0.7.0"
   gem.add_development_dependency "cucumber", "~> 1.3", '>= 1.3.19'
