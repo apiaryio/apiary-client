@@ -12,3 +12,6 @@ matrix:
 cache: bundler
 before_install:
   - gem update bundler
+script:
+  - bundle exec rspec spec
+  - bundle exec cucumber
