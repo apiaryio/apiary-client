@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'apiary/cli'
 
 describe Apiary::CLI do
 

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'apiary/command/publish'
 
 describe Apiary::Command::Publish do
   context 'when constructed without a message' do

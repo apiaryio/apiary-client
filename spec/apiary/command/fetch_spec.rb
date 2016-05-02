@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'apiary/command/fetch'
 
 describe Apiary::Command::Fetch do
 

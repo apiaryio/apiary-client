@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'apiary/common'
 
 describe Apiary::Common do
 
