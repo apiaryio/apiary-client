@@ -4,5 +4,5 @@ Feature: Show API documentation in specified browser
   @needs_apiary_api_key
   Scenario: Write generated HTML into specified file
 
-    When I run `apiary preview --path apiary.apib --output=test.html`
+    When I run `apiary preview --path ../../spec/fixtures/apiary.apib --output=test.html`
     Then a file named "test.html" should exist

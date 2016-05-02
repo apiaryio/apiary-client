@@ -1,9 +1,7 @@
 require 'aruba/cucumber'
-require 'fileutils'
 
-Before do
-  @dirs << '../../spec/fixtures'
-  ENV['PATH'] = "./bin#{File::PATH_SEPARATOR}#{ENV['PATH']}"
+Before('@needs_apiary_api_key') do
+  @aruba_timeout_seconds = 45
 end
 
 Around('@needs_apiary_api_key') do |scenario, block|
