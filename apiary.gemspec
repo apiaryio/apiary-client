@@ -33,5 +33,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "webmock", "~> 2.0"
   gem.add_development_dependency "yard", "~> 0.8"
   gem.add_development_dependency "aruba", ">= 0.6.2", "< 0.7.0"
-  gem.add_development_dependency "cucumber", "~> 1.3", '>= 1.3.19'
+  gem.add_development_dependency "cucumber", "~> 2.0"
 end
