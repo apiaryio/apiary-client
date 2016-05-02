@@ -10,7 +10,8 @@ install:
 build_script:
   - bundle install
 test_script:
-  - rake test
+  - bundle exec rspec spec
+  - bundle exec cucumber
 artifacts:
   - path: pkg\*.gem
 environment:
