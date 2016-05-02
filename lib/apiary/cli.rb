@@ -50,5 +50,3 @@ module Apiary
     end
   end
 end
-
-Apiary::CLI.start(ARGV)

@@ -2,5 +2,4 @@
 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..','lib')))
 require 'apiary'
 
-Apiary::CLI.new(ARGV)
-
+Apiary::CLI.start
