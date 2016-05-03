@@ -18,7 +18,6 @@ before_test:
 
 test_script:
   - bundle exec rspec spec
-  - bundle exec cucumber
 
 artifacts:
   - path: pkg\*.gem
