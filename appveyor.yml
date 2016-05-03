@@ -28,4 +28,4 @@ cache:
 environment:
   matrix:
     - ruby_version: 193
-    - ruby_version: 23
+    - ruby_version: 22
