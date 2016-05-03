@@ -38,4 +38,3 @@ describe Apiary::CLI do
     end
   end
 end
-

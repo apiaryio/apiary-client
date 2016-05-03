@@ -1,22 +1,31 @@
 ---
-version: "{build}"
+version: "{branch}-{build}"
+
 clone_depth: 10
+
+build: off
+
 install:
-  - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
+  - set PATH=C:\Ruby%RUBY_VERSION%\bin;%PATH%
+  - gem update bundler
+  - bundle config --local path vendor/bundle
+  - bundle install
+
+before_test:
   - ruby --version
   - gem --version
-  - gem install bundler --quiet --no-ri --no-rdoc
   - bundler --version
-build_script:
-  - bundle install
+
 test_script:
-  - rake test
+  - bundle exec rspec spec
+
 artifacts:
   - path: pkg\*.gem
+
+cache:
+  - vendor/bundle
+
 environment:
   matrix:
-    - ruby_version: "193"
-    - ruby_version: "200"
-    - ruby_version: "200-x64"
-    - ruby_version: "21"
-    - ruby_version: "21-x64"
+    - ruby_version: 193
+    - ruby_version: 22

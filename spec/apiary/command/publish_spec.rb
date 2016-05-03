@@ -5,7 +5,8 @@ describe Apiary::Command::Publish do
     let(:message) do
       Apiary::Command::Publish.new({
         :api_name => 'myapi',
-        :path => './features/fixtures/apiary.apib'
+        :path => 'spec/fixtures/apiary.apib',
+        :api_key => 'testkey'
       }).options.message
     end
 
@@ -19,7 +20,8 @@ describe Apiary::Command::Publish do
       Apiary::Command::Publish.new({
         :api_name => 'myapi',
         :message => 'Custom message',
-        :path => './features/fixtures/apiary.apib'
+        :path => 'spec/fixtures/apiary.apib',
+        :api_key => 'testkey'
       }).options.message
     end
 
@@ -35,7 +37,8 @@ describe Apiary::Command::Publish do
         Apiary::Command::Publish.new({
           :api_name => 'myapi',
           :message => 'Custom message',
-          :path => './features/fixtures/apiary.apib'
+          :path => 'spec/fixtures/apiary.apib',
+          :api_key => 'testkey'
         }).execute
       end
 
