@@ -3,17 +3,18 @@ require 'rest-client'
 require 'rack'
 require 'ostruct'
 require 'json'
-require "apiary/common"
-require "apiary/agent"
+
+require 'apiary/agent'
+require 'apiary/helpers'
 
 module Apiary::Command
     # Display preview of local blueprint file
     class Publish
+      include Apiary::Helpers
 
       attr_reader :options
 
       def initialize(opts)
-        @common = Apiary::Common.new
         @options = OpenStruct.new(opts)
         @options.path           ||= "apiary.apib"
         @options.api_host       ||= "api.apiary.io"
@@ -43,28 +44,18 @@ module Apiary::Command
         end
 
         self.query_apiary(@options.api_host, @options.path)
-
-      end
-
-      def validate_apib_file(apib_file)
-        @common.validate_apib_file(apib_file)
-      end
-
-      def get_apib_file(apib_file)
-        @common.get_apib_file(apib_file)
-      end
-
-      def path
-        @options.path || "#{File.basename(Dir.pwd)}.apib"
       end
 
       def query_apiary(host, path)
         url  = "https://#{host}/blueprint/publish/#{@options.api_name}"
-        if validate_apib_file path
+        source = api_description_source_path(path)
+
+        unless source.nil?
           data = {
-            :code => get_apib_file(path),
+            :code => source,
             :messageToSave => @options.message
           }
+
           RestClient.proxy = @options.proxy
 
           begin

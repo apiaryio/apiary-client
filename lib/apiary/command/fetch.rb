@@ -4,7 +4,7 @@ require 'rack'
 require 'ostruct'
 require 'json'
 
-require "apiary/agent"
+require 'apiary/agent'
 
 module Apiary::Command
     # Retrieve blueprint from apiary

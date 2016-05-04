@@ -6,13 +6,14 @@ require 'json'
 require 'tmpdir'
 require 'erb'
 
-require "apiary/common"
-require "apiary/helpers/javascript_helper"
+require 'apiary/agent'
+require 'apiary/helpers'
+require 'apiary/helpers/javascript_helper'
 
 module Apiary::Command
     # Display preview of local blueprint file
     class Preview
-
+      include Apiary::Helpers
       include Apiary::Helpers::JavascriptHelper
 
       PREVIEW_TEMPLATE_PATH = "#{File.expand_path File.dirname(__FILE__)}/../file_templates/preview.erb"
@@ -40,7 +41,7 @@ module Apiary::Command
         }
 
         begin
-          validate_apib_file
+          @source_path = api_description_source_path(@options.path)
         rescue Exception => e
           abort "#{e.message}"
         end
@@ -62,17 +63,8 @@ module Apiary::Command
         generate_static
       end
 
-      def validate_apib_file
-        @common = Apiary::Common.new
-        @common.validate_apib_file(@options.path)
-      end
-
-      def path
-        @options.path || "#{File.basename(Dir.pwd)}.apib"
-      end
-
       def browser
-        BROWSERS[@options.browser]  || nil
+        BROWSERS[@options.browser] || nil
       end
 
       def rack_app(&block)
