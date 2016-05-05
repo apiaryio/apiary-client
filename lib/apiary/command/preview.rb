@@ -6,13 +6,14 @@ require 'json'
 require 'tmpdir'
 require 'erb'
 
-require "apiary/common"
-require "apiary/helpers/javascript_helper"
+require 'apiary/agent'
+require 'apiary/helpers'
+require 'apiary/helpers/javascript_helper'
 
 module Apiary::Command
     # Display preview of local blueprint file
     class Preview
-
+      include Apiary::Helpers
       include Apiary::Helpers::JavascriptHelper
 
       PREVIEW_TEMPLATE_PATH = "#{File.expand_path File.dirname(__FILE__)}/../file_templates/preview.erb"
@@ -27,7 +28,7 @@ module Apiary::Command
 
       def initialize(opts)
         @options = OpenStruct.new(opts)
-        @options.path         ||= 'apiary.apib'
+        @options.path         ||= '.'
         @options.api_host     ||= 'api.apiary.io'
         @options.port         ||= 8080
         @options.proxy        ||= ENV['http_proxy']
@@ -40,7 +41,7 @@ module Apiary::Command
         }
 
         begin
-          validate_apib_file
+          @source_path = api_description_source_path(@options.path)
         rescue Exception => e
           abort "#{e.message}"
         end
@@ -55,38 +56,31 @@ module Apiary::Command
       end
 
       def server
-        run_server
+        app = self.rack_app do
+          generate
+        end
+
+        Rack::Server.start(:Port => @options.port, :Host => @options.host, :app => app)
       end
 
       def show
-        generate_static
-      end
+        preview_string = generate
 
-      def validate_apib_file
-        @common = Apiary::Common.new
-        @common.validate_apib_file(@options.path)
-      end
-
-      def path
-        @options.path || "#{File.basename(Dir.pwd)}.apib"
+        File.open(preview_path, 'w') do |file|
+          file.write preview_string
+          file.flush
+          @options.output ? write_generated_path(file.path, @options.output) : open_generated_page(file.path)
+        end
       end
 
       def browser
-        BROWSERS[@options.browser]  || nil
+        BROWSERS[@options.browser] || nil
       end
 
       def rack_app(&block)
         Rack::Builder.new do
           run lambda { |env| [200, Hash.new, [block.call]] }
         end
-      end
-
-      def run_server
-        app = self.rack_app do
-          generate
-        end
-
-        Rack::Server.start(:Port => @options.port, :Host => @options.host, :app => app)
       end
 
       # TODO: add linux and windows systems
@@ -102,30 +96,15 @@ module Apiary::Command
         template = load_preview_template
 
         data = {
-          title: File.basename(@options.path, '.*'),
-          blueprint: load_blueprint
+          title: File.basename(@source_path, '.*'),
+          source: api_description_source(@source_path)
         }
 
         template.result(binding)
       end
 
-      def generate_static
-        preview_string = generate
-
-        File.open(preview_path, 'w') do |file|
-          file.write preview_string
-          file.flush
-          @options.output ? write_generated_path(file.path, @options.output) : open_generated_page(file.path)
-        end
-      end
-
-      def load_blueprint
-        file = File.open @options.path, 'r'
-        file.read
-      end
-
       def preview_path
-        basename = File.basename(@options.path, '.*')
+        basename = File.basename(@source_path, '.*')
         temp = Dir.tmpdir
         "#{temp}/#{basename}-preview.html"
       end
