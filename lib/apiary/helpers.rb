@@ -11,9 +11,9 @@ module Apiary
     end
 
     def api_description_source(path)
-      spurce_path = api_description_source_path(path)
+      source_path = api_description_source_path(path)
       source = nil
-      File.open(spurce_path, 'r:bom|utf-8') { |file| source = file.read }
+      File.open(source_path, 'r:bom|utf-8') { |file| source = file.read }
       source
     end
 
