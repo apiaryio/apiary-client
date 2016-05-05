@@ -7,7 +7,7 @@ module Apiary
       return path if File.file? path
       source_path = choose_one(path)
       return source_path unless source_path.nil?
-      raise 'No API Description source found.'
+      raise 'No API Description Document found'
     end
 
     def api_description_source(path)
@@ -24,7 +24,7 @@ module Apiary
       swaggerPath = swagger(path)
 
       if apibPath && swaggerPath
-        warn 'WARNING: Found both apiary.apib and swagger.yaml. apiary.api will be used.'
+        warn 'WARNING: Both apiary.apib and swagger.yaml are present. apiary.apib will be used. To override this selection specify path to desired file'
       end
 
       apibPath || swaggerPath

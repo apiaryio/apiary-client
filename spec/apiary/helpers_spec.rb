@@ -36,14 +36,14 @@ describe Apiary::Helpers do
       it 'should prefere API Blueprint and return path ending to `apiary.apib`' do
         path = 'spec/fixtures/api_blueprint_and_swagger'
         expect(api_description_source_path(path)).to match(/apiary\.apib$/)
-        expect { api_description_source_path(path) }.to output("WARNING: Found both apiary.apib and swagger.yaml. apiary.api will be used.\n").to_stderr
+        expect { api_description_source_path(path) }.to output("WARNING: Both apiary.apib and swagger.yaml are present. apiary.apib will be used. To override this selection specify path to desired file\n").to_stderr
       end
     end
 
     context 'empty folder' do
       it 'should raise error saying that file doesn\'t exists' do
         path = 'spec/fixtures/empty_folder'
-        expect { api_description_source_path(path)}.to raise_error('No API Description source found.')
+        expect { api_description_source_path(path)}.to raise_error('No API Description Document found')
       end
     end
 

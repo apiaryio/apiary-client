@@ -57,10 +57,10 @@ export APIARY_API_KEY=<your_token>
 ```
 $ apiary help
 Commands:
-  apiary fetch --api-name=API_NAME    # Fetch API Description from API_NAME.apiary.io
+  apiary fetch --api-name=API_NAME    # Fetch API Description Document from API_NAME.apiary.io
   apiary help [COMMAND]               # Describe available commands or one specific command
   apiary preview                      # Show API documentation in default browser
-  apiary publish --api-name=API_NAME  # Publish API Description source on docs.API_NAME.apiary.io
+  apiary publish --api-name=API_NAME  # Publish API Description Document on docs.API_NAME.apiary.io
   apiary version                      # Show version
 
 ```
@@ -77,9 +77,9 @@ Usage:
 Options:
   --api-name=API_NAME  
   [--api-host=HOST]    # Specify apiary host
-  [--output=FILE]      # Write API Description into specified file
+  [--output=FILE]      # Write API Description Document into specified file
 
-Fetch API Description from API_NAME.apiary.io
+Fetch API Description Document from API_NAME.apiary.io
 ```
 
 #### preview
@@ -93,7 +93,7 @@ Options:
   [--browser=chrome|safari|firefox]  # Show API documentation in specified browser
                                      # Possible values: chrome, safari, firefox
   [--output=FILE]                    # Write generated HTML into specified file
-  [--path=PATH]                      # Specify path to API Description file. For directory it will look for apiary.apib or swagger.yaml file
+  [--path=PATH]                      # Specify path to API Description Document. For directory it will look for apiary.apib or swagger.yaml file
   [--api-host=HOST]                  # Specify apiary host
   [--server], [--no-server]          # Start standalone web server on port 8080
   [--port=PORT]                      # Set port for --server option
@@ -111,11 +111,11 @@ Usage:
 
 Options:
   [--message=COMMIT_MESSAGE]  # Publish with custom commit message
-  [--path=PATH]               # Specify path to API Description file. For directory it will look for apiary.apib or swagger.yaml file
+  [--path=PATH]               # Specify path to API Description Document. For directory it will look for apiary.apib or swagger.yaml file
   [--api-host=HOST]           # Specify apiary host
   --api-name=API_NAME         
 
-Publish API Description source on docs.API_NAME.apiary.io
+Publish API Description Document on docs.API_NAME.apiary.io
 ```
 
 #### version
