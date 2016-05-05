@@ -5,7 +5,7 @@ module Apiary
     def api_description_source_path(path)
       raise "Invalid path #{path}" unless File.exist? path
       return path if File.file? path
-      source_path = api_blueprint(path) || swagger(path)
+      source_path = choose_one(path)
       return source_path unless source_path.nil?
       raise 'No API Description source found.'
     end
@@ -18,6 +18,17 @@ module Apiary
     end
 
     protected
+
+    def choose_one(path)
+      apibPath = api_blueprint(path)
+      swaggerPath = swagger(path)
+
+      if apibPath && swaggerPath
+        warn 'WARNING: Found both apiary.apib and swagger.yaml. apiary.api will be used.'
+      end
+
+      apibPath || swaggerPath
+    end
 
     def api_blueprint(path)
       source_path = File.join(path, 'apiary.apib')
