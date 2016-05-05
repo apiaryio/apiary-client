@@ -93,8 +93,8 @@ Options:
   [--browser=chrome|safari|firefox]  # Show API documentation in specified browser
                                      # Possible values: chrome, safari, firefox
   [--output=FILE]                    # Write generated HTML into specified file
-  [--path=PATH]                      # Specify path to blueprint file
-                                     # Default: apiary.apib
+  [--path=PATH]                      # Specify path to API Description file
+                                     # Default: .
   [--api-host=HOST]                  # Specify apiary host
   [--server], [--no-server]          # Start standalone web server on port 8080
   [--port=PORT]                      # Set port for --server option
@@ -183,4 +183,3 @@ Copyright 2012-15 (c) Apiary Ltd.
 
 Released under MIT license.
 See [LICENSE](https://raw.githubusercontent.com/apiaryio/apiary-client/master/LICENSE) file for further details.
-
