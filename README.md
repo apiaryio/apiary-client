@@ -57,7 +57,7 @@ export APIARY_API_KEY=<your_token>
 ```
 $ apiary help
 Commands:
-  apiary fetch --api-name=API_NAME    # Fetch apiary.apib from API_NAME.apiary.io
+  apiary fetch --api-name=API_NAME    # Fetch API Description from API_NAME.apiary.io
   apiary help [COMMAND]               # Describe available commands or one specific command
   apiary preview                      # Show API documentation in default browser
   apiary publish --api-name=API_NAME  # Publish API Description source on docs.API_NAME.apiary.io
@@ -77,9 +77,9 @@ Usage:
 Options:
   --api-name=API_NAME  
   [--api-host=HOST]    # Specify apiary host
-  [--output=FILE]      # Write apiary.apib into specified file
+  [--output=FILE]      # Write API Description into specified file
 
-Fetch apiary.apib from API_NAME.apiary.io
+Fetch API Description from API_NAME.apiary.io
 ```
 
 #### preview

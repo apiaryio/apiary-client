@@ -7,10 +7,10 @@ require 'apiary/command/publish'
 module Apiary
   class CLI < Thor
 
-    desc 'fetch', 'Fetch apiary.apib from API_NAME.apiary.io'
+    desc 'fetch', 'Fetch API Description from API_NAME.apiary.io'
     method_option :api_name, :type => :string, :required => true, :default => ''
     method_option :api_host, :type => :string, :banner => 'HOST', :desc => 'Specify apiary host'
-    method_option :output, :type => :string, :banner => 'FILE', :desc => 'Write apiary.apib into specified file'
+    method_option :output, :type => :string, :banner => 'FILE', :desc => 'Write API Description into specified file'
 
     def fetch
       cmd = Apiary::Command::Fetch.new options
