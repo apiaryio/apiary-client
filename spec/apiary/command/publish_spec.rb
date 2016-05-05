@@ -11,7 +11,7 @@ describe Apiary::Command::Publish do
     end
 
     it 'uses the default message' do
-      expect(message).to eq('Saving API Description from apiary-client')
+      expect(message).to eq('Saving API Description Document from apiary-client')
     end
   end
 

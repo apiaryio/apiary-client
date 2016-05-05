@@ -24,7 +24,7 @@ module Apiary
       swaggerPath = swagger(path)
 
       if apibPath && swaggerPath
-        warn 'WARNING: Both apiary.apib and swagger.yaml are present. apiary.apib will be used. To override this selection specify path to desired file'
+        warn 'WARNING: Both apiary.apib and swagger.yaml are present. The apiary.apib file will be used. To override this selection specify path to desired file'
       end
 
       apibPath || swaggerPath

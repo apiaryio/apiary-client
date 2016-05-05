@@ -27,7 +27,7 @@ module Apiary::Command
           :authentication => "Token #{@options.api_key}",
           :user_agent => Apiary.user_agent
         }
-        @options.message ||= 'Saving API Description from apiary-client'
+        @options.message ||= 'Saving API Description Document from apiary-client'
 
         begin
           @source_path = api_description_source_path(@options.path)

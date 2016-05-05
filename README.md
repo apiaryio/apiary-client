@@ -93,7 +93,7 @@ Options:
   [--browser=chrome|safari|firefox]  # Show API documentation in specified browser
                                      # Possible values: chrome, safari, firefox
   [--output=FILE]                    # Write generated HTML into specified file
-  [--path=PATH]                      # Specify path to API Description Document. For directory it will look for apiary.apib or swagger.yaml file
+  [--path=PATH]                      # Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file
   [--api-host=HOST]                  # Specify apiary host
   [--server], [--no-server]          # Start standalone web server on port 8080
   [--port=PORT]                      # Set port for --server option
@@ -111,7 +111,7 @@ Usage:
 
 Options:
   [--message=COMMIT_MESSAGE]  # Publish with custom commit message
-  [--path=PATH]               # Specify path to API Description Document. For directory it will look for apiary.apib or swagger.yaml file
+  [--path=PATH]               # Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file
   [--api-host=HOST]           # Specify apiary host
   --api-name=API_NAME         
 

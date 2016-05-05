@@ -20,7 +20,7 @@ module Apiary
     desc 'preview', 'Show API documentation in default browser'
     method_option :browser, :type => :string, :enum => %w(chrome safari firefox), :banner => 'chrome|safari|firefox', :desc => 'Show API documentation in specified browser'
     method_option :output, :type => :string, :banner => 'FILE', :desc => 'Write generated HTML into specified file'
-    method_option :path, :type => :string, :desc => 'Specify path to API Description Document. For directory it will look for apiary.apib or swagger.yaml file'
+    method_option :path, :type => :string, :desc => 'Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file'
     method_option :api_host, :type => :string, :banner => 'HOST', :desc => 'Specify apiary host'
     method_option :server, :type => :boolean, :desc => 'Start standalone web server on port 8080'
     method_option :port, :type => :numeric, :banner => 'PORT', :desc => 'Set port for --server option'
@@ -33,7 +33,7 @@ module Apiary
 
     desc 'publish', 'Publish API Description Document on docs.API_NAME.apiary.io'
     method_option :message, :type => :string, :banner => 'COMMIT_MESSAGE', :desc => 'Publish with custom commit message'
-    method_option :path, :type => :string, :desc => 'Specify path to API Description Document. For directory it will look for apiary.apib or swagger.yaml file'
+    method_option :path, :type => :string, :desc => 'Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file'
     method_option :api_host, :type => :string, :banner => 'HOST', :desc => 'Specify apiary host'
     method_option :api_name, :type => :string, :required => true, :default => ''
 

@@ -36,7 +36,7 @@ describe Apiary::Helpers do
       it 'should prefere API Blueprint and return path ending to `apiary.apib`' do
         path = 'spec/fixtures/api_blueprint_and_swagger'
         expect(api_description_source_path(path)).to match(/apiary\.apib$/)
-        expect { api_description_source_path(path) }.to output("WARNING: Both apiary.apib and swagger.yaml are present. apiary.apib will be used. To override this selection specify path to desired file\n").to_stderr
+        expect { api_description_source_path(path) }.to output("WARNING: Both apiary.apib and swagger.yaml are present. The apiary.apib file will be used. To override this selection specify path to desired file\n").to_stderr
       end
     end
 
