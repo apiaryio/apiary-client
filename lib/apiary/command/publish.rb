@@ -16,39 +16,45 @@ module Apiary::Command
 
       def initialize(opts)
         @options = OpenStruct.new(opts)
-        @options.path           ||= "apiary.apib"
-        @options.api_host       ||= "api.apiary.io"
+        @options.path           ||= '.'
+        @options.api_host       ||= 'api.apiary.io'
         @options.api_name       ||= false
         @options.api_key        ||= ENV['APIARY_API_KEY']
         @options.proxy          ||= ENV['http_proxy']
         @options.headers        ||= {
-          :accept => "text/html",
-          :content_type => "text/plain",
+          :accept => 'text/html',
+          :content_type => 'text/plain',
           :authentication => "Token #{@options.api_key}",
           :user_agent => Apiary.user_agent
         }
-        @options.message ||= "Saving blueprint from apiary-client"
+        @options.message ||= 'Saving API Description from apiary-client'
+
+        begin
+          @source_path = api_description_source_path(@options.path)
+        rescue Exception => e
+          abort "#{e.message}"
+        end
       end
 
-      def execute()
+      def execute
         publish_on_apiary
       end
 
       def publish_on_apiary
         unless @options.api_name
-          abort "Please provide an api-name option (subdomain part from your http://docs.<api-name>.apiary.io/)"
+          abort 'Please provide an api-name option (subdomain part from your http://docs.<api-name>.apiary.io/)'
         end
 
         unless @options.api_key
-          abort "API key must be provided through environment variable APIARY_API_KEY. Please go to https://login.apiary.io/tokens to obtain it."
+          abort 'API key must be provided through environment variable APIARY_API_KEY. Please go to https://login.apiary.io/tokens to obtain it.'
         end
 
-        self.query_apiary(@options.api_host, @options.path)
+        query_apiary
       end
 
-      def query_apiary(host, path)
-        url  = "https://#{host}/blueprint/publish/#{@options.api_name}"
-        source = api_description_source_path(path)
+      def query_apiary
+        url  = "https://#{@options.api_host}/blueprint/publish/#{@options.api_name}"
+        source = api_description_source(@source_path)
 
         unless source.nil?
           data = {
@@ -77,11 +83,5 @@ module Apiary::Command
           end
         end
       end
-
-      private
-        def api_name
-          "-a"
-        end
-
     end
 end

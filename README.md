@@ -60,7 +60,7 @@ Commands:
   apiary fetch --api-name=API_NAME    # Fetch apiary.apib from API_NAME.apiary.io
   apiary help [COMMAND]               # Describe available commands or one specific command
   apiary preview                      # Show API documentation in default browser
-  apiary publish --api-name=API_NAME  # Publish apiary.apib on docs.API_NAME.apiary.io
+  apiary publish --api-name=API_NAME  # Publish API Description source on docs.API_NAME.apiary.io
   apiary version                      # Show version
 
 ```
@@ -112,12 +112,12 @@ Usage:
 
 Options:
   [--message=COMMIT_MESSAGE]  # Publish with custom commit message
-  [--path=PATH]               # Specify path to blueprint file
-                              # Default: apiary.apib
+  [--path=PATH]               # Specify path to API Description file
+                              # Default: .
   [--api-host=HOST]           # Specify apiary host
   --api-name=API_NAME         
 
-Publish apiary.apib on docs.API_NAME.apiary.io
+Publish API Description source on docs.API_NAME.apiary.io
 ```
 
 #### version
