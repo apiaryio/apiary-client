@@ -8,7 +8,7 @@ module Apiary
   class CLI < Thor
 
     desc 'fetch', 'Fetch API Description Document from API_NAME.apiary.io'
-    method_option :api_name, :type => :string, :required => true, :default => ''
+    method_option :api_name, :type => :string, :required => true
     method_option :api_host, :type => :string, :banner => 'HOST', :desc => 'Specify apiary host'
     method_option :output, :type => :string, :banner => 'FILE', :desc => 'Write API Description Document into specified file'
 
@@ -35,7 +35,7 @@ module Apiary
     method_option :message, :type => :string, :banner => 'COMMIT_MESSAGE', :desc => 'Publish with custom commit message'
     method_option :path, :type => :string, :desc => 'Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file'
     method_option :api_host, :type => :string, :banner => 'HOST', :desc => 'Specify apiary host'
-    method_option :api_name, :type => :string, :required => true, :default => ''
+    method_option :api_name, :type => :string, :required => true
 
     def publish
       cmd = Apiary::Command::Publish.new options
