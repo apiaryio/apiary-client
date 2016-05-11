@@ -20,7 +20,6 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
-  gem.platform      = Gem::Platform.local
 
   gem.add_dependency "rest-client", "~> 1.8"
   gem.add_dependency "rack", "~> 1.6.4"
