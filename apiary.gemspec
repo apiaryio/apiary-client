@@ -34,4 +34,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "yard", "~> 0.8"
   gem.add_development_dependency "aruba", "~> 0.14"
   gem.add_development_dependency "cucumber", "~> 2.0"
+  gem.add_development_dependency "rubocop", "~> 0.41.2"
 end
