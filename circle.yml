@@ -4,6 +4,6 @@ dependencies:
 
 test:
   override:
-    - bundle exec rubocop
+    - bundle exec rubocop --config .rubocop_todo.yml
     - bundle exec rspec spec
     - bundle exec cucumber

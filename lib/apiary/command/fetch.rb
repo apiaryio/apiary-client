@@ -9,7 +9,6 @@ require 'apiary/agent'
 module Apiary::Command
   # Retrieve blueprint from apiary
   class Fetch
-
     def initialize(opts)
       @options = OpenStruct.new(opts)
       @options.api_host     ||= 'api.apiary.io'
@@ -17,18 +16,19 @@ module Apiary::Command
       @options.api_key      ||= ENV['APIARY_API_KEY']
       @options.proxy        ||= ENV['http_proxy']
       @options.headers      ||= {
-        :accept => 'text/html',
-        :content_type => 'text/plain',
-        :authentication => "Token #{@options.api_key}",
-        :user_agent => Apiary.user_agent
+        accept: 'text/html',
+        content_type: 'text/plain',
+        authentication: "Token #{@options.api_key}",
+        user_agent: Apiary.user_agent
       }
     end
 
     def execute
       response = fetch_from_apiary
-      if response.instance_of? String
-        puts response
-      end
+
+      return unless response.instance_of? String
+
+      puts response
     end
 
     def fetch_from_apiary

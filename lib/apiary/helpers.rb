@@ -20,26 +20,26 @@ module Apiary
     protected
 
     def choose_one(path)
-      apibPath = api_blueprint(path)
-      swaggerPath = swagger(path)
+      apib_path = api_blueprint(path)
+      swagger_path = swagger(path)
 
-      if apibPath && swaggerPath
+      if apib_path && swagger_path
         warn 'WARNING: Both apiary.apib and swagger.yaml are present. The apiary.apib file will be used. To override this selection specify path to desired file'
       end
 
-      apibPath || swaggerPath
+      apib_path || swagger_path
     end
 
     def api_blueprint(path)
       source_path = File.join(path, 'apiary.apib')
       return source_path if File.exist? source_path
-      return nil
+      nil
     end
 
     def swagger(path)
       source_path = File.join(path, 'swagger.yaml')
       return source_path if File.exist? source_path
-      return nil
+      nil
     end
   end
 end

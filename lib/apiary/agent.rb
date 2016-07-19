@@ -1,5 +1,5 @@
 module Apiary
-  USER_AGENT = "apiaryio-gem/#{Apiary::VERSION} (#{RUBY_PLATFORM}) ruby/#{RUBY_VERSION}"
+  USER_AGENT = "apiaryio-gem/#{Apiary::VERSION} (#{RUBY_PLATFORM}) ruby/#{RUBY_VERSION}".freeze
 
   module_function
 

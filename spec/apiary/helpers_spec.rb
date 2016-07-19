@@ -7,14 +7,14 @@ describe Apiary::Helpers do
     context 'path doesn\'t exists' do
       it 'should raise error saying that Directory doesn\'t exists' do
         path = 'spec/fixtures/invalid_path'
-        expect { api_description_source_path(path)}.to raise_error(/Invalid path/)
+        expect { api_description_source_path(path) }.to raise_error(/Invalid path/)
       end
     end
 
     context 'missing file is in path' do
       it 'should raise error saying that file doesn\'t exists' do
         path = 'spec/fixtures/only_api_blueprint/swagger.yaml'
-        expect { api_description_source_path(path)}.to raise_error(/Invalid path/)
+        expect { api_description_source_path(path) }.to raise_error(/Invalid path/)
       end
     end
 
@@ -43,7 +43,7 @@ describe Apiary::Helpers do
     context 'empty folder' do
       it 'should raise error saying that file doesn\'t exists' do
         path = 'spec/fixtures/empty_folder'
-        expect { api_description_source_path(path)}.to raise_error('No API Description Document found')
+        expect { api_description_source_path(path) }.to raise_error('No API Description Document found')
       end
     end
 
