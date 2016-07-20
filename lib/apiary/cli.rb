@@ -16,8 +16,8 @@ module Apiary
       cmd.execute
     end
 
-    desc 'preview', 'Show API documentation in default browser'
-    method_option :browser, type: :string, enum: %w(chrome safari firefox), banner: 'chrome|safari|firefox', desc: 'Show API documentation in specified browser'
+    desc 'preview', 'Show API documentation in browser or write it to file'
+    method_option :browser, type: :string, desc: 'Show API documentation in specified browser (full command is needed - e.g. `--browser=\'open -a safari\'` in case of osx)'
     method_option :output, type: :string, banner: 'FILE', desc: 'Write generated HTML into specified file'
     method_option :path, type: :string, desc: 'Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file'
     method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host'
