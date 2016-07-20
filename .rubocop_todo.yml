@@ -1,0 +1,42 @@
+Lint/Eval:
+  Exclude:
+    - 'Rakefile'
+
+Lint/UnusedBlockArgument:
+  Exclude:
+    - 'lib/apiary/command/preview.rb'
+
+Metrics/AbcSize:
+  Max: 25
+
+
+Metrics/LineLength:
+  Max: 180
+  Exclude:
+      - 'spec/*'
+      - 'spec/apiary/*'
+      - 'spec/apiary/command/*'
+
+Metrics/MethodLength:
+  Max: 26
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+  EnforcedStyle: slashes
+
+Style/UnneededInterpolation:
+  Enabled: false
+
+Style/MutableConstant:
+  Exclude:
+    - 'lib/apiary/helpers/javascript_helper.rb'
+    - 'spec/apiary/command/fetch_spec.rb'

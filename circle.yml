@@ -1,7 +1,9 @@
 dependencies:
   pre:
     - gem update bundler
+
 test:
   override:
+    - bundle exec rubocop --config .rubocop_todo.yml
     - bundle exec rspec spec
     - bundle exec cucumber
