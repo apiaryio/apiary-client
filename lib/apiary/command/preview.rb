@@ -5,6 +5,7 @@ require 'ostruct'
 require 'json'
 require 'tmpdir'
 require 'erb'
+require 'launchy'
 
 require 'apiary/agent'
 require 'apiary/helpers'
@@ -17,12 +18,6 @@ module Apiary::Command
     include Apiary::Helpers::JavascriptHelper
 
     PREVIEW_TEMPLATE_PATH = "#{File.expand_path File.dirname(__FILE__)}/../file_templates/preview.erb".freeze
-
-    BROWSERS = {
-      safari: 'Safari',
-      chrome: 'Google Chrome',
-      firefox: 'Firefox'
-    }.freeze
 
     attr_reader :options
 
@@ -73,19 +68,20 @@ module Apiary::Command
       end
     end
 
-    def browser
-      BROWSERS[@options.browser] || nil
-    end
-
     def rack_app
       Rack::Builder.new do
         run ->(env) { [200, {}, [yield]] }
       end
     end
 
-    # TODO: add linux and windows systems
     def open_generated_page(path)
-      exec "open #{browser_options} #{path}"
+      def_browser = ENV['BROWSER']
+      ENV['BROWSER'] = @options.browser
+
+      Launchy.open(path) do |e|
+        puts "Attempted to open `#{path}` and failed because #{e}"
+      end
+      ENV['BROWSER'] = def_browser
     end
 
     def write_generated_path(path, outfile)
@@ -113,12 +109,6 @@ module Apiary::Command
       file = File.open(PREVIEW_TEMPLATE_PATH, 'r')
       template_string = file.read
       ERB.new(template_string)
-    end
-
-    private
-
-    def browser_options
-      "-a #{BROWSERS[@options.browser.to_sym]}" if @options.browser
     end
   end
 end
