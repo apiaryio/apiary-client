@@ -30,7 +30,7 @@ module Apiary
       cmd.execute
     end
 
-    desc 'publish', 'Publish API Description Document on docs.API_NAME.apiary.io'
+    desc 'publish', 'Publish API Description Document on docs.API_NAME.apiary.io (API Description must exist on apiary.io)'
     method_option :message, type: :string, banner: 'COMMIT_MESSAGE', desc: 'Publish with custom commit message'
     method_option :path, type: :string, desc: 'Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file'
     method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host'
