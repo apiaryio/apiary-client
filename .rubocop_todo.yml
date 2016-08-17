@@ -7,8 +7,10 @@ Lint/UnusedBlockArgument:
     - 'lib/apiary/command/preview.rb'
 
 Metrics/AbcSize:
-  Max: 25
+  Max: 30
 
+Metrics/PerceivedComplexity:
+  Max: 10
 
 Metrics/LineLength:
   Max: 180

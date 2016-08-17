@@ -57,9 +57,11 @@ module Apiary::Command
       source = api_description_source(@source_path)
 
       return if source.nil?
+
       data = {
         code: source,
-        messageToSave: @options.message
+        messageToSave: @options.message,
+        shouldCommit: @options.push ? 'yes' : 'no'
       }
 
       RestClient.proxy = @options.proxy
