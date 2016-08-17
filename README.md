@@ -112,6 +112,8 @@ Options:
   [--message=COMMIT_MESSAGE]  # Publish with custom commit message
   [--path=PATH]               # Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file
   [--api-host=HOST]           # Specify apiary host
+  [--push], [--no-push]       # Push API Description to the GitHub when API Project is associated with GitHub repository in Apiary
+                              # Default: true
   --api-name=API_NAME         
 
 Publish API Description Document on docs.API_NAME.apiary.io (API Description must exist on apiary.io)

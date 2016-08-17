@@ -34,6 +34,7 @@ module Apiary
     method_option :message, type: :string, banner: 'COMMIT_MESSAGE', desc: 'Publish with custom commit message'
     method_option :path, type: :string, desc: 'Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file'
     method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host'
+    method_option :push, type: :boolean, default: true, desc: 'Push API Description to the GitHub when API Project is associated with GitHub repository in Apiary'
     method_option :api_name, type: :string, required: true
 
     def publish
