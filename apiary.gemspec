@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'apiary/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = 'apiaryio'
+  gem.name          = 'apiary'
   gem.version       = Apiary::VERSION
   gem.authors       = ['Apiary Ltd.']
   gem.email         = ['team@apiary.io']
