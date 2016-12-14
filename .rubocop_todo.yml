@@ -7,10 +7,13 @@ Lint/UnusedBlockArgument:
     - 'lib/apiary/command/preview.rb'
 
 Metrics/AbcSize:
-  Max: 30
+  Max: 33
 
 Metrics/PerceivedComplexity:
-  Max: 10
+  Max: 12
+
+Metrics/CyclomaticComplexity:
+  Max: 9
 
 Metrics/LineLength:
   Max: 180
@@ -20,7 +23,7 @@ Metrics/LineLength:
       - 'spec/apiary/command/*'
 
 Metrics/MethodLength:
-  Max: 26
+  Max: 33
 
 Style/ClassAndModuleChildren:
   Enabled: false
@@ -29,6 +32,9 @@ Style/ClassVars:
   Enabled: false
 
 Style/Documentation:
+  Enabled: false
+
+Lint/HandleExceptions:
   Enabled: false
 
 Style/RegexpLiteral:
