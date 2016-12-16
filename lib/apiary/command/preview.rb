@@ -28,6 +28,7 @@ module Apiary::Command
       @options.port         ||= 8080
       @options.proxy        ||= ENV['http_proxy']
       @options.server       ||= false
+      @options.json         ||= false
       @options.host         ||= '127.0.0.1'
       @options.headers      ||= {
         accept: 'text/html',
@@ -90,10 +91,20 @@ module Apiary::Command
 
     def generate
       template = load_preview_template
+      source = api_description_source(@source_path)
+
+      return if source.nil?
+
+      begin
+        JSON.parse(source)
+        abort('Did you forget the --json flag') unless @options.json
+      rescue; end
+
+      source = convert_from_json(source) if @options.json
 
       data = {
         title: File.basename(@source_path, '.*'),
-        source: api_description_source(@source_path)
+        source: source
       }
 
       template.result(binding)

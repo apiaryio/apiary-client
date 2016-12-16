@@ -26,11 +26,12 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'thor', '~> 0.19.1'
   gem.add_runtime_dependency 'json', '~> 1.8'
   gem.add_runtime_dependency 'launchy', '~> 2.4'
+  gem.add_runtime_dependency 'public_suffix', '~> 1.4.6'
 
   gem.add_development_dependency 'bundler', '~> 1.12'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.4'
-  gem.add_development_dependency 'webmock', '~> 2.0'
+  gem.add_development_dependency 'webmock', '~> 2.2.0'
   gem.add_development_dependency 'yard', '~> 0.8'
   gem.add_development_dependency 'aruba', '~> 0.14'
   gem.add_development_dependency 'cucumber', '~> 2.0'

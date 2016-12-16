@@ -17,6 +17,12 @@ module Apiary
       source
     end
 
+    def convert_from_json(add)
+      JSON.parse(add).to_yaml
+    rescue JSON::ParserError => e
+      abort "Unable to convert input document to yaml: #{e.message.lines.first}"
+    end
+
     protected
 
     def choose_one(path)

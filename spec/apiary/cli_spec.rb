@@ -27,6 +27,7 @@ describe Apiary::CLI do
           )
   ).each do |cmd|
     it "includes help #{cmd}in README.md" do
+      puts cmd
       helptext = open("|ruby bin/apiary help #{cmd}", &:read)
 
       expect(helptext).to include("apiary #{cmd.strip}")

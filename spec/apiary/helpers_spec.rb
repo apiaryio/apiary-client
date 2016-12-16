@@ -64,4 +64,12 @@ describe Apiary::Helpers do
       expect(file1).to eq(file2)
     end
   end
+
+  describe '#convert_from_json' do
+    it 'converts swagger in yaml to swagger to json' do
+      yaml_source = api_description_source('spec/fixtures/api_blueprint_and_swagger/swagger.yaml')
+      json_source = api_description_source('spec/fixtures/api_blueprint_and_swagger/swagger.json')
+      expect(yaml_source).to eq(convert_from_json(json_source))
+    end
+  end
 end

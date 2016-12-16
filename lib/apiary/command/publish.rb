@@ -17,6 +17,7 @@ module Apiary::Command
     def initialize(opts)
       @options = OpenStruct.new(opts)
       @options.path           ||= '.'
+      @options.json           ||= false
       @options.api_host       ||= 'api.apiary.io'
       @options.api_name       ||= false
       @options.api_key        ||= ENV['APIARY_API_KEY']
@@ -58,6 +59,12 @@ module Apiary::Command
 
       return if source.nil?
 
+      begin
+        JSON.parse(source)
+        abort('Did you forget the --json flag?') unless @options.json
+      rescue; end
+
+      source = convert_from_json(source) if @options.json
       data = {
         code: source,
         messageToSave: @options.message,

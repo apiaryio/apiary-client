@@ -93,6 +93,7 @@ Options:
   [--browser=BROWSER]        # Show API documentation in specified browser (full command is needed - e.g. `--browser='open -a safari'` in case of osx)
   [--output=FILE]            # Write generated HTML into specified file
   [--path=PATH]              # Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file
+  [--json], [--no-json]      # Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing
   [--api-host=HOST]          # Specify apiary host
   [--server], [--no-server]  # Start standalone web server on port 8080
   [--port=PORT]              # Set port for --server option
@@ -111,6 +112,7 @@ Usage:
 Options:
   [--message=COMMIT_MESSAGE]  # Publish with custom commit message
   [--path=PATH]               # Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file
+  [--json], [--no-json]       # Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing
   [--api-host=HOST]           # Specify apiary host
   [--push], [--no-push]       # Push API Description to the GitHub when API Project is associated with GitHub repository in Apiary
                               # Default: true
@@ -160,8 +162,8 @@ Show version
 Inside the `apiary-client` repository directory run:
 
 ```sh
-$ bundle exec rake test
-$ bundle exec rake features
+$ bundle exec rspec spec
+$ bundle exec cucumber
 ```
 
 
