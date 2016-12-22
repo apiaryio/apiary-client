@@ -25,6 +25,7 @@ module Apiary
     method_option :server, type: :boolean, desc: 'Start standalone web server on port 8080'
     method_option :port, type: :numeric, banner: 'PORT', desc: 'Set port for --server option'
     method_option :host, type: :string, desc: 'Set host for --server option'
+    method_option :watch, type: :boolean, desc: 'Reload API documentation when API Description Document has changed'
 
     def preview
       cmd = Apiary::Command::Preview.new options

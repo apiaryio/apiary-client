@@ -6,6 +6,7 @@ require 'json'
 require 'tmpdir'
 require 'erb'
 require 'launchy'
+require 'listen'
 
 require 'apiary/agent'
 require 'apiary/helpers'
@@ -29,12 +30,16 @@ module Apiary::Command
       @options.proxy        ||= ENV['http_proxy']
       @options.server       ||= false
       @options.json         ||= false
+      @options.watch        ||= false
+      @options.interval     ||= 1000
       @options.host         ||= '127.0.0.1'
       @options.headers      ||= {
         accept: 'text/html',
         content_type: 'text/plain',
         user_agent: Apiary.user_agent
       }
+
+      @changed = timestamp
 
       begin
         @source_path = api_description_source_path(@options.path)
@@ -45,15 +50,42 @@ module Apiary::Command
 
     def execute
       if @options.server
+        watch
         server
       else
         show
       end
     end
 
+    def watch
+      if @options.watch
+        listener = Listen.to(File.dirname(@source_path), only: /#{File.basename(@source_path)}/) do |modified|
+          @changed = timestamp
+        end
+
+        listener.start
+      end
+    end
+
+    def timestamp
+      Time.now.getutc.to_i.to_s
+    end
+
     def server
-      app = rack_app do
+      generate_app = get_app('/') do
         generate
+      end
+
+      change_app = get_app('/changed') do
+        @changed
+      end
+
+      source_app = get_app('/source') do
+        api_description_source(@source_path)
+      end
+
+      app = Rack::Builder.new do
+        run Rack::Cascade.new([source_app, change_app, generate_app])
       end
 
       Rack::Server.start(Port: @options.port, Host: @options.host, app: app)
@@ -69,9 +101,11 @@ module Apiary::Command
       end
     end
 
-    def rack_app
+    def get_app(path)
       Rack::Builder.new do
-        run ->(env) { [200, {}, [yield]] }
+        map path do
+          run ->(env) { [200, {}, [yield]] }
+        end
       end
     end
 
@@ -104,7 +138,9 @@ module Apiary::Command
 
       data = {
         title: File.basename(@source_path, '.*'),
-        source: source
+        source: source,
+        interval: @options.interval,
+        watch: @options.watch
       }
 
       template.result(binding)

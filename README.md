@@ -98,6 +98,7 @@ Options:
   [--server], [--no-server]  # Start standalone web server on port 8080
   [--port=PORT]              # Set port for --server option
   [--host=HOST]              # Set host for --server option
+  [--watch], [--no-watch]    # Reload API documentation when API Description Document has changed
 
 Show API documentation in browser or write it to file
 ```
