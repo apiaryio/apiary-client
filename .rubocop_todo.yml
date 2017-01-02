@@ -9,6 +9,9 @@ Lint/UnusedBlockArgument:
 Metrics/AbcSize:
   Max: 33
 
+Metrics/ClassLength:
+  Max: 150 # or whatever ends up being appropriate
+
 Metrics/PerceivedComplexity:
   Max: 12
 

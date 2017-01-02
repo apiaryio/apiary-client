@@ -10,6 +10,35 @@
     var embed = new Apiary.Embed({
       apiBlueprint: "<%= escape_javascript data[:source] %>"
     });
+
+    if (<%= data[:watch] %>) {
+        var changed = null
+        var xhrChanged = new XMLHttpRequest();
+        var xhrData = new XMLHttpRequest();
+        setInterval(function() {
+            xhrChanged.open('GET', window.location.href + "/changed", true);
+            xhrChanged.send();
+
+            xhrChanged.onreadystatechange = function() {
+                if (xhrChanged.readyState == 4 && xhrChanged.status == 200) {
+                    if (!changed) {
+                        changed = xhrChanged.responseText
+                    }
+                    if (changed != xhrChanged.responseText) {
+                        changed = xhrChanged.responseText
+                        xhrData.open('GET', window.location.href + "/source", true);
+                        xhrData.send();
+
+                        xhrData.onreadystatechange = function() {
+                            if (xhrData.readyState == 4 && xhrData.status == 200) {
+                                embed.iframeElement.contentWindow.postMessage({"origin": embed.ORIGIN, "eventType": "anonymousPreview", "data": {"code": xhrData.responseText}}, '*');
+                            }
+                        }
+                    }
+                }
+            }
+        }, <%= data[:interval] %>);
+    }
   </script>
 </body>
 </html>
