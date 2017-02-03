@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'apiary/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = 'apiaryio'
+  gem.name          = 'apiary'
   gem.version       = Apiary::VERSION
   gem.authors       = ['Apiary Ltd.']
   gem.email         = ['team@apiary.io']
@@ -21,8 +21,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_runtime_dependency 'rest-client', '~> 1.8'
-  gem.add_runtime_dependency 'rack', '~> 1.6.4'
+  gem.add_runtime_dependency 'rest-client', '~> 2.0'
+  gem.add_runtime_dependency 'rack', '~> 2.0'
   gem.add_runtime_dependency 'thor', '~> 0.19.1'
   gem.add_runtime_dependency 'json', '~> 1.8'
   gem.add_runtime_dependency 'launchy', '~> 2.4'
