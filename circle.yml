@@ -1,9 +1,16 @@
+machine:
+  environment:
+    RUBY_VERSIONS: 2.0.0,2.2.0,2.3.1
+
 dependencies:
-  pre:
-    - gem update bundler
+  override:
+    - rvm get head
+    - rvm install $RUBY_VERSIONS
+    - rvm $RUBY_VERSIONS --verbose do gem install bundler
+    - rvm $RUBY_VERSIONS --verbose do bundle install
 
 test:
   override:
-    - bundle exec rubocop --config .rubocop_todo.yml
-    - bundle exec rspec spec
-    - bundle exec cucumber
+    - rvm $RUBY_VERSIONS --verbose do bundle exec rubocop --config .rubocop_todo.yml
+    - rvm $RUBY_VERSIONS --verbose do bundle exec rspec spec
+    - rvm $RUBY_VERSIONS --verbose do bundle exec cucumber

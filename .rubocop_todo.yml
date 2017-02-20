@@ -51,3 +51,6 @@ Style/MutableConstant:
   Exclude:
     - 'lib/apiary/helpers/javascript_helper.rb'
     - 'spec/apiary/command/fetch_spec.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
