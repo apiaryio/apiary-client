@@ -181,7 +181,7 @@ $ rake release
 
 ## License
 
-Copyright 2012-16 (c) Apiary Ltd.
+Copyright 2012-17 (c) Apiary Ltd.
 
 Released under MIT license.
 See [LICENSE](https://raw.githubusercontent.com/apiaryio/apiary-client/master/LICENSE) file for further details.
