@@ -3,6 +3,7 @@ require 'rest-client'
 require 'rack'
 require 'ostruct'
 require 'json'
+require 'yaml'
 
 require 'apiary/agent'
 require 'apiary/helpers'
