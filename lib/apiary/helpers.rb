@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'yaml'
+
 module Apiary
   module Helpers
     def api_description_source_path(path)
