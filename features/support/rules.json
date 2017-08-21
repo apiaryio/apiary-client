@@ -1,0 +1,8 @@
+[
+  {
+    "ruleName": "validateApiName",
+    "functionName": "validateApiName",
+    "target": "API_Name",
+    "intent": "validateApiName"
+  }
+]

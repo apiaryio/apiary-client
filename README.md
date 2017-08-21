@@ -61,6 +61,7 @@ Commands:
   apiary help [COMMAND]               # Describe available commands or one specific command
   apiary preview                      # Show API documentation in browser or write it to file
   apiary publish --api-name=API_NAME  # Publish API Description Document on docs.API_NAME.apiary.io (API Description must exist on apiary.io)
+  apiary styleguide                   # Check API Description Document against styleguide rules (Apiary.io pro plan is required - https://apiary.io/plans )
   apiary version                      # Show version
 
 ```
@@ -92,7 +93,7 @@ Usage:
 Options:
   [--browser=BROWSER]        # Show API documentation in specified browser (full command is needed - e.g. `--browser='open -a safari'` in case of osx)
   [--output=FILE]            # Write generated HTML into specified file
-  [--path=PATH]              # Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file
+  [--path=PATH]              # Specify path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file
   [--json], [--no-json]      # Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing
   [--api-host=HOST]          # Specify apiary host
   [--server], [--no-server]  # Start standalone web server on port 8080
@@ -112,7 +113,7 @@ Usage:
 
 Options:
   [--message=COMMIT_MESSAGE]  # Publish with custom commit message
-  [--path=PATH]               # Specify path to API Description Document. When given a directory, it will look for apiary.apib or swagger.yaml file
+  [--path=PATH]               # Specify path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file
   [--json], [--no-json]       # Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing
   [--api-host=HOST]           # Specify apiary host
   [--push], [--no-push]       # Push API Description to the GitHub when API Project is associated with GitHub repository in Apiary
@@ -120,6 +121,24 @@ Options:
   --api-name=API_NAME         
 
 Publish API Description Document on docs.API_NAME.apiary.io (API Description must exist on apiary.io)
+```
+
+#### styleguide
+
+```
+$ apiary help styleguide
+Usage:
+  apiary styleguide
+
+Options:
+  [--fetch], [--no-fetch]              # Fetch styleguide rules and functions from apiary.io
+  [--add=ADD]                          # Path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file
+  [--functions=FUNCTIONS]              # Path to to the file with functions definitions
+  [--rules=RULES]                      # Path to to the file with rules definitions - `functions.js` and `rules.json` are loaded if not specified
+  [--full-report], [--no-full-report]  # Get passed assertions ass well. Only failed assertions are included to the result by default
+
+Check API Description Document against styleguide rules (Apiary.io pro plan is required - https://apiary.io/plans )
+
 ```
 
 #### version
