@@ -110,7 +110,7 @@ module Apiary::Command
       method = :post unless method
 
       begin
-        response = RestClient::Request.execute(method: method, url: url, payload: data, headers: headers, verify_ssl: false)
+        response = RestClient::Request.execute(method: method, url: url, payload: data, headers: headers)
       rescue RestClient::Exception => e
         begin
           err = JSON.parse e.response
