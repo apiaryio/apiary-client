@@ -1,6 +1,6 @@
 Then(/^the output should contain the content of file "(.*)"$/) do |filename|
   expected = nil
-  cd('../../spec/fixtures') do
+  cd('../../features/support') do
     expected = File.read(filename)
   end
 

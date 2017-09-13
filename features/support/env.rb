@@ -7,7 +7,7 @@ end
 Around('@needs_apiary_api_key') do |_scenario, block|
   # DEBUG puts "Scenario #{scenario.name} wants APIARY_API_KEY."
   original_value = ENV.delete('APIARY_API_KEY')
-  ENV['APIARY_API_KEY'] = '340bda135034529ab2abf341295c3aa2' # XXX
+  ENV['APIARY_API_KEY'] = '5a96f04006effca6cc03f1616ed916eb'
   block.call
   ENV['APIARY_API_KEY'] = original_value
 end

@@ -1,0 +1,2 @@
+class RulesLoadError < StandardError
+end

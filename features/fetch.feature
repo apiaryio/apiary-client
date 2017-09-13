@@ -4,5 +4,5 @@ Feature: Fetch apiary.apib from API_NAME.apiary.io
   @needs_apiary_api_key
   Scenario: Fetch apiary.apib from API_NAME.apiary.io
 
-    When I run `apiary fetch --api-name testingapiaryclitestingapiarycli`
+    When I run `apiary fetch --api-name=apiaryclitestingdonottouch`
     Then the output should contain the content of file "apiary.apib"
