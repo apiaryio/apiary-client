@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.version       = Apiary::VERSION
   gem.authors       = ['Apiary Ltd.']
   gem.email         = ['team@apiary.io']
+  gem.required_ruby_version = '>= 2.2.2'
 
   gem.description   = 'Apiary.io CLI'
   gem.summary       = 'Apiary.io CLI'
@@ -24,7 +25,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_runtime_dependency 'rest-client', '~> 1.8'
-  gem.add_runtime_dependency 'rack', '~> 1.6.4'
+  gem.add_runtime_dependency 'rack', '>= 1.6.4'
   gem.add_runtime_dependency 'thor', '~> 0.19.1'
   gem.add_runtime_dependency 'json', '~> 1.8'
   gem.add_runtime_dependency 'launchy', '~> 2.4'
