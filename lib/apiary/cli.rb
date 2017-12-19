@@ -52,6 +52,7 @@ module Apiary
     method_option :functions, type: :string, desc: 'Path to to the file with functions definitions'
     method_option :rules, type: :string, desc: 'Path to to the file with rules definitions - `functions.js` and `rules.json` are loaded if not specified'
     method_option :full_report, type: :boolean, default: false, desc: 'Get passed assertions ass well. Only failed assertions are included to the result by default'
+    method_option :json, type: :boolean, default: false, desc: 'Outputs all in json'
     def styleguide
       cmd = Apiary::Command::Styleguide.new options
       cmd.execute

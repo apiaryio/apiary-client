@@ -128,13 +128,36 @@ describe Apiary::Command::Styleguide do
       test_abort(command, 'supportXXZ` not found')
     end
 
-    it 'call command with correct paths' do
+    it 'call command with correct options which should fail' do
+      opts = {
+        api_key: 'xxx',
+        functions: 'features/support/functions-fail.js',
+        rules: 'features/support',
+        add: 'features/support',
+        full_report: true
+      }
+
+      command = Apiary::Command::Styleguide.new(opts)
+      stub_request(:get, "https://#{command.options.api_host}/styleguide-cli/get-token/").to_return(status: 200, body: '{"jwt":"xxx"}')
+      response = '[{"ruleName":"validateApiName","functionName":"validateApiName","target":"API_Name","intent":"validateApiName","code":"function validateApiName(apiName) {\n    return \'fail\';\n}","functionComment":"\n @targets: API_Name\n ","allowedPaths":["API_Name"],"ref":["API_Name-0"],"results":[{"validatorError":false,"result":"fail","path":"API_Name-0","data":"test","sourcemap":[[12,7]],"sourcemapLines":{"start":2,"end":2}}]}]'
+      stub_request(:post, command.options.vk_url).to_return(status: 200, body: response)
+
+      expect do
+        begin
+          command.execute
+        rescue SystemExit
+        end
+      end.to output("\n    validateApiName\n      [❌] FAILED: API_Name #0 on line 2 - `fail`\n\n").to_stdout
+    end
+
+    it 'call command with correct options and json output' do
       opts = {
         api_key: 'xxx',
         functions: 'features/support',
         rules: 'features/support',
         add: 'features/support',
-        full_report: true
+        full_report: true,
+        json: true
       }
 
       command = Apiary::Command::Styleguide.new(opts)

@@ -30,6 +30,7 @@ module Apiary::Command
         user_agent: Apiary.user_agent
       }
       @options.failedOnly = !@options.full_report
+      @options.json
     end
 
     def execute
@@ -83,12 +84,66 @@ module Apiary::Command
       headers = @options.headers.clone
       headers[:Authorization] = "Bearer #{token}"
 
-      result = call_resource(@options.vk_url, data, headers, :post)
+      output call_resource(@options.vk_url, data, headers, :post)
+    end
 
+    def print_output_text(result)
+      lines = if result['sourcemapLines']['start'] == result['sourcemapLines']['end']
+                "on line #{result['sourcemapLines']['start']}"
+              else
+                "on lines #{result['sourcemapLines']['start']} - #{result['sourcemapLines']['end']}"
+              end
+
+      if result['result'] == true
+        puts "      [\u2713] PASSED: #{(result['path'] || '').gsub('-', ' #')} #{lines}"
+      else
+        puts "      [\u274C] FAILED: #{(result['path'] || '').gsub('-', ' #')} #{lines} - `#{result['result']}`"
+      end
+    end
+
+    def json_output(json_response)
+      puts JSON.pretty_generate json_response
+    end
+
+    def human_output(json_response)
+      if json_response.empty?
+        puts 'All tests has passed'
+        exit 0
+      end
+
+      puts ''
+
+      at_least_one_failed = false
+
+      json_response.each do |response|
+        puts "    #{(response['intent'] || response['ruleName'] || response['functionName'])}"
+
+        (response['results'] || []).each do |result|
+          print_output_text result
+          at_least_one_failed = true if result['result'] != true
+        end
+
+        puts ''
+      end
+
+      if at_least_one_failed
+        exit 1
+      else
+        exit 0
+      end
+    end
+
+    def output(raw_response)
       begin
-        puts JSON.pretty_generate(JSON.parse(result))
+        json_response = JSON.parse(raw_response)
       rescue
-        abort "Error: Can not parse result: #{result}"
+        abort "Error: Can not parse result: #{raw_response}"
+      end
+
+      if @options.json
+        json_output json_response
+      else
+        human_output json_response
       end
     end
 
@@ -126,7 +181,6 @@ module Apiary::Command
           abort "#{message} #{e.message}"
         end
       end
-
       response
     end
 
