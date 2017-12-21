@@ -136,6 +136,7 @@ Options:
   [--functions=FUNCTIONS]              # Path to to the file with functions definitions
   [--rules=RULES]                      # Path to to the file with rules definitions - `functions.js` and `rules.json` are loaded if not specified
   [--full-report], [--no-full-report]  # Get passed assertions ass well. Only failed assertions are included to the result by default
+  [--json], [--no-json]                # Outputs all in json
 
 Check API Description Document against styleguide rules (Apiary.io pro plan is required - https://apiary.io/plans )
 
