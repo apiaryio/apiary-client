@@ -36,5 +36,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'webmock', '~> 2.2.0'
   gem.add_development_dependency 'aruba', '~> 0.14'
   gem.add_development_dependency 'cucumber', '~> 2.0'
-  gem.add_development_dependency 'rubocop', '~> 0.41.2'
+  gem.add_development_dependency 'rubocop', '~> 0.49.0'
 end
