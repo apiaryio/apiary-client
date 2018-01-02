@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'thor'
 require 'apiary/command/fetch'
 require 'apiary/command/preview'

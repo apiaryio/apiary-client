@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'rest-client'
 require 'rack'
 require 'ostruct'
@@ -58,13 +59,11 @@ module Apiary::Command
     end
 
     def watch
-      if @options.watch
-        listener = Listen.to(File.dirname(@source_path), only: /#{File.basename(@source_path)}/) do |modified|
-          @changed = timestamp
-        end
-
-        listener.start
+      return unless @options.watch
+      listener = Listen.to(File.dirname(@source_path), only: /#{File.basename(@source_path)}/) do |modified|
+        @changed = timestamp
       end
+      listener.start
     end
 
     def timestamp
@@ -133,7 +132,6 @@ module Apiary::Command
         JSON.parse(source)
         abort('Did you forget the --json flag') unless @options.json
       rescue; end
-
       source = convert_from_json(source) if @options.json
 
       data = {

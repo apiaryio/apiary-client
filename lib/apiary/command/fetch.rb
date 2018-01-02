@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require 'rest-client'
 require 'rack'
 require 'ostruct'
