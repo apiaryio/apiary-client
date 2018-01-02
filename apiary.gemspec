@@ -34,7 +34,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.4'
   gem.add_development_dependency 'webmock', '~> 2.2.0'
-  gem.add_development_dependency 'yard', '~> 0.8'
   gem.add_development_dependency 'aruba', '~> 0.14'
   gem.add_development_dependency 'cucumber', '~> 2.0'
   gem.add_development_dependency 'rubocop', '~> 0.41.2'
