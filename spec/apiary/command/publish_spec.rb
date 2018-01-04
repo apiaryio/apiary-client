@@ -38,7 +38,7 @@ describe Apiary::Command::Publish do
 
       it 'sends the message when publishing' do
         expect(WebMock).to have_requested(:post, 'https://api.apiary.io/blueprint/publish/myapi')
-          .with { |request| request.body.include? 'messageToSave=Custom%20message' }
+          .with { |request| request.body.include? 'messageToSave=Custom+message' }
       end
     end
   end
