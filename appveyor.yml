@@ -7,7 +7,7 @@ build: off
 
 install:
   - set PATH=C:\Ruby%RUBY_VERSION%\bin;%PATH%
-  - gem update bundler
+  - gem install bundler -f
   - bundle config --local path vendor/bundle
   - bundle install
 
