@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'apiary/version'
 
 Gem::Specification.new do |gem|
-  gem.required_ruby_version = '>= 2.0.0'
+  gem.required_ruby_version = '>= 2.2.0'
 
   gem.name          = 'apiaryio'
   gem.version       = Apiary::VERSION
@@ -33,8 +33,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'bundler', '~> 1.12'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.4'
-  gem.add_development_dependency 'webmock', '~> 2.2.0'
+  gem.add_development_dependency 'webmock', '>= 2.2.0'
   gem.add_development_dependency 'aruba', '~> 0.14'
-  gem.add_development_dependency 'cucumber', '~> 2.0'
+  gem.add_development_dependency 'cucumber', '>= 2.0'
   gem.add_development_dependency 'rubocop', '~> 0.49.0'
 end
