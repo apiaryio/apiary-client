@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'apiary/version'
 
 Gem::Specification.new do |gem|
-  gem.required_ruby_version = '>= 2.0.0'
+  gem.required_ruby_version = '>= 2.2.0'
 
   gem.name          = 'apiaryio'
   gem.version       = Apiary::VERSION
@@ -23,8 +23,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_runtime_dependency 'rest-client', '~> 1.8'
-  gem.add_runtime_dependency 'rack', '~> 1.6.4'
+  gem.add_runtime_dependency 'rest-client', '~> 2.0'
+  gem.add_runtime_dependency 'rack', '~> 2.0.0'
   gem.add_runtime_dependency 'thor', '~> 0.19.1'
   gem.add_runtime_dependency 'json', '~> 1.8'
   gem.add_runtime_dependency 'launchy', '~> 2.4'
@@ -33,9 +33,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'bundler', '~> 1.12'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.4'
-  gem.add_development_dependency 'webmock', '~> 2.2.0'
-  gem.add_development_dependency 'yard', '~> 0.8'
+  gem.add_development_dependency 'webmock', '>= 2.2.0'
   gem.add_development_dependency 'aruba', '~> 0.14'
-  gem.add_development_dependency 'cucumber', '~> 2.0'
-  gem.add_development_dependency 'rubocop', '~> 0.41.2'
+  gem.add_development_dependency 'cucumber', '>= 2.0'
+  gem.add_development_dependency 'rubocop', '~> 0.49.0'
 end

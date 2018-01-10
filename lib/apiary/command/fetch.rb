@@ -1,7 +1,6 @@
 # encoding: utf-8
+
 require 'rest-client'
-require 'rack'
-require 'ostruct'
 require 'json'
 
 require 'apiary/agent'

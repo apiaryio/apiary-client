@@ -9,6 +9,9 @@ Lint/UnusedBlockArgument:
 Metrics/AbcSize:
   Max: 33
 
+Metrics/BlockLength:
+  Max: 150
+
 Metrics/ClassLength:
   Max: 190 # or whatever ends up being appropriate
 
@@ -38,6 +41,9 @@ Style/Documentation:
   Enabled: false
 
 Lint/HandleExceptions:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation: #https://github.com/bbatsov/rubocop/issues/4345
   Enabled: false
 
 Style/RegexpLiteral:

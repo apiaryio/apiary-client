@@ -1,7 +1,6 @@
 # encoding: utf-8
+
 require 'rest-client'
-require 'rack'
-require 'ostruct'
 require 'json'
 
 require 'apiary/agent'
@@ -63,7 +62,6 @@ module Apiary::Command
         JSON.parse(source)
         abort('Did you forget the --json flag?') unless @options.json
       rescue; end
-
       source = convert_from_json(source) if @options.json
       data = {
         code: source,

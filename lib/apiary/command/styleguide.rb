@@ -1,7 +1,6 @@
 # encoding: utf-8
+
 require 'rest-client'
-require 'rack'
-require 'ostruct'
 require 'json'
 
 require 'apiary/agent'
@@ -192,9 +191,8 @@ module Apiary::Command
     end
 
     def check_api_key
-      unless @options.api_key && @options.api_key != ''
-        abort 'Error: API key must be provided through environment variable APIARY_API_KEY. \Please go to https://login.apiary.io/tokens to obtain it.'
-      end
+      return if @options.api_key && @options.api_key != ''
+      abort 'Error: API key must be provided through environment variable APIARY_API_KEY. \Please go to https://login.apiary.io/tokens to obtain it.'
     end
 
     def load
