@@ -82,6 +82,7 @@ module Apiary::Command
 
       headers = @options.headers.clone
       headers[:Authorization] = "Bearer #{token}"
+      headers['Accept-Encoding'] = 'identity'
 
       output call_resource(@options.vk_url, data, headers, :post)
     end
