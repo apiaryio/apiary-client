@@ -12,7 +12,7 @@
     });
 
     if (<%= data[:watch] %>) {
-        var changed = null
+        var changed = null;
         var xhrChanged = new XMLHttpRequest();
         var xhrData = new XMLHttpRequest();
         setInterval(function() {
@@ -20,18 +20,18 @@
             xhrChanged.send();
 
             xhrChanged.onreadystatechange = function() {
-                if (xhrChanged.readyState == 4 && xhrChanged.status == 200) {
+                if (xhrChanged.readyState === 4 && xhrChanged.status === 200) {
                     if (!changed) {
-                        changed = xhrChanged.responseText
+                        changed = xhrChanged.responseText;
                     }
                     if (changed != xhrChanged.responseText) {
-                        changed = xhrChanged.responseText
+                        changed = xhrChanged.responseText;
                         xhrData.open('GET', window.location.href + "/source", true);
                         xhrData.send();
 
                         xhrData.onreadystatechange = function() {
-                            if (xhrData.readyState == 4 && xhrData.status == 200) {
-                                embed.iframeElement.contentWindow.postMessage({"origin": embed.ORIGIN, "eventType": "anonymousPreview", "data": {"code": xhrData.responseText}}, '*');
+                            if (xhrData.readyState === 4 && xhrData.status === 200) {
+                                window[embed.adaptee.id].contentWindow.postMessage({"origin": "Apiary.Embed", "eventType": "anonymousPreview", "data": {"code": xhrData.responseText}}, '*');
                             }
                         }
                     }
