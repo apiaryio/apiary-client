@@ -31,7 +31,7 @@
 
                         xhrData.onreadystatechange = function() {
                             if (xhrData.readyState === 4 && xhrData.status === 200) {
-                                window[embed.adaptee.id].contentWindow.postMessage({"origin": embed.ORIGIN, "eventType": "anonymousPreview", "data": {"code": xhrData.responseText}}, '*');
+                                window[embed.adaptee.id].contentWindow.postMessage({"origin": "Apiary.Embed", "eventType": "anonymousPreview", "data": {"code": xhrData.responseText}}, '*');
                             }
                         }
                     }
