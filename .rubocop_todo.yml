@@ -10,10 +10,10 @@ Metrics/AbcSize:
   Max: 33
 
 Metrics/BlockLength:
-  Max: 150
+  Max: 200
 
 Metrics/ClassLength:
-  Max: 190 # or whatever ends up being appropriate
+  Max: 250 # or whatever ends up being appropriate
 
 Metrics/PerceivedComplexity:
   Max: 12

@@ -49,6 +49,7 @@ module Apiary
 
     desc 'styleguide', 'Check API Description Document against styleguide rules (Apiary.io pro plan is required - https://apiary.io/plans )'
     method_option :fetch, type: :boolean, desc: 'Fetch styleguide rules and functions from apiary.io'
+    method_option :push, type: :boolean, desc: 'Push styleguide rules and functions to apiary.io'
     method_option :add, type: :string, desc: 'Path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file'
     method_option :functions, type: :string, desc: 'Path to to the file with functions definitions'
     method_option :rules, type: :string, desc: 'Path to to the file with rules definitions - `functions.js` and `rules.json` are loaded if not specified'

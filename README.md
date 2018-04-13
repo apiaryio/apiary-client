@@ -132,6 +132,7 @@ Usage:
 
 Options:
   [--fetch], [--no-fetch]              # Fetch styleguide rules and functions from apiary.io
+  [--push], [--no-push]                # Push styleguide rules and functions to apiary.io
   [--add=ADD]                          # Path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file
   [--functions=FUNCTIONS]              # Path to to the file with functions definitions
   [--rules=RULES]                      # Path to to the file with rules definitions - `functions.js` and `rules.json` are loaded if not specified

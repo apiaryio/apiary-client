@@ -172,4 +172,48 @@ describe Apiary::Command::Styleguide do
       end.to output("[\n\n]\n").to_stdout
     end
   end
+
+  describe 'push' do
+    it 'call command without APIARY_API_KEY set' do
+      opts = {
+        push: true,
+        api_key: '',
+        functions: 'features/support',
+        rules: 'features/support'
+      }
+      command = Apiary::Command::Styleguide.new(opts)
+      test_abort(command, 'Error: API key must be provided through environment variable APIARY_API_KEY.')
+    end
+
+    it 'call command with incorrect APIARY_API_KEY' do
+      opts = {
+        push: true,
+        api_key: 'xxx'
+      }
+
+      command = Apiary::Command::Styleguide.new(opts)
+      stub_request(:post, "https://#{command.options.api_host}/styleguide-cli/set-assertions/").to_return(status: [403, 'This resource requires authenticated API call.'])
+
+      test_abort(command, 'Error: Apiary service responded with: 403')
+    end
+
+    it 'call command with correct APIARY_API_KEY' do
+      opts = {
+        push: true,
+        api_key: 'xxx',
+        functions: 'function testFunction(data) { return "failed"; }',
+        rules: '[{"ruleName": "testName","functionName": "testFunction","target": "Request_Body","intent": "testIntent"}]'
+      }
+
+      command = Apiary::Command::Styleguide.new(opts)
+      stub_request(:post, "https://#{command.options.api_host}/styleguide-cli/set-assertions/").to_return(status: 200, body: '')
+
+      expect do
+        begin
+          command.execute
+        rescue SystemExit
+        end
+      end.to output('').to_stdout
+    end
+  end
 end

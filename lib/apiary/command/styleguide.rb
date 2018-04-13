@@ -36,8 +36,34 @@ module Apiary::Command
       check_api_key
       if @options.fetch
         fetch
+      elsif @options.push
+        push
       else
         validate
+      end
+    end
+
+    def push
+      begin
+        load(add: false)
+      rescue StandardError => e
+        abort "Error: #{e.message}"
+      end
+
+      path = 'styleguide-cli/set-assertions/'
+      headers = @options.headers.clone
+      headers[:authentication] = "Token #{@options.api_key}"
+
+      data = {
+        functions: @functions,
+        rules: @rules
+      }.to_json
+
+      begin
+        call_apiary(path, data, headers, :post)
+      rescue => e
+        puts e
+        abort "Error: Can not write into the rules/functions file: #{e}"
       end
     end
 
@@ -196,11 +222,13 @@ module Apiary::Command
       abort 'Error: API key must be provided through environment variable APIARY_API_KEY. \Please go to https://login.apiary.io/tokens to obtain it.'
     end
 
-    def load
-      @add_path = api_description_source_path(@options.add)
-      @add = api_description_source(@add_path)
-      @functions = get_functions(@options.functions)
-      @rules = get_rules(@options.rules)
+    def load(add: true, functions: true, rules: true)
+      if add
+        @add_path = api_description_source_path(@options.add)
+        @add = api_description_source(@add_path)
+      end
+      @functions = get_functions(@options.functions) if functions
+      @rules = get_rules(@options.rules) if rules
     end
 
     def fetch_from_apiary
