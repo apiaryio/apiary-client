@@ -49,7 +49,7 @@ module Apiary::Command
     end
 
     def execute
-      if @options.server
+      if @options.server || @options.watch
         watch
         server
       else
