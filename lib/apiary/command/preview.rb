@@ -70,15 +70,15 @@ module Apiary::Command
     end
 
     def server
-      generate_app = get_app('/') do
+      generate_app = get_app(path: '/') do
         generate
       end
 
-      change_app = get_app('/changed') do
+      change_app = get_app(path: '/changed', options: { 'Content-Type' => 'text/plain' }) do
         @changed
       end
 
-      source_app = get_app('/source') do
+      source_app = get_app(path: '/source', options: { 'Content-Type' => 'text/plain' }) do
         api_description_source(@source_path)
       end
 
@@ -99,10 +99,10 @@ module Apiary::Command
       end
     end
 
-    def get_app(path)
+    def get_app(path: '/', options: {})
       Rack::Builder.new do
         map path do
-          run ->(env) { [200, {}, [yield]] }
+          run ->(env) { [200, options, [yield]] }
         end
       end
     end
