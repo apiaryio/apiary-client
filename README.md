@@ -77,7 +77,6 @@ Usage:
 
 Options:
   --api-name=API_NAME  
-  [--api-host=HOST]    # Specify apiary host
   [--output=FILE]      # Write API Description Document into specified file
 
 Fetch API Description Document from API_NAME.apiary.io
@@ -95,7 +94,6 @@ Options:
   [--output=FILE]            # Write generated HTML into specified file
   [--path=PATH]              # Specify path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file
   [--json], [--no-json]      # Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing
-  [--api-host=HOST]          # Specify apiary host
   [--server], [--no-server]  # Start standalone web server on port 8080
   [--port=PORT]              # Set port for --server option
   [--host=HOST]              # Set host for --server option
@@ -115,7 +113,6 @@ Options:
   [--message=COMMIT_MESSAGE]  # Publish with custom commit message
   [--path=PATH]               # Specify path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file
   [--json], [--no-json]       # Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing
-  [--api-host=HOST]           # Specify apiary host
   [--push], [--no-push]       # Push API Description to the GitHub when API Project is associated with GitHub repository in Apiary
                               # Default: true
   --api-name=API_NAME         

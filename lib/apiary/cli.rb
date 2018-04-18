@@ -10,7 +10,7 @@ module Apiary
   class CLI < Thor
     desc 'fetch', 'Fetch API Description Document from API_NAME.apiary.io'
     method_option :api_name, type: :string, required: true
-    method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host'
+    method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host', hide: true
     method_option :output, type: :string, banner: 'FILE', desc: 'Write API Description Document into specified file'
 
     def fetch
@@ -23,7 +23,7 @@ module Apiary
     method_option :output, type: :string, banner: 'FILE', desc: 'Write generated HTML into specified file'
     method_option :path, type: :string, desc: 'Specify path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file'
     method_option :json, type: :boolean, desc: 'Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing'
-    method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host'
+    method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host', hide: true
     method_option :server, type: :boolean, desc: 'Start standalone web server on port 8080'
     method_option :port, type: :numeric, banner: 'PORT', desc: 'Set port for --server option'
     method_option :host, type: :string, desc: 'Set host for --server option'
@@ -38,7 +38,7 @@ module Apiary
     method_option :message, type: :string, banner: 'COMMIT_MESSAGE', desc: 'Publish with custom commit message'
     method_option :path, type: :string, desc: 'Specify path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file'
     method_option :json, type: :boolean, desc: 'Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing'
-    method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host'
+    method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host', hide: true
     method_option :push, type: :boolean, default: true, desc: 'Push API Description to the GitHub when API Project is associated with GitHub repository in Apiary'
     method_option :api_name, type: :string, required: true
 
