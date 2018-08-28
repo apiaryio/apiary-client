@@ -5,7 +5,7 @@ rvm:
   - "ruby-2.3.1"
   - "ruby-2.4.0"
   - "ruby-2.5.0"
-  - "jruby-9.0.0.0"
+  - "jruby-9.1.0.0"
 
 matrix:
   allow_failures:

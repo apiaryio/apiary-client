@@ -1,0 +1,42 @@
+version: 2
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test-2.3
+      - test-2.4
+      - test-2.5
+jobs:
+  test-2.3: &test-template
+    docker:
+      - image: circleci/ruby:2.3-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install bundler
+          command: |
+            gem install bundler
+      - run:
+          name: Install deps
+          command: |
+            bundle install
+      - run:
+          name: Run rubocop
+          command: |
+            bundle exec rubocop --config .rubocop_todo.yml
+      - run:
+          name: Run rspec
+          command: |
+            bundle exec rspec spec
+      - run:
+          name: Run cucumber
+          command: |
+            bundle exec cucumber
+  test-2.4:
+    <<: *test-template
+    docker:
+      - image: circleci/ruby:2.4-browsers
+  test-2.5:
+    <<: *test-template
+    docker:
+      - image: circleci/ruby:2.5-browsers
