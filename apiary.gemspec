@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'thor', '~> 0.19.1'
   gem.add_runtime_dependency 'json', '~> 1.8'
   gem.add_runtime_dependency 'launchy', '~> 2.4'
-  gem.add_runtime_dependency 'listen', '~> 2.0'
+  gem.add_runtime_dependency 'listen', '~> 3.0'
 
   gem.add_development_dependency 'bundler', '~> 1.12'
   gem.add_development_dependency 'rake', '~> 10.0'
