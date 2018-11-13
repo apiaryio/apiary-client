@@ -9,6 +9,7 @@
 /test/version_tmp/
 /tmp/
 /vendor
+pmip.rb
 
 ## Specific to RubyMotion:
 .dat*
@@ -36,3 +37,9 @@ Gemfile.lock
 
 # testing
 spec/fixtures/test.html
+
+# idea ide
+/.idea
+
+# netbeans IDE
+/nbproject
