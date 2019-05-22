@@ -22,7 +22,7 @@ module Apiary::Command
       @options.api_key      ||= ENV['APIARY_API_KEY']
       @options.proxy        ||= ENV['http_proxy']
       @options.api_host     ||= 'api.apiary.io'
-      @options.vk_url       ||= 'https://voight-kampff-aws.apiary-services.com/production/validate'
+      @options.vk_url       ||= 'http://voight-kampff.apiary-services.com'
       @options.headers      ||= {
         content_type: :json,
         accept: :json,
