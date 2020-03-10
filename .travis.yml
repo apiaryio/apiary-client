@@ -1,14 +1,15 @@
 language: ruby
 sudo: false
 rvm:
-  - "ruby-2.3.1"
-  - "ruby-2.4.0"
-  - "ruby-2.5.0"
-  - "jruby-9.1.0.0"
-
-matrix:
-  allow_failures:
-    - rvm: rbx-2
+  - 2.4
+  - 2.5
+  - 2.6
+  - 2.7
+  - jruby
+branches:
+  only:
+    # Always build master & Enable building pull requests.
+    - master
 cache: bundler
 before_install:
   - gem update --system
