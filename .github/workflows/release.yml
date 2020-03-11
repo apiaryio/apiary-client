@@ -20,4 +20,5 @@ jobs:
       - name: Build and Release
         run: |
           docker build . -t apiaryio/client:${{ steps.version.outputs.VERSION }}
+          docker images
           docker push apiaryio/client:${{ steps.version.outputs.VERSION }}
