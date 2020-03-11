@@ -1,0 +1,23 @@
+name: release
+on:
+  push:
+    tags: [v*]
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Login to docker
+        uses: azure/docker-login@v1
+        with:
+          login-server: contoso.azurecr.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Get the version
+        id: version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+      - name: Build and Release
+        run: |
+          docker build . -t apiaryio/client:${{ steps.version.outputs.VERSION }}
+          docker push apiaryio/client:${{ steps.version.outputs.VERSION }}
