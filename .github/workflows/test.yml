@@ -1,4 +1,4 @@
-name: windows
+name: test
 on:
   push:
     branches: [master]
@@ -6,10 +6,11 @@ on:
     branches: [master]
     types: [opened, reopened, synchronize]
 jobs:
-  build:
-    runs-on: windows-latest
+  test:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: ["windows-latest", "ubuntu-latest"]
         ruby: ["2.7.x", "2.6.x", "2.5.x", "2.4.x"]
     steps:
       - uses: actions/checkout@v2
@@ -23,3 +24,6 @@ jobs:
         run: bundle install
       - name: Run test
         run: bundle exec rspec spec
+      - name: Run cucumber tests
+        if: matrix.os != 'windows-latest'
+        run: bundle exec cucumber
