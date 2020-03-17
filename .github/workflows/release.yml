@@ -16,7 +16,7 @@ jobs:
       - name: Get the version
         id: version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
-      - name: Build and Release
+      - name: Docker Build and Release
         run: |
           docker build . -t apiaryio/client
           docker tag apiaryio/client apiaryio/client:${{ steps.version.outputs.VERSION }}
