@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-## 0.13.0
+## 0.14.0
 
 ### Breaking
 * Remove support for ruby 2.3
