@@ -192,9 +192,14 @@ Use `bundle install` to install your changes locally, for manual and ad-hock tes
 
 Only gem owners `gem owner apiaryio` can publish new gem into [RubyGems](https://rubygems.org/gems/apiaryio).
 
-```sh
-$ rake release
-```
+1. bump version in `lib/apiary/version.rb`
+2. update `CHANGELOG.md`
+3. prepare Github Release with text in `CHANGELOG`
+4. make gem release:
+
+    ```sh
+    $ rake release
+    ```
 
 
 ## License
