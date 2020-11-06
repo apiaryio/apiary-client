@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_runtime_dependency 'rest-client', '~> 2.0'
-  gem.add_runtime_dependency 'rack', '~> 2.0.0'
+  gem.add_runtime_dependency 'rack', '~> 2.1.4'
   gem.add_runtime_dependency 'thor', '~> 0.20.3'
   gem.add_runtime_dependency 'json', '~> 2.1'
   gem.add_runtime_dependency 'launchy', '~> 2.4'
