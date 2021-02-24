@@ -4,7 +4,7 @@ describe Apiary::Command::Fetch do
   it 'pass command without params' do
     opts = {}
     command = Apiary::Command::Fetch.new(opts)
-    expect { command.fetch_from_apiary }.to raise_error('Please provide an api-name option (subdomain part from your http://docs.<api-name>.apiary.io/)')
+    expect { command.fetch_from_apiary }.to raise_error('Please provide an api-name option (subdomain part from your https://<api-name>.docs.apiary.io/)')
   end
 
   it 'pass command only with api_name', api_key: true do
