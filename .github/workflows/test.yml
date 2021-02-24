@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: ["windows-latest", "ubuntu-latest"]
-        ruby: ["2.7.x", "2.6.x", "2.5.x", "2.4.x"]
+        ruby: ["3.0.x", "2.7.x", "2.6.x", "2.5.x"]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby

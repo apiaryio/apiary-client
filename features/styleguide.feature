@@ -1,4 +1,4 @@
-Feature: Styleguide apiary.apib on docs.API_NAME.apiary.io
+Feature: Styleguide apiary.apib on API_NAME.docs.apiary.io
 
   # This is integration testing you have to set APIARY_API_KEY
   @needs_apiary_api_key

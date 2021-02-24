@@ -7,6 +7,7 @@ workflows:
       - test-2.5
       - test-2.6
       - test-2.7
+      - test-3.0
 jobs:
   test-2.4: &test-template
     docker:
@@ -45,3 +46,7 @@ jobs:
     <<: *test-template
     docker:
       - image: circleci/ruby:2.7-browsers
+  test-3.0:
+    <<: *test-template
+    docker:
+      - image: circleci/ruby:3.0-browsers

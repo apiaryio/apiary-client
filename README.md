@@ -57,10 +57,10 @@ export APIARY_API_KEY=<your_token>
 ```
 $ apiary help
 Commands:
-  apiary fetch --api-name=API_NAME    # Fetch API Description Document from API_NAME.apiary.io
+  apiary fetch --api-name=API_NAME    # Fetch API Description Document from API_NAME.docs.apiary.io
   apiary help [COMMAND]               # Describe available commands or one specific command
   apiary preview                      # Show API documentation in browser or write it to file
-  apiary publish --api-name=API_NAME  # Publish API Description Document on docs.API_NAME.apiary.io (API Description must exist on apiary.io)
+  apiary publish --api-name=API_NAME  # Publish API Description Document on API_NAME.docs.apiary.io (API Description must exist on apiary.io)
   apiary styleguide                   # Check API Description Document against styleguide rules (Apiary.io pro plan is required - https://apiary.io/plans )
   apiary version                      # Show version
 
@@ -79,7 +79,7 @@ Options:
   --api-name=API_NAME  
   [--output=FILE]      # Write API Description Document into specified file
 
-Fetch API Description Document from API_NAME.apiary.io
+Fetch API Description Document from API_NAME.docs.apiary.io
 ```
 
 #### preview
@@ -117,7 +117,7 @@ Options:
                               # Default: true
   --api-name=API_NAME         
 
-Publish API Description Document on docs.API_NAME.apiary.io (API Description must exist on apiary.io)
+Publish API Description Document on API_NAME.docs.apiary.io (API Description must exist on apiary.io)
 ```
 
 #### styleguide

@@ -8,7 +8,7 @@ require 'apiary/command/styleguide'
 
 module Apiary
   class CLI < Thor
-    desc 'fetch', 'Fetch API Description Document from API_NAME.apiary.io'
+    desc 'fetch', 'Fetch API Description Document from API_NAME.docs.apiary.io'
     method_option :api_name, type: :string, required: true
     method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host', hide: true
     method_option :output, type: :string, banner: 'FILE', desc: 'Write API Description Document into specified file'
@@ -34,7 +34,7 @@ module Apiary
       cmd.execute
     end
 
-    desc 'publish', 'Publish API Description Document on docs.API_NAME.apiary.io (API Description must exist on apiary.io)'
+    desc 'publish', 'Publish API Description Document on API_NAME.docs.apiary.io (API Description must exist on apiary.io)'
     method_option :message, type: :string, banner: 'COMMIT_MESSAGE', desc: 'Publish with custom commit message'
     method_option :path, type: :string, desc: 'Specify path to API Description Document. When given a directory, it will look for `apiary.apib` and `swagger.yaml` file'
     method_option :json, type: :boolean, desc: 'Specify that Swagger API Description Document is in json format. Document will be converted to yaml before processing'

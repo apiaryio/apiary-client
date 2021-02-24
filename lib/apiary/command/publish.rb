@@ -42,7 +42,7 @@ module Apiary::Command
 
     def publish_on_apiary
       unless @options.api_name
-        abort 'Please provide an api-name option (subdomain part from your http://docs.<api-name>.apiary.io/)'
+        abort 'Please provide an api-name option (subdomain part from your https://<api-name>.docs.apiary.io/)'
       end
 
       unless @options.api_key
