@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
 
   gem.description   = 'Apiary.io CLI'
   gem.summary       = 'Apiary.io CLI'
-  gem.homepage      = 'http://apiary.io'
+  gem.homepage      = 'https://apiary.io'
   gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($OUTPUT_RECORD_SEPARATOR)
