@@ -37,6 +37,8 @@ Gemfile.lock
 
 # testing
 spec/fixtures/test.html
+rules.json
+functions.js
 
 # idea ide
 /.idea
