@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
 
   gem.description   = 'Apiary.io CLI'
   gem.summary       = 'Apiary.io CLI'
-  gem.homepage      = 'http://apiary.io'
+  gem.homepage      = 'https://apiary.io'
   gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($OUTPUT_RECORD_SEPARATOR)
@@ -24,9 +24,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_runtime_dependency 'rest-client', '~> 2.0'
-  gem.add_runtime_dependency 'rack', '>= 2.1.4'
+  gem.add_runtime_dependency 'rack', '>= 2.2.3'
   gem.add_runtime_dependency 'thor', '~> 0.20.3'
-  gem.add_runtime_dependency 'json', '~> 2.1'
+  gem.add_runtime_dependency 'json', '>= 2.3.0'
   gem.add_runtime_dependency 'launchy', '~> 2.4'
   gem.add_runtime_dependency 'listen', '~> 3.0'
 
