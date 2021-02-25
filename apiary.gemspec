@@ -30,7 +30,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'launchy', '~> 2.4'
   gem.add_runtime_dependency 'listen', '~> 3.0'
 
-  gem.add_development_dependency 'bundler', '~> 2.0'
+  gem.add_development_dependency 'bundler', '>= 2.2.11'
   gem.add_development_dependency 'rake', '>= 12.3.3'
   gem.add_development_dependency 'rspec', '~> 3.4'
   gem.add_development_dependency 'webmock', '>= 2.2.0'
