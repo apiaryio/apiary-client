@@ -198,7 +198,8 @@ Only gem owners `gem owner apiaryio` can publish new gem into [RubyGems](https:/
 4. make gem release:
 
     ```sh
-    $ rake release
+    $ git tag $VERSION
+    $ git push --tags    
     ```
 
   - if release is stuck you need use `$ rake release --trace` to get OTP prompt.
