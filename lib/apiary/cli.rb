@@ -2,12 +2,23 @@
 
 require 'thor'
 require 'apiary/command/fetch'
+require 'apiary/command/archive'
 require 'apiary/command/preview'
 require 'apiary/command/publish'
 require 'apiary/command/styleguide'
 
 module Apiary
   class CLI < Thor
+
+    desc 'archive', 'Arhive All Your API Description Documents from apiary.io'
+    method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host', hide: true
+    method_option :output, type: :string, banner: 'FILE', desc: 'Write API Description Document into specified file'
+
+    def archive
+      cmd = Apiary::Command::Archive.new options
+      cmd.execute
+    end
+
     desc 'fetch', 'Fetch API Description Document from API_NAME.docs.apiary.io'
     method_option :api_name, type: :string, required: true
     method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host', hide: true
