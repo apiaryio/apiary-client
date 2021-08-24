@@ -10,7 +10,7 @@ require 'apiary/command/styleguide'
 module Apiary
   class CLI < Thor
 
-    desc 'archive', 'Arhive All Your API Description Documents from apiary.io'
+    desc 'archive', 'Archive All Your API Description Documents from apiary.io'
     method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host', hide: true
     method_option :output, type: :string, banner: 'FILE', desc: 'Write API Description Document into specified file'
 
