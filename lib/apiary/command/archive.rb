@@ -67,10 +67,5 @@ module Apiary::Command
       JSON.parse response.body
     end
 
-    def write_generated_path(data, outfile)
-      File.open(outfile, 'w') do |file|
-        file.write(data)
-      end
-    end
   end
 end
