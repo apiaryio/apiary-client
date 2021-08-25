@@ -57,7 +57,7 @@ export APIARY_API_KEY=<your_token>
 ```
 $ apiary help
 Commands:
-  apiary archive                      # Archive All Your API Description Documents from apiary.io. Going to be written to files named as API project subdomain.
+  apiary archive                      # Archive All Your API Description Documents from apiary.io to local files named following [api-project-subdomain.apib] pattern.
   apiary fetch --api-name=API_NAME    # Fetch API Description Document from API_NAME.docs.apiary.io
   apiary help [COMMAND]               # Describe available commands or one specific command
   apiary preview                      # Show API documentation in browser or write it to file
@@ -78,7 +78,7 @@ Usage:
 
 Options:
 
-Archive All Your API Description Documents from apiary.io. Going to be written to files named as API project subdomain.
+Archive All Your API Description Documents from apiary.io to local files named following [api-project-subdomain.apib] pattern.
 ```
 
 #### fetch
