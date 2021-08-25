@@ -77,7 +77,6 @@ Usage:
   apiary archive
 
 Options:
-  [--output=FILE]  # Write API Description Document into specified file
 
 Archive All Your API Description Documents from apiary.io
 ```
