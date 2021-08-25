@@ -37,7 +37,12 @@ module Apiary::Command
       response = query_apiary
 
       response['apis'].each do |api|
+        if api['apiIsTeam'] == true && @options.exclude_team_projects == true
+          puts "#{api['apiSubdomain']}... Team API skipping"
+          next
+        end
         puts api['apiSubdomain']
+
         @options = OpenStruct.new
         @options.api_host     ||= 'api.apiary.io'
         @options.api_name     ||= api['apiSubdomain']

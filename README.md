@@ -77,6 +77,7 @@ Usage:
   apiary archive
 
 Options:
+  [--exclude-team-projects], [--no-exclude-team-projects]  # Skip team projects
 
 Archive All Your API Description Documents from apiary.io to local files named following [api-project-subdomain.apib] pattern.
 ```
