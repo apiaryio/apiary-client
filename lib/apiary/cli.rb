@@ -12,6 +12,7 @@ module Apiary
 
     desc 'archive', 'Archive All Your API Description Documents from apiary.io to local files named following [api-project-subdomain.apib] pattern.'
     method_option :api_host, type: :string, banner: 'HOST', desc: 'Specify apiary host', hide: true
+    method_option :exclude_team_projects, type: :boolean, default: false, desc: 'Skip team projects'
 
     def archive
       cmd = Apiary::Command::Archive.new options
